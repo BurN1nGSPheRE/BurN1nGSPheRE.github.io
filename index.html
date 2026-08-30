@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pol.Capt. Pawee Werawithayaset | Digital Portal</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #07090e;
+            --card-bg: rgba(14, 18, 28, 0.92);
+            --accent-cyan: #00ffcc;
+            --accent-red: #ff3366;
+            --accent-blue: #38bdf8;
+            --accent-gold: #facc15;
+            --text-main: #f0f4fc;
+            --text-sub: #94a3b8;
+            --border-color: rgba(0, 255, 204, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', 'Fira Code', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 50% 5%, rgba(0, 255, 204, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 80% 90%, rgba(255, 51, 102, 0.08) 0%, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px 16px;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 520px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 204, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top Cyber Accent Bar */
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-red));
+        }
+
+        /* Profile Section */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-cyan);
+            padding: 4px;
+            background: #0d1117;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.35);
+            object-fit: cover;
+            margin-bottom: 12px;
+        }
+
+        .name-en {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+        }
+
+        .name-th {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            margin-bottom: 4px;
+        }
+
+        .handle {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-cyan);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .position-box {
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            line-height: 1.45;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+        }
+
+        .position-box strong {
+            color: #e2e8f0;
+        }
+
+        /* Domains of Focus */
+        .domains {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .domain-tag {
+            font-size: 0.72rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .domain-red {
+            background: rgba(255, 51, 102, 0.12);
+            color: #ff6b8b;
+            border: 1px solid rgba(255, 51, 102, 0.3);
+        }
+
+        .domain-blue {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .domain-yellow {
+            background: rgba(250, 204, 21, 0.12);
+            color: #facc15;
+            border: 1px solid rgba(250, 204, 21, 0.3);
+        }
+
+        .team-badges {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge-pill {
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-family: 'Fira Code', monospace;
+            font-weight: 600;
+        }
+
+        .badge-csirt {
+            background: rgba(0, 255, 204, 0.12);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .badge-ctf {
+            background: rgba(255, 51, 102, 0.12);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        /* Section Layout */
+        .section-box {
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        /* Education Box */
+        .edu-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .edu-item .degree {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .edu-item .univ {
+            color: var(--text-sub);
+            font-size: 0.75rem;
+        }
+
+        .eng-license {
+            border-left: 3px solid var(--accent-blue);
+            background: rgba(56, 189, 248, 0.04);
+        }
+
+        /* Certifications Pill Grid & Custom Classes */
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #d1d9e6;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.73rem;
+            font-family: 'Fira Code', monospace;
+            white-space: nowrap;
+            transition: transform 0.15s ease;
+        }
+
+        .tag:hover {
+            transform: translateY(-1px);
+        }
+
+        /* สีทอง (Elite/Practical Mastery) */
+        .tag.elite {
+            border-color: rgba(250, 204, 21, 0.6);
+            background: rgba(250, 204, 21, 0.1);
+            color: var(--accent-gold);
+            font-weight: 600;
+            box-shadow: 0 0 8px rgba(250, 204, 21, 0.15);
+        }
+
+        /* สีแดง (Red Team / Offensive) */
+        .tag.redteam {
+            border-color: rgba(255, 51, 102, 0.5);
+            background: rgba(255, 51, 102, 0.1);
+            color: #ff6b8b;
+            font-weight: 500;
+        }
+
+        /* สีฟ้า (Blue Team / Defensive & Forensics) */
+        .tag.blueteam {
+            border-color: rgba(56, 189, 248, 0.5);
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        /* Links List */
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(0, 255, 204, 0.08);
+            border-color: var(--accent-cyan);
+            transform: translateX(3px);
+        }
+
+        .link-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .link-left i {
+            font-size: 1.15rem;
+            width: 20px;
+            text-align: center;
+            color: var(--accent-cyan);
+        }
+
+        .link-text {
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .link-arrow {
+            color: var(--text-sub);
+            font-size: 0.75rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            font-family: 'Fira Code', monospace;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        
+        <!-- Profile Header -->
+        <div class="profile-section">
+            <img src="https://raw.githubusercontent.com/BurN1nGSPheRE/CommandRun/refs/heads/main/logo-burning.png" alt="Avatar" class="avatar">
+            
+            <h1 class="name-en">Pawee Werawithayaset</h1>
+            <div class="name-th">(ภาวีร์ วีรวิทยาเศรษฐ์)</div>
+            <div class="handle">&gt; BurN1nGSPheRE_</div>
+            
+            <div class="position-box">
+                <strong>Deputy Inspector</strong> of Computer Systems Management Division,<br>
+                Central Information Technology Center (CITC),<br>
+                Office of Information and Communication Technology (ICT),<br>
+                Royal Thai Police (RTP)
+            </div>
+
+            <!-- Pillars -->
+            <div class="domains">
+                <span class="domain-tag domain-red">🔴 Offensive Security</span>
+                <span class="domain-tag domain-blue">🔵 Incident Response</span>
+                <span class="domain-tag domain-yellow">🟡 Law Enforcement</span>
+            </div>
+
+            <div class="team-badges">
+                <span class="badge-pill badge-csirt"><i class="fa-solid fa-shield-halved"></i> CITC-CSIRT</span>
+                <span class="badge-pill badge-ctf"><i class="fa-solid fa-flag"></i> CTF: YARMTUK</span>
+            </div>
+        </div>
+
+        <!-- Education & Professional Competency -->
+        <div class="section-box">
+            <div class="section-header"><i class="fa-solid fa-graduation-cap"></i> Education & Engineering</div>
+            <div class="edu-item">
+                <div class="degree">Bachelor of Engineering in Computer Engineering</div>
+                <div class="univ">Mahidol University</div>
+                <div class="degree" style="margin-top: 6px;">Master of Engineering in Computer Engineering</div>
+                <div class="univ">Mahidol University</div>
+            </div>
+            <div class="edu-item eng-license">
+                <div class="degree" style="font-size: 0.78rem; color: #38bdf8;">Certificate of Engineering Professional Competency</div>
+                <div class="univ">Discipline: Computer Engineering</div>
+            </div>
+        </div>
+
+        <!-- Cybersecurity Certifications -->
+        <div class="section-box">
+            <div class="section-header"><i class="fa-solid fa-certificate"></i> Cybersecurity Certifications (17)</div>
+            <div class="cert-tags">
+                <!-- Gold / Elite -->
+                <span class="tag elite">HTB CPTS</span>
+                <span class="tag elite">OffSec OSCP+</span>
+                <span class="tag elite">OffSec OSCP</span>
+                <span class="tag elite">INE eCPPT</span>
+                
+                <!-- Red Team / Offensive -->
+                <span class="tag redteam">CWL CRT-ID</span>
+                <span class="tag redteam">CWL CRTA</span>
+                <span class="tag redteam">INE eJPT</span>
+                <span class="tag redteam">EC-Council CEH</span>
+                <span class="tag redteam">CompTIA Pentest+</span>
+                <span class="tag redteam">THM PT1</span>
+                
+                <!-- Blue Team / Defensive / Forensics / Security Core -->
+                <span class="tag blueteam">EC-Council CHFI</span>
+                <span class="tag blueteam">CompTIA CySA+</span>
+                <span class="tag blueteam">CompTIA Security+</span>
+                <span class="tag blueteam">THM SAL1</span>
+                <span class="tag blueteam">ISC2 CC</span>
+                <span class="tag blueteam">Fortinet FCA</span>
+                <span class="tag blueteam">Fortinet FCF</span>
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-group">
+            <a href="https://www.linkedin.com/in/pawee-werawithayaset-87b208155/" target="_blank" class="link-item">
+                <div class="link-left">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="link-text">LinkedIn Profile</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+            </a>
+
+            <a href="https://github.com/BurN1nGSPheRE" target="_blank" class="link-item">
+                <div class="link-left">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="link-text">GitHub Repositories</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+            </a>
+
+            <a href="https://www.credly.com/users/pawee-werawithayaset" target="_blank" class="link-item">
+                <div class="link-left">
+                    <i class="fa-solid fa-award"></i>
+                    <span class="link-text">Verified Certifications (Credly)</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+            </a>
+
+            <a href="mailto:pawee.we@police.go.th" class="link-item">
+                <div class="link-left">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span class="link-text">pawee.we@police.go.th</span>
+                </div>
+                <i class="fa-solid fa-paper-plane link-arrow"></i>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            [ CITC-CSIRT // ENCRYPTED DIGITAL ID ]
+        </div>
+
+    </div>
+
+</body>
+</html>
