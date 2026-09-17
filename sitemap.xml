@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- หน้าหลัก (หน้าพอร์ตโฟลิโอ) ให้ความสำคัญสูงสุด 1.0 -->
+  <url>
+    <loc>https://burn1ngsphere.github.io/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- หน้า Experience (ประสบการณ์ทำงาน) -->
+  <url>
+    <loc>https://burn1ngsphere.github.io/experience.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- หน้า Portal (โปรเจกต์อื่นๆ) -->
+  <url>
+    <loc>https://burn1ngsphere.github.io/Portal.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
