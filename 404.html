@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page not found | BurN1nGSPheRE</title>
+<meta name="description" content="That path does not exist on burn1ngsphere.github.io.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#060b19">
+<meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'none'; connect-src 'none'; upgrade-insecure-requests">
+
+<link rel="icon" href="./assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent-cyan:#00ffcc;
+  --accent-red:#ff3366;
+  --accent-purple:#c084fc;
+  --text-main:#fff;
+  --text-sub:#cbd5e1;
+  --text-muted:#94a3b8;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Prompt','Fira Code',sans-serif}
+body{
+  background:#060b19;
+  color:var(--text-main);
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:32px 16px;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg,rgba(6,11,25,.55) 0%,rgba(6,11,25,.9) 100%),
+    url('./assets/bg-cyberpunk.webp') no-repeat center center;
+  background-size:cover;
+}
+.card{
+  width:100%;max-width:560px;text-align:center;
+  background:rgba(9,14,26,.78);
+  border:1px solid rgba(0,255,204,.35);
+  border-radius:28px;
+  padding:44px 28px 36px;
+  backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  box-shadow:0 25px 50px rgba(0,0,0,.75),0 0 30px rgba(0,255,204,.18);
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple),var(--accent-red));
+  box-shadow:0 0 16px var(--accent-cyan);
+}
+.code{
+  font-family:'Fira Code',monospace;font-size:4.4rem;font-weight:700;line-height:1;
+  color:var(--accent-cyan);text-shadow:0 0 24px rgba(0,255,204,.45);letter-spacing:4px;
+}
+h1{font-size:1.25rem;font-weight:600;margin:14px 0 8px}
+p{color:var(--text-sub);font-size:.92rem;line-height:1.6}
+.links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+.links a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;border-radius:14px;text-decoration:none;font-size:.88rem;font-weight:500;
+  color:var(--text-main);background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);transition:all .2s ease;
+}
+.links a:hover,.links a:focus-visible{
+  color:var(--accent-cyan);border-color:var(--accent-cyan);
+  background:rgba(0,255,204,.14);transform:translateY(-2px);outline:none;
+}
+.links a.primary{border-color:var(--accent-cyan);color:var(--accent-cyan);background:rgba(0,255,204,.12)}
+.foot{
+  margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);
+  font-family:'Fira Code',monospace;font-size:.72rem;color:var(--text-muted);letter-spacing:.8px;
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <div class="code">404</div>
+  <h1>Route not found</h1>
+  <p>The path you requested is not served from this host. It may have been renamed, moved, or never existed.</p>
+  <nav class="links" aria-label="Recovery">
+    <a class="primary" href="/">&#9668; Home profile</a>
+    <a href="/experience.html">Experience</a>
+    <a href="/Portal.html">Project Portal</a>
+    <a href="https://github.com/BurN1nGSPheRE" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+
+  <div class="foot">CITC-CSIRT // YARMTUK // HTTP 404</div>
+</main>
+
+</body>
+</html>

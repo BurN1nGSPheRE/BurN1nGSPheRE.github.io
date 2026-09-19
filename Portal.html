@@ -1,12 +1,87 @@
 <!DOCTYPE html>
-<html lang="th" data-accent="green">
+<html lang="en" data-accent="green">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cybersecurity Portal Tool // SECURE ACCESS</title>
+
+<!-- ═══════════ PRIMARY SEO ═══════════ -->
+<title>Project Portal — Pentest Tools by BurN1nGSPheRE</title>
+<meta name="description" content="Open-source penetration testing tools and references built by Pawee Werawithayaset (BurN1nGSPheRE), including CommandRun, a searchable cheat sheet of 200+ pentest commands for recon, exploitation, privilege escalation and CTF work.">
+<meta name="keywords" content="pentest tools, penetration testing cheatsheet, CommandRun, nmap gobuster cheatsheet, privilege escalation commands, CTF cheatsheet, BurN1nGSPheRE, Pawee Werawithayaset">
+<meta name="author" content="Pawee Werawithayaset">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#03060d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://burn1ngsphere.github.io/Portal.html">
+
+<!-- ═══════════ OPEN GRAPH / LINE / FACEBOOK ═══════════ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BurN1nGSPheRE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Project Portal — Pentest Tools by BurN1nGSPheRE">
+<meta property="og:description" content="Open-source penetration testing tools and references, including CommandRun: 200+ pentest commands you can search and copy.">
+<meta property="og:url" content="https://burn1ngsphere.github.io/Portal.html">
+<meta property="og:image" content="https://burn1ngsphere.github.io/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pawee Werawithayaset — Penetration Tester, DFIR and SOC Operations">
+
+<!-- ═══════════ TWITTER / X ═══════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Project Portal — Pentest Tools by BurN1nGSPheRE">
+<meta name="twitter:description" content="Open-source penetration testing tools and references, including CommandRun: 200+ pentest commands you can search and copy.">
+<meta name="twitter:image" content="https://burn1ngsphere.github.io/assets/og-image.jpg">
+
+<!-- ═══════════ SECURITY ═══════════ -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- ═══════════ ICONS ═══════════ -->
+<link rel="icon" href="./assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+
+<!-- ═══════════ RESOURCE HINTS ═══════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500;700;900&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23060A12'/><path d='M7 10l5 6-5 6' stroke='%2300E5A0' stroke-width='2.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/><path d='M16.5 22h8.5' stroke='%2300E5A0' stroke-width='2.8' stroke-linecap='round'/></svg>">
+
+<!-- ═══════════ STRUCTURED DATA ═══════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://burn1ngsphere.github.io/Portal.html#webpage",
+      "url": "https://burn1ngsphere.github.io/Portal.html",
+      "name": "Project Portal — Pentest Tools by BurN1nGSPheRE",
+      "description": "Open-source penetration testing tools and references.",
+      "inLanguage": "en",
+      "author": { "@type": "Person", "name": "Pawee Werawithayaset", "url": "https://burn1ngsphere.github.io/" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://burn1ngsphere.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Project Portal", "item": "https://burn1ngsphere.github.io/Portal.html" }
+        ]
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "CommandRun",
+      "url": "https://burn1ngsphere.github.io/CommandRun/",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any (web browser)",
+      "description": "A searchable reference of 200+ penetration testing commands covering recon, enumeration, exploitation, privilege escalation and post-exploitation.",
+      "author": { "@type": "Person", "name": "Pawee Werawithayaset" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  ]
+}
+</script>
+
 <style>
 /* ============ THEME TOKENS ============ */
 :root{
@@ -91,7 +166,8 @@ nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-con
 .tools{display:flex;align-items:center;gap:8px}
 .clock{font-size:.76rem;color:var(--neon2);letter-spacing:1.2px;border:1px solid var(--brd);padding:8px 11px;background:var(--panel)}
 .swatches{display:flex;gap:6px}
-.sw{width:16px;height:16px;border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:.2s;clip-path:polygon(28% 0,100% 0,100% 72%,72% 100%,0 100%,0 28%)}
+.sw{width:16px;height:16px;padding:0;border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:.2s;clip-path:polygon(28% 0,100% 0,100% 72%,72% 100%,0 100%,0 28%)}
+.sw[aria-pressed="true"]{border-color:#fff;transform:scale(1.2)}
 .sw:hover{transform:scale(1.25)}
 .sw.g{background:#00ff9c;box-shadow:0 0 10px #00ff9c}
 .sw.c{background:#00e5ff;box-shadow:0 0 10px #00e5ff}
@@ -112,6 +188,8 @@ header{min-height:80vh;display:flex;flex-direction:column;justify-content:center
 .glitch::after{color:var(--neon2);left:-2px;text-shadow:2px 0 var(--neon2);animation:gl2 3.4s infinite linear alternate-reverse}
 @keyframes gl1{0%{clip-path:inset(12% 0 76% 0)}20%{clip-path:inset(58% 0 26% 0)}40%{clip-path:inset(32% 0 51% 0)}60%{clip-path:inset(82% 0 4% 0)}80%{clip-path:inset(6% 0 88% 0)}100%{clip-path:inset(45% 0 40% 0)}}
 @keyframes gl2{0%{clip-path:inset(70% 0 12% 0)}25%{clip-path:inset(20% 0 66% 0)}50%{clip-path:inset(48% 0 34% 0)}75%{clip-path:inset(88% 0 2% 0)}100%{clip-path:inset(28% 0 58% 0)}}
+.glitch-sub{font-family:var(--disp);font-weight:700;letter-spacing:4px;margin-top:14px;
+  font-size:clamp(1rem,2.6vw,1.7rem);color:var(--neon);text-shadow:0 0 18px var(--neon)}
 .subline{margin-top:20px;font-family:var(--thai);font-weight:300;color:var(--muted);
   font-size:clamp(.88rem,2.1vw,1.08rem);max-width:60ch;line-height:1.85}
 .typed{color:var(--neon2);font-family:var(--mono)}
@@ -260,10 +338,15 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
   .grid{grid-template-columns:1fr}
   .brand small{display:none}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:999;background:var(--neon);color:#02060c;font-weight:700;padding:10px 18px}
+.skip-link:focus{left:0}
+a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ===== BACKGROUND ===== -->
 <div class="sky"></div>
@@ -288,24 +371,27 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
     <a href="#projects">Projects</a>
     <a href="#about">About</a>
     <!-- ปุ่มกลับหน้าแนะนำตัว -->
-    <a class="home" href="https://burn1ngsphere.github.io/">◄ HOME PROFILE</a>
+    <a class="home" href="./">&#9668; HOME PROFILE</a>
   </div>
   <div class="tools">
-    <div class="clock" id="clock">--:--:--</div>
-    <div class="swatches">
-      <span class="sw g" data-a="green"></span>
-      <span class="sw c" data-a="cyan"></span>
-      <span class="sw m" data-a="magenta"></span>
-      <span class="sw a" data-a="amber"></span>
+    <div class="clock" id="clock" aria-hidden="true">--:--:--</div>
+    <div class="swatches" role="group" aria-label="Accent colour">
+      <button type="button" class="sw g" data-a="green"   aria-label="Green accent"   aria-pressed="true"></button>
+      <button type="button" class="sw c" data-a="cyan"    aria-label="Cyan accent"    aria-pressed="false"></button>
+      <button type="button" class="sw m" data-a="magenta" aria-label="Magenta accent" aria-pressed="false"></button>
+      <button type="button" class="sw a" data-a="amber"   aria-label="Amber accent"   aria-pressed="false"></button>
     </div>
   </div>
 </nav>
 
+<main id="main">
+
 <!-- ===== HERO ===== -->
 <header>
-  <div class="status"><span class="led"></span> ENCRYPTED CHANNEL · AES-256 · ONLINE</div>
+  <div class="status"><span class="led" aria-hidden="true"></span> TLS 1.3 &#183; STATIC NODE &#183; NO TRACKING</div>
 
-  <h1 class="glitch" data-text="Cybersecurity Portal Tool">Cybersecurity Portal Tool <br>BurN1nGSPheRE</h1>
+  <h1 class="glitch" data-text="Cybersecurity Portal Tool">Cybersecurity Portal Tool</h1>
+  <div class="glitch-sub">BurN1nGSPheRE</div>
 
   <p class="subline">
     ศูนย์รวมเครื่องมือและทรัพยากรด้าน Penetration Testing —
@@ -313,8 +399,8 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
   </p>
 
   <div class="cta">
-    <a href="https://burn1ngsphere.github.io/CommandRun/" class="btn solid">▶ Launch CommandRun</a>
-    <a href="https://burn1ngsphere.github.io/" class="btn home">◄ กลับหน้าแนะนำตัว</a>
+    <a href="./CommandRun/" class="btn solid">&#9654; Launch CommandRun</a>
+    <a href="./" class="btn home">&#9668; กลับหน้าแนะนำตัว</a>
   </div>
 
   <div class="term">
@@ -334,7 +420,7 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
   </div>
 
   <!-- ▼▼ โปรเจกต์หลัก ▼▼ -->
-  <a class="feature rv" href="https://burn1ngsphere.github.io/CommandRun/" target="_blank" rel="noopener">
+  <a class="feature rv" href="./CommandRun/">
     <div class="ribbon">LIVE</div>
     <div class="f-left">
       <div class="f-top">
@@ -400,134 +486,229 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
       <h3>◄ BACK TO HOME PROFILE</h3>
       <p>กลับไปยังหน้าแนะนำตัวหลัก เพื่อดูประวัติ ทักษะ และผลงานทั้งหมดของผู้พัฒนา</p>
     </div>
-    <a href="https://burn1ngsphere.github.io/" class="btn home">◄ กลับหน้าแนะนำตัว</a>
+    <a href="./" class="btn home">&#9668; กลับหน้าแนะนำตัว</a>
   </div>
 
   <div class="stats">
     <div class="stat rv"><b data-c="1">0</b><small>Live Project</small></div>
     <div class="stat rv"><b data-c="200">0</b><small>Commands Indexed</small></div>
-    <div class="stat rv"><b data-c="24">0</b><small>Hours Online</small></div>
+    <div class="stat rv"><b data-c="5">0</b><small>Attack Phases Covered</small></div>
     <div class="stat rv"><b data-c="100">0</b><small>Free &amp; Open %</small></div>
   </div>
 </section>
 
+</main>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="social">
-    <a href="https://burn1ngsphere.github.io/">◄ HOME PROFILE</a>
-    <a href="https://burn1ngsphere.github.io/CommandRun/">⌨ COMMANDRUN</a>
+    <a href="./">&#9668; HOME PROFILE</a>
+    <a href="./experience.html">&#9635; EXPERIENCE</a>
+    <a href="./CommandRun/">&#8984; COMMANDRUN</a>
   </div>
   <p>
-    &copy; 2026 CYBERSECURITY PORTAL TOOL — ALL SYSTEMS OPERATIONAL<br>
-    <span style="color:var(--neon)">[ SECURE ]</span> connection encrypted · session logged · node TH-01
+    &copy; 2026 Pawee Werawithayaset (BurN1nGSPheRE) &#183; built and maintained solo<br>
+    <span style="color:var(--neon)">[ STATIC ]</span> served over TLS from GitHub Pages &#183; no cookies &#183; no analytics
   </p>
 </footer>
 
 <script>
-/* 1) MATRIX RAIN */
-(function(){
-  const cv=document.getElementById('matrix'),ctx=cv.getContext('2d');
-  const chars='アカサタナハマヤラワ0123456789ABCDEF#$%&@<>/\\'.split('');
-  let cols,drops,fs=15;
-  function size(){cv.width=innerWidth;cv.height=innerHeight;cols=Math.floor(cv.width/fs);drops=Array(cols).fill(1).map(()=>Math.random()*-100)}
-  size();addEventListener('resize',size);
-  (function draw(){
-    ctx.fillStyle='rgba(3,6,13,.08)';ctx.fillRect(0,0,cv.width,cv.height);
-    const neon=getComputedStyle(document.documentElement).getPropertyValue('--neon').trim();
-    ctx.font=fs+'px monospace';
-    for(let i=0;i<cols;i++){
-      ctx.fillStyle=Math.random()>.975?'#fff':neon;
-      ctx.fillText(chars[Math.floor(Math.random()*chars.length)],i*fs,drops[i]*fs);
-      if(drops[i]*fs>cv.height&&Math.random()>.972)drops[i]=0;
-      drops[i]+=0.55;
+(function () {
+  'use strict';
+
+  /* Single source of truth for motion preference.
+     The CSS @media rule only disables CSS animations, so every JS-driven
+     animation below has to check this flag as well. */
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var reduce = !!(mq && mq.matches);
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* 1) MATRIX RAIN ------------------------------------------------ */
+  (function () {
+    var cv = $('matrix');
+    if (!cv) return;
+    if (reduce) { cv.style.display = 'none'; return; }
+
+    var ctx = cv.getContext('2d');
+    var chars = 'アカサタナハマヤラワ0123456789ABCDEF#$%&@<>/\\'.split('');
+    var cols, drops, fs = 15, raf = null;
+
+    function size() {
+      cv.width = innerWidth; cv.height = innerHeight;
+      cols = Math.floor(cv.width / fs);
+      drops = Array(cols).fill(1).map(function () { return Math.random() * -100; });
     }
-    requestAnimationFrame(draw);
-  })();
-})();
+    size();
+    addEventListener('resize', size, { passive: true });
 
-/* 2) CITY + STARS */
-(function(){
-  const mk=(el,n,minH,maxH,minW,maxW)=>{let h='';
-    for(let i=0;i<n;i++){
-      const H=minH+Math.random()*(maxH-minH),W=minW+Math.random()*(maxW-minW);
-      const ant=Math.random()>.65?'<span class="antenna"></span>':'';
-      h+=`<div class="bld" style="height:${H}%;width:${W}px;margin-right:${2+Math.random()*10}px">${ant}</div>`;
-    } el.innerHTML=h;};
-  mk(document.getElementById('cityFar'),34,30,88,22,52);
-  mk(document.getElementById('cityMid'),26,35,95,34,72);
-  mk(document.getElementById('cityNear'),18,40,100,52,105);
-  let h='';for(let i=0;i<90;i++)h+=`<span class="star" style="left:${Math.random()*100}%;top:${Math.random()*55}%;animation-delay:${Math.random()*3}s"></span>`;
-  document.getElementById('stars').innerHTML=h;
-})();
+    function draw() {
+      ctx.fillStyle = 'rgba(3,6,13,.08)';
+      ctx.fillRect(0, 0, cv.width, cv.height);
+      var neon = getComputedStyle(document.documentElement).getPropertyValue('--neon').trim();
+      ctx.font = fs + 'px monospace';
+      for (var i = 0; i < cols; i++) {
+        ctx.fillStyle = Math.random() > .975 ? '#fff' : neon;
+        ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fs, drops[i] * fs);
+        if (drops[i] * fs > cv.height && Math.random() > .972) drops[i] = 0;
+        drops[i] += 0.55;
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    function start() { if (raf === null) raf = requestAnimationFrame(draw); }
+    function stop()  { if (raf !== null) { cancelAnimationFrame(raf); raf = null; } }
 
-/* 3) TERMINAL BOOT */
-(function(){
-  const lines=[
-    '<span class="dim">$</span> mounting project registry ...',
-    '[<span class="ok">OK</span>] module <span class="ok">CommandRun</span> ....... ONLINE',
-    '[<span class="warn">--</span>] slots 02-04 ............... <span class="warn">EMPTY</span>',
-    '[<span class="ok">OK</span>] home profile linked ....... <span class="ok">burn1ngsphere.github.io</span>',
-    '<span class="ok">&gt;&gt; ACCESS GRANTED — welcome, operator.</span>'
-  ];
-  const box=document.getElementById('term');let i=0;
-  (function next(){
-    if(i>=lines.length)return;
-    const d=document.createElement('div');d.className='l';d.innerHTML=lines[i];
-    box.appendChild(d);i++;setTimeout(next,540);
-  })();
-})();
-
-/* 4) TYPING */
-(function(){
-  const words=['Recon Commands','Exploitation','Privilege Escalation','Post-Exploitation','CTF Cheatsheet'];
-  const el=document.getElementById('typed');let w=0,c=0,del=false;
-  (function tick(){
-    const t=words[w];el.textContent=del?t.slice(0,c--):t.slice(0,c++);
-    if(!del&&c>t.length){del=true;setTimeout(tick,1300);return}
-    if(del&&c<0){del=false;w=(w+1)%words.length}
-    setTimeout(tick,del?38:78);
-  })();
-})();
-
-/* 5) CLOCK */
-setInterval(()=>{document.getElementById('clock').textContent=new Date().toLocaleTimeString('en-GB')+' UTC+7'},1000);
-
-/* 6) ACCENT SWITCHER */
-document.querySelectorAll('.sw').forEach(s=>s.onclick=()=>{
-  document.documentElement.dataset.accent=s.dataset.a;localStorage.setItem('accent',s.dataset.a);
-});
-if(localStorage.getItem('accent'))document.documentElement.dataset.accent=localStorage.getItem('accent');
-
-/* 7) MOUSE GLOW */
-document.querySelectorAll('.card,.feature').forEach(c=>{
-  c.addEventListener('mousemove',e=>{
-    const r=c.getBoundingClientRect();
-    c.style.setProperty('--mx',(e.clientX-r.left)+'px');
-    c.style.setProperty('--my',(e.clientY-r.top)+'px');
-  });
-});
-
-/* 8) REVEAL + COUNTERS */
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(!e.isIntersecting)return;
-    e.target.classList.add('on');
-    e.target.querySelectorAll('[data-c]').forEach(n=>{
-      const end=+n.dataset.c;let cur=0;const step=Math.max(1,Math.ceil(end/48));
-      const t=setInterval(()=>{cur+=step;if(cur>=end){cur=end;clearInterval(t)}n.textContent=cur},22);
+    /* Stop burning CPU and battery while the tab is in the background. */
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? stop() : start();
     });
-    io.unobserve(e.target);
-  });
-},{threshold:.15});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+    start();
+  })();
 
-/* 9) PARALLAX */
-addEventListener('mousemove',e=>{
-  const x=(e.clientX/innerWidth-.5);
-  cityFar.style.transform=`translateX(${x*14}px)`;
-  cityMid.style.transform=`translateX(${x*26}px)`;
-  cityNear.style.transform=`translateX(${x*40}px)`;
-});
+  /* 2) CITY + STARS ----------------------------------------------- */
+  (function () {
+    var mk = function (el, n, minH, maxH, minW, maxW) {
+      if (!el) return;
+      var h = '';
+      for (var i = 0; i < n; i++) {
+        var H = minH + Math.random() * (maxH - minH),
+            W = minW + Math.random() * (maxW - minW);
+        var ant = Math.random() > .65 ? '<span class="antenna"></span>' : '';
+        h += '<div class="bld" style="height:' + H + '%;width:' + W + 'px;margin-right:' + (2 + Math.random() * 10) + 'px">' + ant + '</div>';
+      }
+      el.innerHTML = h;
+    };
+    mk($('cityFar'), 34, 30, 88, 22, 52);
+    mk($('cityMid'), 26, 35, 95, 34, 72);
+    mk($('cityNear'), 18, 40, 100, 52, 105);
+
+    var stars = $('stars');
+    if (stars) {
+      var h = '';
+      for (var i = 0; i < 90; i++) {
+        h += '<span class="star" style="left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 55) + '%;animation-delay:' + (Math.random() * 3) + 's"></span>';
+      }
+      stars.innerHTML = h;
+    }
+  })();
+
+  /* 3) TERMINAL BOOT ---------------------------------------------- */
+  (function () {
+    var box = $('term');
+    if (!box) return;
+    var lines = [
+      '<span class="dim">$</span> mounting project registry ...',
+      '[<span class="ok">OK</span>] module <span class="ok">CommandRun</span> ....... ONLINE',
+      '[<span class="warn">--</span>] slots 02-04 ............... <span class="warn">EMPTY</span>',
+      '[<span class="ok">OK</span>] home profile linked ....... <span class="ok">burn1ngsphere.github.io</span>',
+      '<span class="ok">&gt;&gt; ACCESS GRANTED — welcome, operator.</span>'
+    ];
+    if (reduce) {
+      box.innerHTML = lines.map(function (l) { return '<div class="l">' + l + '</div>'; }).join('');
+      return;
+    }
+    var i = 0;
+    (function next() {
+      if (i >= lines.length) return;
+      var d = document.createElement('div');
+      d.className = 'l'; d.innerHTML = lines[i];
+      box.appendChild(d); i++;
+      setTimeout(next, 540);
+    })();
+  })();
+
+  /* 4) TYPING ------------------------------------------------------ */
+  (function () {
+    var el = $('typed');
+    if (!el) return;
+    var words = ['Recon Commands', 'Exploitation', 'Privilege Escalation', 'Post-Exploitation', 'CTF Cheatsheet'];
+    if (reduce) { el.textContent = words.join(' · '); return; }
+    var w = 0, c = 0, del = false;
+    (function tick() {
+      var t = words[w];
+      el.textContent = del ? t.slice(0, c--) : t.slice(0, c++);
+      if (!del && c > t.length) { del = true; setTimeout(tick, 1300); return; }
+      if (del && c < 0) { del = false; w = (w + 1) % words.length; }
+      setTimeout(tick, del ? 38 : 78);
+    })();
+  })();
+
+  /* 5) CLOCK ------------------------------------------------------- */
+  (function () {
+    var el = $('clock');
+    if (!el) return;
+    function tick() { el.textContent = new Date().toLocaleTimeString('en-GB') + ' UTC+7'; }
+    tick(); setInterval(tick, 1000);
+  })();
+
+  /* 6) ACCENT SWITCHER --------------------------------------------- */
+  (function () {
+    var sws = Array.prototype.slice.call(document.querySelectorAll('.sw'));
+    function apply(v) {
+      document.documentElement.dataset.accent = v;
+      sws.forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.a === v)); });
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('accent'); } catch (e) {}
+    if (saved) apply(saved);
+    sws.forEach(function (b) {
+      b.addEventListener('click', function () {
+        apply(b.dataset.a);
+        try { localStorage.setItem('accent', b.dataset.a); } catch (e) {}
+      });
+    });
+  })();
+
+  /* 7) MOUSE GLOW --------------------------------------------------- */
+  if (!reduce && matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.card,.feature').forEach(function (c) {
+      c.addEventListener('mousemove', function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  /* 8) REVEAL + COUNTERS -------------------------------------------- */
+  (function () {
+    var rvs = document.querySelectorAll('.rv');
+    if (reduce || !('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(rvs, function (el) {
+        el.classList.add('on');
+        el.querySelectorAll('[data-c]').forEach(function (n) { n.textContent = n.dataset.c; });
+      });
+      return;
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('on');
+        e.target.querySelectorAll('[data-c]').forEach(function (n) {
+          var end = +n.dataset.c, cur = 0, step = Math.max(1, Math.ceil(end / 48));
+          var t = setInterval(function () {
+            cur += step;
+            if (cur >= end) { cur = end; clearInterval(t); }
+            n.textContent = cur;
+          }, 22);
+        });
+        io.unobserve(e.target);
+      });
+    }, { threshold: .15 });
+    Array.prototype.forEach.call(rvs, function (el) { io.observe(el); });
+  })();
+
+  /* 9) PARALLAX ------------------------------------------------------ */
+  if (!reduce && matchMedia('(hover:hover)').matches) {
+    var far = $('cityFar'), mid = $('cityMid'), near = $('cityNear');
+    addEventListener('mousemove', function (e) {
+      var x = (e.clientX / innerWidth - .5);
+      if (far)  far.style.transform  = 'translateX(' + (x * 14) + 'px)';
+      if (mid)  mid.style.transform  = 'translateX(' + (x * 26) + 'px)';
+      if (near) near.style.transform = 'translateX(' + (x * 40) + 'px)';
+    }, { passive: true });
+  }
+})();
 </script>
 </body>
 </html>
