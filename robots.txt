@@ -2,11 +2,4 @@
 User-agent: *
 Allow: /
 
-# Block the noisy AI scrapers, keep the search engines.
-User-agent: GPTBot
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
 Sitemap: https://burn1ngsphere.github.io/sitemap.xml
