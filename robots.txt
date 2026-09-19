@@ -1,5 +1,5 @@
-# https://burn1ngsphere.github.io/
+# https://burn1ngsphere.com/
 User-agent: *
 Allow: /
 
-Sitemap: https://burn1ngsphere.github.io/sitemap.xml
+Sitemap: https://burn1ngsphere.com/sitemap.xml
