@@ -661,6 +661,38 @@ section[id] { padding: 62px 0 0; }
   padding: 14px 15px;
   transition: transform .24s var(--ease), border-color .24s var(--ease), box-shadow .24s var(--ease);
 }
+
+/* ── Credential badge artwork ──
+   The <img> is shown by default. If the file is missing (404) the script
+   flags the wrapper .no-badge and the text code takes over, so the page
+   stays correct while badges are still being added one at a time. */
+.cert-mark {
+  flex-shrink: 0; min-width: 86px;
+  display: flex; align-items: center; justify-content: center;
+}
+.cert-badge {
+  width: 58px; height: 58px; object-fit: contain; display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.28));
+}
+.cert-mark.no-badge .cert-badge { display: none; }
+.cert-mark .cert-code { display: none; }
+.cert-mark.no-badge .cert-code { display: block; }
+
+/* ── Verification link ── */
+.cert-verify {
+  margin-left: auto; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: var(--r-sm);
+  color: var(--ink-3); background: transparent;
+  border: 1px solid var(--line); text-decoration: none;
+  font-size: .78rem;
+  transition: all .2s var(--ease);
+}
+.cert-verify:hover, .cert-verify:focus-visible {
+  color: var(--accent); background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  outline: none; transform: translateY(-1px);
+}
 .cert:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--accent) 50%, transparent);
@@ -789,6 +821,9 @@ footer .ok { color: var(--mint); }
     border: 1px solid #bbb !important; backdrop-filter: none !important;
   }
   .terminal, .filters, .verify-note, .link .go { display: none !important; }
+  /* In print, a bare icon is useless — spell the verification URL out. */
+  .cert-verify { width: auto; height: auto; border: 0; font-size: .62rem; }
+  .cert-verify::after { content: " " attr(href); }
   .reveal { opacity: 1 !important; transform: none !important; }
   section[id] { padding-top: 22px; break-inside: avoid; }
   .cert, .edu, .cap, .aw li, .tl > li { break-inside: avoid; }
@@ -1010,26 +1045,326 @@ footer .ok { color: var(--mint); }
     </div>
 
     <div class="cert-grid" id="certGrid">
-      <div class="cert card c-eli reveal" data-cat="off"><div class="cert-code">OSCP+</div><div class="cert-meta"><div class="cert-name">OffSec Certified Professional+</div><div class="cert-org">Offensive Security</div></div></div>
-      <div class="cert card c-eli reveal" data-cat="off"><div class="cert-code">OSCP</div><div class="cert-meta"><div class="cert-name">OffSec Certified Professional</div><div class="cert-org">Offensive Security</div></div></div>
-      <div class="cert card c-eli reveal" data-cat="off"><div class="cert-code">CPTS</div><div class="cert-meta"><div class="cert-name">Certified Penetration Testing Specialist</div><div class="cert-org">Hack The Box</div></div></div>
-      <div class="cert card c-eli reveal" data-cat="off"><div class="cert-code">eCPPT</div><div class="cert-meta"><div class="cert-name">Certified Professional Penetration Tester</div><div class="cert-org">INE Security</div></div></div>
-      <div class="cert card c-off reveal" data-cat="off"><div class="cert-code">CRT-ID</div><div class="cert-meta"><div class="cert-name">Certified Red Team — Infrastructure Development</div><div class="cert-org">CyberWarFare Labs</div></div></div>
-      <div class="cert card c-off reveal" data-cat="off"><div class="cert-code">CRTA</div><div class="cert-meta"><div class="cert-name">Certified Red Team Analyst</div><div class="cert-org">CyberWarFare Labs</div></div></div>
-      <div class="cert card c-off reveal" data-cat="off"><div class="cert-code">eJPT</div><div class="cert-meta"><div class="cert-name">Certified Junior Penetration Tester</div><div class="cert-org">INE Security</div></div></div>
-      <div class="cert card c-off reveal" data-cat="off"><div class="cert-code">CEH</div><div class="cert-meta"><div class="cert-name">Certified Ethical Hacker</div><div class="cert-org">EC-Council</div></div></div>
-      <div class="cert card c-off reveal" data-cat="off"><div class="cert-code">PenTest+</div><div class="cert-meta"><div class="cert-name">CompTIA PenTest+</div><div class="cert-org">CompTIA</div></div></div>
-      <div class="cert card c-off reveal" data-cat="off"><div class="cert-code">CNSP</div><div class="cert-meta"><div class="cert-name">Certified Network Security Practitioner</div><div class="cert-org">The SecOps Group</div></div></div>
-      <div class="cert card c-off reveal" data-cat="off"><div class="cert-code">PT1</div><div class="cert-meta"><div class="cert-name">Jr Penetration Tester</div><div class="cert-org">TryHackMe</div></div></div>
-      <div class="cert card c-def reveal" data-cat="def"><div class="cert-code">CHFI</div><div class="cert-meta"><div class="cert-name">Computer Hacking Forensic Investigator</div><div class="cert-org">EC-Council</div></div></div>
-      <div class="cert card c-def reveal" data-cat="def"><div class="cert-code">CySA+</div><div class="cert-meta"><div class="cert-name">CompTIA CySA+</div><div class="cert-org">CompTIA</div></div></div>
-      <div class="cert card c-def reveal" data-cat="def"><div class="cert-code">Security+</div><div class="cert-meta"><div class="cert-name">CompTIA Security+</div><div class="cert-org">CompTIA</div></div></div>
-      <div class="cert card c-def reveal" data-cat="def"><div class="cert-code">SAL1</div><div class="cert-meta"><div class="cert-name">Security Analyst Level 1</div><div class="cert-org">TryHackMe</div></div></div>
-      <div class="cert card c-def reveal" data-cat="def"><div class="cert-code">CC</div><div class="cert-meta"><div class="cert-name">Certified in Cybersecurity</div><div class="cert-org">ISC2</div></div></div>
-      <div class="cert card c-def reveal" data-cat="def"><div class="cert-code">FCA</div><div class="cert-meta"><div class="cert-name">Fortinet Certified Associate — Cybersecurity</div><div class="cert-org">Fortinet</div></div></div>
-      <div class="cert card c-def reveal" data-cat="def"><div class="cert-code">FCF</div><div class="cert-meta"><div class="cert-name">Fortinet Certified Fundamentals — Cybersecurity</div><div class="cert-org">Fortinet</div></div></div>
-      <div class="cert card c-cld reveal" data-cat="cld"><div class="cert-code">ICCA</div><div class="cert-meta"><div class="cert-name">Certified Cloud Associate</div><div class="cert-org">INE Security</div></div></div>
-      <div class="cert card c-eng reveal" data-cat="eng"><div class="cert-code">COE</div><div class="cert-meta"><div class="cert-name">Professional Competency, Computer Engineering</div><div class="cert-org">Council of Engineers Thailand</div></div></div>
+      <div class="cert card c-eli reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/oscp-plus.png" alt="OSCP+ &#8212; OffSec Certified Professional+"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">OSCP+</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">OffSec Certified Professional+</div>
+          <div class="cert-org">Offensive Security</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://credentials.offsec.com/ce10b699-0859-4daf-b520-387186ff8bf4#acc.hw8WvNUI" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify OSCP+" title="Verify OSCP+">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-eli reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/oscp.png" alt="OSCP &#8212; OffSec Certified Professional"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">OSCP</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">OffSec Certified Professional</div>
+          <div class="cert-org">Offensive Security</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://credentials.offsec.com/9eaa7ffe-0012-4a60-bbd4-884ce25acc61#acc.E78KRMel" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify OSCP" title="Verify OSCP">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-eli reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/cpts.png" alt="CPTS &#8212; Certified Penetration Testing Specialist"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CPTS</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Penetration Testing Specialist</div>
+          <div class="cert-org">Hack The Box</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/4b8fdd36-9c82-4cc0-9479-a698909ea529/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CPTS" title="Verify CPTS">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-eli reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/ecppt.png" alt="eCPPT &#8212; Certified Professional Penetration Tester"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">eCPPT</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Professional Penetration Tester</div>
+          <div class="cert-org">INE Security</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://certs.ine.com/aa9b0f5b-2ee7-403c-8610-22c23dfc8f26#acc.0iZYxfDA" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify eCPPT" title="Verify eCPPT">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-off reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/crt-id.png" alt="CRT-ID &#8212; Certified Red Team - Infrastructure Development"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CRT-ID</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Red Team &#8212; Infrastructure Development</div>
+          <div class="cert-org">CyberWarFare Labs</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://labs.cyberwarfare.live/credential/achievement/6a90f03e65159096bad4a19f" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CRT-ID" title="Verify CRT-ID">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-off reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/crta.png" alt="CRTA &#8212; Certified Red Team Analyst"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CRTA</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Red Team Analyst</div>
+          <div class="cert-org">CyberWarFare Labs</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://labs.cyberwarfare.live/credential/achievement/69e1e6d95691b2ace3f1e047" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CRTA" title="Verify CRTA">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-off reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/ejpt.png" alt="eJPT &#8212; Certified Junior Penetration Tester"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">eJPT</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Junior Penetration Tester</div>
+          <div class="cert-org">INE Security</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://certs.ine.com/aa9b0f5b-2ee7-403c-8610-22c23dfc8f26#acc.NMw7Kqj8" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify eJPT" title="Verify eJPT">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-off reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/ceh.png" alt="CEH &#8212; Certified Ethical Hacker"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CEH</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Ethical Hacker</div>
+          <div class="cert-org">EC-Council</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=AId0eRVXB7Oi1U0aLjCggrKVFz0OzEmKyaIa1F4/u/Y=" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CEH" title="Verify CEH">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-off reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/pentest-plus.png" alt="PenTest+ &#8212; CompTIA PenTest+"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">PenTest+</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">CompTIA PenTest+</div>
+          <div class="cert-org">CompTIA</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/fba9d798-a2b5-405b-97b5-80f79be0380d/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify PenTest+" title="Verify PenTest+">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-off reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/cnsp.png" alt="CNSP &#8212; Certified Network Security Practitioner"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CNSP</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Network Security Practitioner</div>
+          <div class="cert-org">The SecOps Group</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXdxBS7uCJpRfzsmkYgoeM81x60pKyPr59+qwz2XFVEK5DCKC0+uVk8c+dQcCJKD0EU6QRNvBNbBwgQY3gElKqWk=" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CNSP" title="Verify CNSP">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-off reveal" data-cat="off">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/pt1.png" alt="PT1 &#8212; Jr Penetration Tester"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">PT1</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Jr Penetration Tester</div>
+          <div class="cert-org">TryHackMe</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/9540d1d1-7da9-4709-b61c-6e30a0239e45/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify PT1" title="Verify PT1">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-def reveal" data-cat="def">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/chfi.png" alt="CHFI &#8212; Computer Hacking Forensic Investigator"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CHFI</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Computer Hacking Forensic Investigator</div>
+          <div class="cert-org">EC-Council</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=/AIA7AL4U7SM7Ft1H3rLXVS5BNWtwel/C1EBd7VO7j0=" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CHFI" title="Verify CHFI">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-def reveal" data-cat="def">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/cysa-plus.png" alt="CySA+ &#8212; CompTIA CySA+"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CySA+</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">CompTIA CySA+</div>
+          <div class="cert-org">CompTIA</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/e0f29dd7-cdb5-4214-bdee-4a4dd9c9e449/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CySA+" title="Verify CySA+">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-def reveal" data-cat="def">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/security-plus.png" alt="Security+ &#8212; CompTIA Security+"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">Security+</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">CompTIA Security+</div>
+          <div class="cert-org">CompTIA</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/fdbd4979-13c5-490c-aa93-ee7b335e7d2d/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify Security+" title="Verify Security+">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-def reveal" data-cat="def">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/sal1.png" alt="SAL1 &#8212; Security Analyst Level 1"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">SAL1</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Security Analyst Level 1</div>
+          <div class="cert-org">TryHackMe</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/bbd34664-1394-4139-91fa-67a62c379897/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify SAL1" title="Verify SAL1">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-def reveal" data-cat="def">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/isc2-cc.png" alt="CC &#8212; Certified in Cybersecurity"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">CC</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified in Cybersecurity</div>
+          <div class="cert-org">ISC2</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/7f8888ba-2e6e-417a-a7de-aaad182f29d0/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify CC" title="Verify CC">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-def reveal" data-cat="def">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/fca.png" alt="FCA &#8212; Fortinet Certified Associate - Cybersecurity"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">FCA</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Fortinet Certified Associate &#8212; Cybersecurity</div>
+          <div class="cert-org">Fortinet</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/aca84e47-656e-48cd-bfb9-b3f9479e8a57/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify FCA" title="Verify FCA">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-def reveal" data-cat="def">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/fcf.png" alt="FCF &#8212; Fortinet Certified Fundamentals - Cybersecurity"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">FCF</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Fortinet Certified Fundamentals &#8212; Cybersecurity</div>
+          <div class="cert-org">Fortinet</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://www.credly.com/badges/71386999-2f84-4d9e-8e5e-f92014f0b6b9/public_url" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify FCF" title="Verify FCF">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-cld reveal" data-cat="cld">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/icca.png" alt="ICCA &#8212; Certified Cloud Associate"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">ICCA</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Certified Cloud Associate</div>
+          <div class="cert-org">INE Security</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://certs.ine.com/a8d0c59d-98f1-4452-b0f7-1094aaba3e24#acc.5Pblz4qV" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify ICCA" title="Verify ICCA">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="cert card c-eng reveal" data-cat="eng">
+        <div class="cert-mark">
+          <img class="cert-badge" src="./cert/coe.png" alt="COE &#8212; Professional Competency, Computer Engineering"
+               width="58" height="58" loading="lazy" decoding="async">
+          <span class="cert-code">COE</span>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-name">Professional Competency, Computer Engineering</div>
+          <div class="cert-org">Council of Engineers Thailand</div>
+        </div>
+        <!-- ใส่ลิงก์ verify ของใบนี้ใน href="" ด้านล่าง ถ้าเว้นว่าง ปุ่มจะถูกซ่อนอัตโนมัติ -->
+        <a class="cert-verify" href="https://service.coe.or.th/certificate/verify_certificate?request_no=688010377&first_name=%3F%3F%3F%3F%3F%3F&last_name=%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F" target="_blank" rel="noopener noreferrer nofollow"
+           aria-label="Verify COE" title="Verify COE">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
 
     <p class="verify-note reveal">
@@ -1260,7 +1595,25 @@ footer .ok { color: var(--mint); }
     Array.prototype.forEach.call(nums, function (el) { io2.observe(el); });
   }
 
-  /* ── 5 · Certification filter ─────────────────────────── */
+  /* ── 5 · Certification badges & verification links ────── */
+
+  /* Badge artwork: the <img> is the default. Any file that is missing turns
+     its wrapper into .no-badge, which reveals the text code instead. This is
+     what lets the grid stay correct while badges are added one at a time. */
+  Array.prototype.forEach.call(document.querySelectorAll('.cert-badge'), function (img) {
+    function fallback() { img.closest('.cert-mark').classList.add('no-badge'); }
+    img.addEventListener('error', fallback);
+    /* Images above the fold may have already failed before this script ran. */
+    if (img.complete && img.naturalWidth === 0) fallback();
+  });
+
+  /* Verification links: an <a href=""> would reload the page, so any slot that
+     has not been filled in yet is removed rather than left dangling. */
+  Array.prototype.forEach.call(document.querySelectorAll('.cert-verify'), function (a) {
+    if (!a.getAttribute('href').trim()) a.remove();
+  });
+
+  /* ── 6 · Certification filter ─────────────────────────── */
   var cards   = Array.prototype.slice.call(document.querySelectorAll('.cert'));
   var buttons = Array.prototype.slice.call(document.querySelectorAll('.fbtn'));
   var counter = document.getElementById('certCount');
@@ -1285,7 +1638,7 @@ footer .ok { color: var(--mint); }
     });
   });
 
-  /* ── 6 · Terminal typewriter ──────────────────────────── */
+  /* ── 7 · Terminal typewriter ──────────────────────────── */
   var term = document.getElementById('term');
   var LINES = [
     '<span class="p">pawee@citc-rtp</span>:<span class="f">~</span>$ whoami --verbose\n',
