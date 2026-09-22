@@ -1,26 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home — English (x-default) -->
   <url>
     <loc>https://burn1ngsphere.com/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://burn1ngsphere.com/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://burn1ngsphere.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://burn1ngsphere.com/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Home — Thai -->
+  <url>
+    <loc>https://burn1ngsphere.com/th/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://burn1ngsphere.com/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://burn1ngsphere.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://burn1ngsphere.com/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://burn1ngsphere.com/CommandRun/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://burn1ngsphere.com/experience.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://burn1ngsphere.com/Portal.html</loc>
-    <lastmod>2026-09-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://burn1ngsphere.com/CommandRun/reference.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-   <url>
-    <loc>https://burn1ngsphere.com/CommandRun/index.html</loc>
-    <lastmod>2026-09-20</lastmod>
+  <url>
+    <loc>https://burn1ngsphere.com/Portal.html</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
