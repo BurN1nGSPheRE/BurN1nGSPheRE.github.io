@@ -14,6 +14,7 @@
 <meta name="theme-color" content="#060B19">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://burn1ngsphere.com/">
+<link rel="alternate" hreflang="th" href="https://burn1ngsphere.com/th/">
 <link rel="alternate" hreflang="en" href="https://burn1ngsphere.com/">
 <link rel="alternate" hreflang="x-default" href="https://burn1ngsphere.com/">
 
@@ -513,6 +514,65 @@
             color: #7dd3fc;
             font-weight: 600;
         }
+
+        /* --- 📄 Profile prose --- */
+        .bio-block h2.section-header { font-size: 0.82rem; margin-bottom: 10px; }
+
+        .bio-body {
+            background: var(--glass-sub);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 15px 16px;
+        }
+
+        .bio-body p {
+            font-size: 0.85rem;
+            line-height: 1.75;
+            color: var(--text-sub);
+        }
+
+        .bio-body p + p { margin-top: 10px; }
+        .bio-body strong { color: #ffffff; font-weight: 600; }
+        .bio-body em { color: var(--accent-cyan); font-style: normal; font-weight: 500; }
+
+        .bio-body h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin: 14px 0 8px 0;
+        }
+
+        .bio-scope {
+            list-style: none;
+            display: grid;
+            gap: 7px;
+        }
+
+        .bio-scope li {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-sub);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .bio-scope li::before {
+            content: '▸';
+            position: absolute;
+            left: 2px;
+            top: 0;
+            color: var(--accent-cyan);
+        }
+
+        .bio-note {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.73rem;
+            line-height: 1.65;
+            color: var(--text-muted);
+        }
+
        /* --- 🌏 Language switch --- */
         .lang-switch {
             display: inline-flex; align-items: center; gap: 2px;
@@ -743,6 +803,34 @@
                         <span class="domain-tag domain-red">🔴 Offensive Security & Pentest</span>
                         <span class="domain-tag domain-blue">🔵 Incident Response & Forensics</span>
                         <span class="domain-tag domain-yellow">🟡 Law Enforcement Operations</span>
+                    </div>
+                </div>
+
+                <div class="section-box bio-block">
+                    <h2 class="section-header"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> Cybersecurity Operations — Central Information Technology Center,<br> Royal Thai Police</h2>
+                    <div class="bio-body">
+
+                        <p>
+                            <strong>Cybersecurity background and work</strong><br>
+                            Specialising in <em>penetration testing</em>,
+                            <em>incident response</em>
+                            and <em>security operations centre (SOC) monitoring</em>.
+                            Holds a Bachelor of Engineering and a Master of Engineering in Computer Engineering,
+                            both from Mahidol University,
+                            together with international cybersecurity certifications
+                            including OSCP+, OSCP, CPTS, eCPPT, CHFI and CySA+.
+                        </p>
+
+                        <h3>Scope of responsibility</h3>
+                        <ul class="bio-scope">
+                            <li>Penetration testing of web applications, networks and servers</li>
+                            <li>Digital forensics and incident response (DFIR) across Critical Information Infrastructure, under Thailand’s Cybersecurity Act B.E. 2562 (2019)</li>
+                            <li>Monitoring and log analysis through SIEM</li>
+                            <li>Red team and purple team attack simulation aligned to the MITRE ATT&amp;CK framework</li>
+                            <li>Administration of the agency’s computer systems</li>
+                            <li>Cyber threat awareness training for personnel</li>
+                            <li>Drafting the agency’s cybersecurity policy and cyber incident response plans</li>
+                        </ul>
                     </div>
                 </div>
 
