@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="คู่มือคำสั่งภาคสนาม (CommandRun) รวมคำสั่ง Penetration Testing กว่า 315 คำสั่ง 24 หมวด เติมค่า IP / โดเมน / พอร์ต แล้วคัดลอกไปใช้ได้ทันที ใช้งานออฟไลน์ได้">
+<link rel="canonical" href="https://burn1ngsphere.com/CommandRun/">
 <title>BurN1nGSPheRE — คู่มือคำสั่ง Pentest</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#F2F6FF">
-<link rel="icon" href="icon-192.png">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -16,6 +18,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+.wordmark h1.name{margin:0;font:inherit;letter-spacing:inherit}
+
 /* ─── tokens ────────────────────────────────────────────────── */
 :root{
   --bg:#070B12; --elev:#0C1220; --surface:#101A2E; --line:#213154; --line-soft:#172440;
@@ -396,7 +400,10 @@ body{
     <img class="logo-mark" src="logo-yarmtuk.png" alt="YARMTUK CTF TEAM" width="88" height="80">
     <div class="wordmark">
       <span class="eyebrow">คู่มือคำสั่งภาคสนาม</span>
-      <span class="name">BurN1nG<b>SPheRE</b></span>
+      <!-- [แก้] เดิมเป็น <span> ทั้งหน้าจึงไม่มี h1 เลย — Google ใช้ h1 เป็นตัวบอก
+           ว่าหน้านี้เรื่องอะไร และโปรแกรมอ่านหน้าจอใช้กระโดดหาหัวข้อหลัก
+           เปลี่ยนเป็น h1 โดยไม่แตะหน้าตา (CSS ผูกกับคลาส .name ไม่ใช่แท็ก) -->
+      <h1 class="name">BurN1nG<b>SPheRE</b></h1>
     </div>
     <div class="tally" id="tally"></div>
     <button class="installbtn" id="installBtn" onclick="doInstall()" hidden>⬇ ติดตั้งแอป</button>

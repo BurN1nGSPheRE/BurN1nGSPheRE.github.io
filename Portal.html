@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ═══════════ PRIMARY SEO ═══════════ -->
-<title>Project Portal — Pentest Tools by BurN1nGSPheRE</title>
-<meta name="description" content="Open-source penetration testing tools and references built by Pawee Werawithayaset (BurN1nGSPheRE), including CommandRun, a searchable cheat sheet of 200+ pentest commands for recon, exploitation, privilege escalation and CTF work.">
-<meta name="keywords" content="pentest tools, penetration testing cheatsheet, CommandRun, nmap gobuster cheatsheet, privilege escalation commands, CTF cheatsheet, BurN1nGSPheRE, Pawee Werawithayaset">
+<title>CommandRun — 315 Pentest Commands, Searchable &amp; Offline | BurN1nGSPheRE</title>
+<meta name="description" content="CommandRun: 315 penetration testing commands in 24 categories — recon, Active Directory, privilege escalation. Fill in IP and port, then copy. Works offline.">
+<meta name="keywords" content="pentest commands, penetration testing cheatsheet, CommandRun, nmap cheatsheet, netexec cheatsheet, bloodhound cheatsheet, active directory attack commands, privilege escalation commands, OSCP cheatsheet, CTF cheatsheet, คำสั่ง pentest, คู่มือทดสอบเจาะระบบ, BurN1nGSPheRE, Pawee Werawithayaset">
 <meta name="author" content="Pawee Werawithayaset">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#03060d">
@@ -18,8 +18,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BurN1nGSPheRE">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Project Portal — Pentest Tools by BurN1nGSPheRE">
-<meta property="og:description" content="Open-source penetration testing tools and references, including CommandRun: 200+ pentest commands you can search and copy.">
+<meta property="og:title" content="CommandRun — 315 Pentest Commands, Searchable &amp; Offline">
+<meta property="og:description" content="315 penetration testing commands across 24 categories. Fill in your IP, domain and port, then copy straight to your terminal. Works offline, free.">
 <meta property="og:url" content="https://burn1ngsphere.com/Portal.html">
 <meta property="og:image" content="https://burn1ngsphere.com/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -28,8 +28,8 @@
 
 <!-- ═══════════ TWITTER / X ═══════════ -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Project Portal — Pentest Tools by BurN1nGSPheRE">
-<meta name="twitter:description" content="Open-source penetration testing tools and references, including CommandRun: 200+ pentest commands you can search and copy.">
+<meta name="twitter:title" content="CommandRun — 315 Pentest Commands, Searchable &amp; Offline">
+<meta name="twitter:description" content="315 pentest commands across 24 categories — fill in your IP and port, then copy. Works offline, free.">
 <meta name="twitter:image" content="https://burn1ngsphere.com/assets/og-image.jpg">
 
 <!-- ═══════════ SECURITY ═══════════ -->
@@ -74,7 +74,7 @@
       "url": "https://burn1ngsphere.com/CommandRun/",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Any (web browser)",
-      "description": "A searchable reference of 200+ penetration testing commands covering recon, enumeration, exploitation, privilege escalation and post-exploitation.",
+      "description": "A searchable reference of 315 penetration testing commands covering recon, enumeration, exploitation, privilege escalation and post-exploitation.",
       "author": { "@type": "Person", "name": "Pawee Werawithayaset" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
@@ -334,9 +334,22 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
   .ribbon{display:none}
   .f-top{flex-direction:column;align-items:flex-start}
 }
+@media(max-width:620px){
+  /* [แก้บั๊ก] แถบบนล้นจอ เลื่อนซ้ายขวาได้ 78px ที่ 390px และ 106px ที่ 360px
+     วัดแล้ว แบรนด์กิน 250px + ลิงก์ 92 + เครื่องมือ 82 + ช่องไฟ 28 + ขอบ 31
+     = 483px ซึ่งเกิน 390 อยู่มาก กฎ ≤900px ที่ซ่อนลิงก์กับนาฬิกาไปแล้ว
+     ยังไม่พอ เพราะตัวที่กินที่สุดคือชื่อแบรนด์เอง
+     ย่อชื่อแบรนด์ลง + ลดช่องไฟ และใส่ flex-wrap ไว้เป็นตาข่ายกันพลาด
+     ต่อให้วันหลังเติมปุ่มอะไรเข้าไปอีก มันจะตกบรรทัดแทนที่จะดันจอ */
+  nav{flex-wrap:wrap;row-gap:8px;gap:8px;padding-inline:10px}
+  .brand{min-width:0;gap:8px}
+  .mark{width:32px;height:32px;font-size:.95rem}
+  .brand b{font-size:.78rem;letter-spacing:.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .brand small{display:none}
+  .navlinks a{padding:8px 10px;font-size:.74rem;letter-spacing:.8px}
+}
 @media(max-width:420px){
   .grid{grid-template-columns:1fr}
-  .brand small{display:none}
 }
 .skip-link{position:absolute;left:-9999px;top:0;z-index:999;background:var(--neon);color:#02060c;font-weight:700;padding:10px 18px}
 .skip-link:focus{left:0}
