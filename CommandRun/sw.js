@@ -2,7 +2,7 @@
 // Strategy: stale-while-revalidate. Serves from cache instantly (works fully
 // offline), fetches an update in the background for the next load.
 
-const CACHE_NAME = 'burn1ngsphere-cache-v22';
+const CACHE_NAME = 'burn1ngsphere-cache-v23';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -11,6 +11,7 @@ const ASSETS_TO_CACHE = [
   './logo-yarmtuk.png',
   './logo-burning.png',
   './logo-burning-sm.png',
+  './logo-burning-md.png',
   './favicon-32.png',
   './icon-192.png',
   './icon-512.png',
