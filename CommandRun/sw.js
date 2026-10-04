@@ -1,8 +1,11 @@
 // BurN1nGSPheRE — Service Worker (Full PWA, offline-ready)
-// Strategy: stale-while-revalidate. Serves from cache instantly (works fully
-// offline), fetches an update in the background for the next load.
+//
+// หน้าเว็บ (navigate)  : network-first — ออนไลน์ได้ของใหม่เสมอ ออฟไลน์ใช้แคช
+//   เดิมเป็น cache-first ทำให้คนที่เคยเข้าเห็นหน้าเก่าหนึ่งรอบทุกครั้งที่อัปของใหม่
+//   ต้องรีเฟรชซ้ำถึงจะเห็น ซึ่งงงมากสำหรับคนใช้
+// ไฟล์อื่น (รูป/สคริปต์): stale-while-revalidate — ขึ้นไวจากแคช แล้วอัปเดตเบื้องหลัง
 
-const CACHE_NAME = 'burn1ngsphere-cache-v23';
+const CACHE_NAME = 'burn1ngsphere-cache-v24';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -17,7 +20,8 @@ const ASSETS_TO_CACHE = [
   './icon-512.png',
   './icon-192-maskable.png',
   './icon-512-maskable.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  '/assets/core.css'
 ];
 
 self.addEventListener('install', (event) => {
@@ -43,13 +47,19 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
 
-  // For page navigations: try cache first, fall back to index.html when offline
+  // หน้าเว็บ: ลองเน็ตก่อน ได้แล้วเก็บเข้าแคชไว้ใช้ตอนออฟไลน์
+  // เน็ตล่มค่อยหยิบจากแคช ไม่มีแคชค่อยตกไปที่ index.html
   if (req.mode === 'navigate') {
     event.respondWith(
-      caches.match(req).then((cached) =>
-        cached ||
-        fetch(req).catch(() => caches.match('./index.html'))
-      )
+      fetch(req)
+        .then((res) => {
+          if (res && res.status === 200) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(req, clone));
+          }
+          return res;
+        })
+        .catch(() => caches.match(req).then((c) => c || caches.match('./index.html')))
     );
     return;
   }
