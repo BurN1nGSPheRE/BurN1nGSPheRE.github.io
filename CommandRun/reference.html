@@ -59,6 +59,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .top h1 b{color:var(--brass)}
 .spacer{margin-left:auto}
 .back{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;color:var(--dim);font-family:var(--f-disp);font-size:.85rem;font-weight:600;border:1px solid var(--line);padding:.35rem .7rem;border-radius:var(--r);transition:color .15s,border-color .15s}
+/* ลิงก์กลับหน้าโปรไฟล์ และลิงก์ LinkedIn ที่แยกออกมา */
+.by-li{display:inline-flex;align-items:center;gap:.3rem;text-decoration:none;color:var(--faint);font-size:.72rem;transition:color .15s}
+.by-li:hover{color:var(--brass)}
+.by-li svg{width:13px;height:13px;fill:currentColor}
 .back:hover{color:var(--brass);border-color:var(--brass)}
 .theme-switch{display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--bg)}
 .theme-switch button{background:transparent;border:0;cursor:pointer;color:var(--faint);padding:.34rem .55rem;display:grid;place-items:center;line-height:0}
@@ -173,10 +177,8 @@ d.setAttribute('data-theme',t);}());
 </div>
 <footer class="foot"><div class="foot-in">
   <img class="brand-logo" src="logo-burning-md.png" alt="BurN1nGSPheRE Cybersecurity" width="52" height="52">
-  <a class="by" href="https://www.linkedin.com/in/pawee-werawithayaset-87b208155/" target="_blank" rel="noopener noreferrer">
-    <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.65h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76V21h-4v-5.66c0-1.35-.03-3.09-1.9-3.09-1.9 0-2.19 1.47-2.19 2.99V21h-4V9z"/></svg>
-    Created by BurN1nGSPheRE
-  </a>
+  <a class="by" href="/" title="ดูประวัติและผลงาน">Created by BurN1nGSPheRE</a>
+<a class="by-li" href="https://www.linkedin.com/in/pawee-werawithayaset-87b208155/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.65h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76V21h-4v-5.66c0-1.35-.03-3.09-1.9-3.09-1.9 0-2.19 1.47-2.19 2.99V21h-4V9z"/></svg><span>LinkedIn</span></a>
   <span class="warn">ใช้กับเป้าหมายที่ได้รับอนุญาตตามกฎหมายเท่านั้น</span>
 </div></footer>
 <script>

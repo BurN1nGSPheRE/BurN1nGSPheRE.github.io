@@ -141,6 +141,12 @@ body{
   font-family:var(--f-disp);font-size:.82rem;font-weight:600;
   border:1px solid color-mix(in srgb,var(--iris) 45%,var(--line));padding:.34rem .7rem;border-radius:var(--r);
   transition:all .15s;white-space:nowrap;box-shadow:var(--glow) color-mix(in srgb,var(--iris) 18%,transparent)}
+/* ลิงก์กลับหน้าโปรไฟล์ และลิงก์ LinkedIn ที่แยกออกมา */
+.home-a{color:inherit;text-decoration:none}
+.home-a:hover{color:var(--brass)}
+.by-li{display:inline-flex;align-items:center;gap:.3rem;text-decoration:none;color:var(--faint);font-size:.72rem;transition:color .15s}
+.by-li:hover{color:var(--brass)}
+.by-li svg{width:13px;height:13px;fill:currentColor}
 .doclink:hover{color:var(--bg);background:var(--iris);border-color:var(--iris)}
 [data-theme="light"] .doclink:hover{color:#fff}
 @media (max-width:600px){.doclink span.lbl{display:none}}
@@ -428,11 +434,11 @@ d.setAttribute('data-theme',t);}());
       <!-- [แก้] เดิมเป็น <span> ทั้งหน้าจึงไม่มี h1 เลย — Google ใช้ h1 เป็นตัวบอก
            ว่าหน้านี้เรื่องอะไร และโปรแกรมอ่านหน้าจอใช้กระโดดหาหัวข้อหลัก
            เปลี่ยนเป็น h1 โดยไม่แตะหน้าตา (CSS ผูกกับคลาส .name ไม่ใช่แท็ก) -->
-      <h1 class="name">BurN1nG<b>SPheRE</b></h1>
+      <h1 class="name"><a class="home-a" href="/" title="กลับหน้าโปรไฟล์ ภาวีร์ วีรวิทยาเศรษฐ์">BurN1nG<b>SPheRE</b></a></h1>
     </div>
     <div class="tally" id="tally"></div>
     <button class="installbtn" id="installBtn" onclick="doInstall()" hidden>⬇ ติดตั้งแอป</button>
-    <a class="doclink" href="https://burn1ngsphere.com/Portal.html" target="_blank"><i class="fa-brands fa-github"></i>Github Project Portal</a>
+    <a class="doclink" href="https://burn1ngsphere.com/Portal.html" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Github Project Portal</a>
     <a class="doclink" href="reference.html" title="เอกสารอ้างอิง: สิทธิ Se / BloodHound / AD groups / Linux">📖 Reference</a>
     <div class="cx-theme" role="group" aria-label="โหมดสีของหน้าเว็บ">
       <button type="button" data-cx-theme="dark" aria-pressed="true" title="ธีมมืด"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="cx-sr">ธีมมืด</span></button>
@@ -475,10 +481,8 @@ d.setAttribute('data-theme',t);}());
   <div class="colophon-in">
     <img class="brand-logo" src="logo-burning.png" alt="BurN1nGSPheRE Cybersecurity" width="72" height="72">
     <div class="brand-text">
-      <a class="by" href="https://www.linkedin.com/in/pawee-werawithayaset-87b208155/" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.65h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76V21h-4v-5.66c0-1.35-.03-3.09-1.9-3.09-1.9 0-2.19 1.47-2.19 2.99V21h-4V9z"/></svg>
-        <span class="pre">Created by</span> BurN1nGSPheRE
-      </a>
+      <a class="by" href="/" title="ดูประวัติและผลงาน"><span class="pre">Created by</span> BurN1nGSPheRE</a>
+      <a class="by-li" href="https://www.linkedin.com/in/pawee-werawithayaset-87b208155/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.65h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76V21h-4v-5.66c0-1.35-.03-3.09-1.9-3.09-1.9 0-2.19 1.47-2.19 2.99V21h-4V9z"/></svg><span>LinkedIn</span></a>
       <span class="brand-tag">BurN1nGSPheRE Cybersecurity · YARMTUK CTF TEAM</span>
     </div>
     <span class="warn">ใช้กับเป้าหมายที่ได้รับอนุญาตตามกฎหมายเท่านั้น</span>
