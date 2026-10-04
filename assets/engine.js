@@ -159,3 +159,92 @@
 
   w.CX = CX;
 })(window, document);
+
+/* ══════════════════════════════════════════════════════════════════════
+   ลูกเล่นหน้าเว็บ — ส่วนที่ต้องใช้ JS จริงๆ เท่านั้น
+   ทุกตัวเช็ค prefers-reduced-motion ก่อนเสมอ และไม่มีตัวไหนที่ถ้าพังแล้ว
+   ทำให้เนื้อหาหายไป
+   ══════════════════════════════════════════════════════════════════════ */
+(function (w, d) {
+  'use strict';
+  var CX = w.CX || (w.CX = {});
+  var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* บอก CSS ว่า JS ทำงานอยู่  ของที่ซ่อนไว้รอ reveal จะได้ไม่หายถาวรถ้า JS พัง */
+  d.documentElement.classList.add('cx-js');
+
+  /* ── โผล่ขึ้นมาตอนเลื่อนถึง ── */
+  CX.reveal = function (sel) {
+    var els = d.querySelectorAll(sel || '.cx-reveal');
+    if (!els.length) return;
+    if (reduce || !w.IntersectionObserver) {
+      for (var i = 0; i < els.length; i++) els[i].classList.add('cx-in');
+      return;
+    }
+    var io = new IntersectionObserver(function (rows) {
+      rows.forEach(function (r) {
+        if (!r.isIntersecting) return;
+        r.target.classList.add('cx-in');
+        io.unobserve(r.target);          /* โผล่แล้วเลิกเฝ้า ไม่ให้เปลืองแรงเครื่อง */
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    for (var j = 0; j < els.length; j++) {
+      els[j].style.setProperty('--cx-d', (j % 6) * 55 + 'ms');   /* ไล่กันทีละใบ */
+      io.observe(els[j]);
+    }
+  };
+
+  /* ── แสงตามเมาส์ ──
+     ดักที่ document ชั้นเดียว ไม่ผูก listener ทีละใบ จะได้ไม่หน่วงตอนมีการ์ดเป็นร้อย
+     ข้ามเครื่องที่ใช้นิ้ว เพราะไม่มีเมาส์ให้ตาม */
+  CX.lamp = function () {
+    if (reduce) return;
+    if (!(w.matchMedia && w.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
+    var tick = false, lastEv = null;
+    d.addEventListener('pointermove', function (e) {
+      lastEv = e;
+      if (tick) return;
+      tick = true;
+      w.requestAnimationFrame(function () {
+        tick = false;
+        var el = lastEv.target && lastEv.target.closest ? lastEv.target.closest('.cx-lamp') : null;
+        if (!el) return;
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (lastEv.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (lastEv.clientY - r.top) + 'px');
+      });
+    }, { passive: true });
+  };
+
+  /* ── ตัวอักษรไล่สุ่มก่อนลงตัว ──
+     เล่นครั้งเดียวตอนโหลด  ถ้าเล่นวนจะกวนสายตาและอ่านยาก */
+  var GLYPH = '01<>[]{}/\\|=+*#$%&_-~^アカサタナハマヤラABCDEF';
+  CX.scramble = function (sel, ms) {
+    if (reduce) return;
+    var els = d.querySelectorAll(sel || '.cx-scramble');
+    for (var i = 0; i < els.length; i++) (function (el) {
+      var real = el.textContent, len = real.length, step = 0;
+      var total = Math.max(14, Math.min(34, len * 2));
+      var t = setInterval(function () {
+        step++;
+        var shown = Math.floor(len * (step / total));
+        var out = real.slice(0, shown);
+        for (var k = shown; k < len; k++) {
+          out += real[k] === ' ' ? ' ' : GLYPH[(Math.random() * GLYPH.length) | 0];
+        }
+        el.textContent = out;
+        if (step >= total) { clearInterval(t); el.textContent = real; }
+      }, (ms || 700) / total);
+    })(els[i]);
+  };
+
+  /* ── เปิดลูกเล่นทั้งหมดด้วยคำสั่งเดียว ── */
+  CX.fx = function () {
+    CX.reveal();
+    CX.lamp();
+    CX.scramble();
+  };
+
+  if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', CX.fx);
+  else CX.fx();
+})(window, document);

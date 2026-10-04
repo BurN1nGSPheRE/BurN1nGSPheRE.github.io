@@ -349,3 +349,114 @@ html[data-theme="light"] .cx-loadfail{background:linear-gradient(158deg,rgba(198
 .cx-loadfail p{color:var(--c-ink-2);font-size:.88rem;margin:.3rem 0}
 .cx-loadfail-why{font-family:var(--f-mono);font-size:.74rem;color:var(--c-ink-3);overflow-wrap:anywhere}
 @media (prefers-reduced-motion:reduce){.cx-loading::after{animation:none;content:'...'}}
+
+/* ══════════════════════════════════════════════════════════════════════
+   ชุดเอฟเฟกต์รุ่นใหม่
+   เน้นของที่เบราว์เซอร์วาดเองได้ ไม่ต้องใช้ JS ขับทุกเฟรม
+   ทุกตัวหยุดเมื่อผู้ใช้ตั้งค่าลดการเคลื่อนไหว
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* --cx-ang คือมุมของเส้นขอบเรืองแสง  ประกาศเป็น @property เพื่อให้เบราว์เซอร์
+   ไล่ค่าให้ลื่น  ถ้าเบราว์เซอร์เก่าไม่รู้จัก ขอบก็ยังอยู่แค่ไม่หมุน ไม่พัง */
+@property --cx-ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+
+/* ── ขอบเรืองแสงหมุนรอบกล่อง ── */
+.cx-edge{position:relative;isolation:isolate}
+.cx-edge::before{
+  content:'';position:absolute;inset:-1px;z-index:-1;pointer-events:none;
+  border-radius:inherit;clip-path:inherit;
+  background:conic-gradient(from var(--cx-ang),
+    transparent 0deg, var(--c-cyan) 42deg, var(--c-violet) 76deg,
+    transparent 120deg, transparent 240deg, var(--c-mint) 292deg, transparent 340deg);
+  /* เจาะไส้ในออก ให้เหลือแต่เส้นขอบหนา 1px
+     ถ้าไม่เจาะ สีจะทะลุพื้นหลังโปร่งแสงออกมาย้อมทั้งกล่องจนอ่านตัวหนังสือไม่ออก
+     mask ใช้ค่าความทึบ ไม่ใช่สี จึงต้องเป็น #000 ไม่ใช่ตัวแปรสีของธีม */
+  padding:1px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+  opacity:.8;
+}
+.cx-edge:hover::before{opacity:1}
+@keyframes cx-spin{to{--cx-ang:360deg}}
+
+/* ── แสงตามเมาส์ ── เครื่องยนต์คอยอัปเดต --mx --my ให้ */
+.cx-lamp{position:relative;overflow:hidden}
+.cx-lamp::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),
+    color-mix(in srgb,var(--c-cyan) 16%,transparent), transparent 62%);
+  opacity:0;transition:opacity .28s var(--c-ease);
+}
+.cx-lamp:hover::before{opacity:1}
+
+/* ── โผล่ขึ้นมาตอนเลื่อนถึง ── */
+.cx-reveal{opacity:0;transform:translateY(16px)}
+.cx-reveal.cx-in{
+  opacity:1;transform:none;
+  transition:opacity .62s var(--c-ease), transform .62s var(--c-ease);
+  transition-delay:var(--cx-d,0ms);
+}
+/* ไม่มี JS ก็ต้องเห็นเนื้อหา ห้ามซ่อนถาวร */
+html:not(.cx-js) .cx-reveal{opacity:1;transform:none}
+
+/* ── ตัวอักษรไล่สุ่มก่อนลงตัว ── เครื่องยนต์เป็นคนเล่นให้ ── */
+.cx-scramble{font-variant-ligatures:none}
+
+/* ══════════════════════════════════════════════════════════════════════
+   ปุ่มสลับธีมรุ่นใหม่ — รางเลื่อนตัวเดียว ไม่ใช่สองปุ่มติดกันแบบเดิม
+   ใช้ role="switch" ซึ่งเป็นความหมายที่ถูกต้องของสวิตช์เปิดปิด
+   ══════════════════════════════════════════════════════════════════════ */
+.cx-theme{
+  -webkit-appearance:none;appearance:none;
+  display:inline-flex;align-items:center;flex:none;
+  padding:0;border:0;background:none;cursor:pointer;
+  line-height:0;
+}
+.cx-theme-track{
+  position:relative;display:block;
+  width:58px;height:30px;border-radius:999px;
+  border:1px solid var(--c-line-2);
+  background:linear-gradient(145deg,rgba(0,229,255,.10),rgba(6,11,22,.86));
+  transition:border-color .3s var(--c-ease), background .3s var(--c-ease);
+  overflow:hidden;
+}
+html[data-theme="light"] .cx-theme-track{
+  background:linear-gradient(145deg,rgba(0,110,147,.12),rgba(255,255,255,.9));
+}
+/* เม็ดที่เลื่อน  ใช้ cubic-bezier แบบเด้งนิดๆ ให้รู้สึกมีน้ำหนัก */
+.cx-theme-thumb{
+  position:absolute;top:50%;left:3px;width:22px;height:22px;
+  margin-top:-11px;border-radius:50%;
+  background:linear-gradient(145deg,var(--c-cyan),var(--c-violet));
+  box-shadow:0 0 14px color-mix(in srgb,var(--c-cyan) 65%,transparent);
+  transition:transform .42s cubic-bezier(.34,1.56,.64,1), background .3s var(--c-ease);
+}
+.cx-theme[aria-checked="true"] .cx-theme-thumb{
+  transform:translateX(28px);
+  background:linear-gradient(145deg,var(--c-gold),var(--c-red));
+  box-shadow:0 0 14px color-mix(in srgb,var(--c-gold) 65%,transparent);
+}
+/* ไอคอนสองตัวซ้อนกัน สลับความชัดตามสถานะ */
+.cx-theme-ico{
+  position:absolute;top:50%;margin-top:-7px;width:14px;height:14px;
+  display:block;pointer-events:none;
+  transition:opacity .3s var(--c-ease), transform .42s var(--c-ease);
+}
+.cx-theme-ico svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;display:block}
+.cx-theme-moon{right:7px;color:var(--c-ink-2);opacity:1}
+.cx-theme-sun{left:7px;color:var(--c-gold);opacity:0;transform:rotate(-90deg) scale(.6)}
+.cx-theme[aria-checked="true"] .cx-theme-moon{opacity:0;transform:rotate(90deg) scale(.6)}
+.cx-theme[aria-checked="true"] .cx-theme-sun{opacity:1;transform:none}
+.cx-theme:hover .cx-theme-track{border-color:var(--c-cyan)}
+.cx-theme:focus-visible{outline:none}
+.cx-theme:focus-visible .cx-theme-track{outline:2px solid var(--c-cyan);outline-offset:3px}
+.cx-theme:active .cx-theme-thumb{width:26px;border-radius:999px}
+
+@media (prefers-reduced-motion:reduce){
+  .cx-edge::before{animation:none;opacity:.7}
+  .cx-lamp::before{transition:none}
+  .cx-reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .cx-theme-thumb,.cx-theme-ico,.cx-theme-track{transition:none}
+}
