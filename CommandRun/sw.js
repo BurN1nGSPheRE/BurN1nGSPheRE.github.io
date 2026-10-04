@@ -5,10 +5,11 @@
 //   ต้องรีเฟรชซ้ำถึงจะเห็น ซึ่งงงมากสำหรับคนใช้
 // ไฟล์อื่น (รูป/สคริปต์): stale-while-revalidate — ขึ้นไวจากแคช แล้วอัปเดตเบื้องหลัง
 
-const CACHE_NAME = 'burn1ngsphere-cache-v24';
+const CACHE_NAME = 'burn1ngsphere-cache-v25';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './data.json',
   './reference.html',
   './manifest.json',
   './logo-yarmtuk.png',
@@ -21,7 +22,8 @@ const ASSETS_TO_CACHE = [
   './icon-192-maskable.png',
   './icon-512-maskable.png',
   './apple-touch-icon.png',
-  '/assets/core.css'
+  '/assets/core.css',
+  '/assets/engine.js'
 ];
 
 self.addEventListener('install', (event) => {

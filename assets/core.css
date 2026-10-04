@@ -331,3 +331,21 @@ html[data-theme="light"] .cx-btn--solid{background:var(--b);color:#fff}
   .cx-sheen::after{display:none}
   .cx-dot{animation:none}
 }
+
+/* ── ระหว่างรอโหลดข้อมูล และตอนโหลดไม่สำเร็จ ── */
+.cx-loading{
+  padding:2.5rem 1rem;text-align:center;color:var(--c-ink-3);
+  font-family:var(--f-mono);font-size:.85rem;letter-spacing:.04em;
+}
+.cx-loading::after{content:'';display:inline-block;width:1.1em;text-align:left;animation:cx-dots 1.2s steps(4) infinite}
+@keyframes cx-dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
+.cx-loadfail{
+  margin:1.5rem auto;max-width:46rem;padding:1.1rem 1.25rem;
+  clip-path:var(--c-cut);border-left:3px solid var(--c-red);
+  background:linear-gradient(158deg,rgba(255,61,112,.10),rgba(6,11,22,.6));
+}
+html[data-theme="light"] .cx-loadfail{background:linear-gradient(158deg,rgba(198,21,74,.08),rgba(255,255,255,.9))}
+.cx-loadfail strong{display:block;color:var(--c-red);font-family:var(--f-disp);margin-bottom:.35rem}
+.cx-loadfail p{color:var(--c-ink-2);font-size:.88rem;margin:.3rem 0}
+.cx-loadfail-why{font-family:var(--f-mono);font-size:.74rem;color:var(--c-ink-3);overflow-wrap:anywhere}
+@media (prefers-reduced-motion:reduce){.cx-loading::after{animation:none;content:'...'}}
