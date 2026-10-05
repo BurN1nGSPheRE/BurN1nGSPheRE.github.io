@@ -34,7 +34,9 @@
   --c-cyan-t:#7DD3FC; --c-mint-t:#6EE7C4; --c-red-t:#FF8CA6;
   --c-violet-t:#C4B0FF; --c-gold-t:#FDE047;
 
-  --c-scrim:linear-gradient(180deg,rgba(6,11,22,.55) 0%,rgba(6,11,22,.90) 100%);
+  --c-scrim:linear-gradient(180deg,rgba(6,11,22,.26) 0%,rgba(6,11,22,.70) 46%,rgba(6,11,22,.93) 100%);
+  --c-bgimg:url('/assets/bg-cyberpunk.webp');
+  --c-bgimg-sm:url('/assets/bg-cyberpunk-sm.webp');
 }
 
 html[data-theme="light"]{
@@ -57,7 +59,9 @@ html[data-theme="light"]{
 
   --c-cyan-t:#005068; --c-mint-t:#005C41; --c-red-t:#A8113E;
   --c-violet-t:#3F27A6; --c-gold-t:#6B3D00;
-  --c-scrim:linear-gradient(180deg,rgba(237,242,249,.87) 0%,rgba(237,242,249,.96) 100%);
+  --c-scrim:linear-gradient(180deg,rgba(240,245,251,.24) 0%,rgba(240,245,251,.70) 46%,rgba(238,243,250,.94) 100%);
+  --c-bgimg:url('/assets/bg-day.webp');
+  --c-bgimg-sm:url('/assets/bg-day-sm.webp');
   color-scheme:light;
 }
 html[data-theme="dark"]{color-scheme:dark}

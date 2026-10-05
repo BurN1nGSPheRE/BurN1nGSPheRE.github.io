@@ -21,228 +21,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/core.css">
+<link rel="stylesheet" href="/assets/tool.css">
 <style>
 
-:root{
-  --bg:var(--c-bg); --elev:var(--c-elev); --surface:var(--c-surf);
-  --line:var(--c-line); --line-soft:rgba(120,190,235,.10);
-  --ink:var(--c-ink); --dim:var(--c-ink-2); --faint:var(--c-ink-3);
-  --key:var(--c-cyan); --warn:var(--c-red); --ok:var(--c-mint); --note:var(--c-violet);
-  --gold:var(--c-gold);
-  --r:var(--c-r);
-}
-html[data-theme="light"]{
-  --bg:#F2F6FF; --elev:#FAFCFF; --surface:#FFFFFF;
-  --line:#D2DEF2; --line-soft:#E6EDFA;
-  --ink:#0A1424; --dim:#3A4E70; --faint:#556588;
-  --key:#006E93; --warn:#C6154A; --ok:#00704F; --note:#5231D2; --gold:#7A5300;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-html,body{overflow-x:hidden;max-width:100%}
-body{
-  background:var(--bg);color:var(--ink);
-  font-family:var(--f-body);font-size:15.5px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  transition:background .4s var(--c-ease),color .4s var(--c-ease);
-}
-html[data-theme="light"] .cx-beam,html[data-theme="light"] .cx-vig{display:none}
-.cx-beam{z-index:-1;opacity:.5}
-a{color:var(--key)}
-:focus-visible{outline:2px solid var(--key);outline-offset:2px}
-
-.top{
-  position:sticky;top:0;z-index:40;
-  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
-  padding:.75rem 1.25rem;
-  background:color-mix(in srgb,var(--bg) 88%,transparent);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-.brand{display:flex;align-items:center;gap:.7rem;min-width:0}
-.brand .sigil{
-  width:38px;height:38px;flex:none;display:grid;place-items:center;
-  font-size:1.1rem;border:1px solid var(--line);
-  clip-path:var(--c-cut);
-  background:linear-gradient(150deg,color-mix(in srgb,var(--key) 18%,transparent),transparent);
-}
-.brand h1{font-family:var(--f-brand);font-size:1.02rem;letter-spacing:.03em;line-height:1.2}
-.brand h1 a{color:var(--ink);text-decoration:none}
-.brand h1 a b{color:var(--key)}
-.brand .sub{font-family:var(--f-mono);font-size:.63rem;color:var(--faint);letter-spacing:.07em}
-.top .tally{font-family:var(--f-mono);font-size:.72rem;color:var(--dim);white-space:nowrap}
-.top .tally b{color:var(--key)}
-.top .sp{flex:1 1 auto}
-.top nav{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-
-.bench{
-  border-bottom:1px solid var(--line);
-  background:color-mix(in srgb,var(--elev) 70%,transparent);
-  padding:1rem 1.25rem 1.1rem;
-}
-.bench > h2{
-  font-family:var(--f-disp);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--key);margin-bottom:.15rem;display:flex;align-items:center;gap:.45rem;
-}
-.bench .hint{font-size:.78rem;color:var(--faint);margin-bottom:.8rem}
-#fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:.6rem}
-.field label{
-  display:block;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--faint);margin-bottom:.22rem;
-}
-.field input{
-  width:100%;padding:.48rem .6rem;min-height:36px;
-  background:var(--surface);border:1px solid var(--line);color:var(--ink);
-  font-family:var(--f-mono);font-size:.8rem;border-radius:0;
-  clip-path:polygon(0 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%);
-  transition:border-color .18s,box-shadow .18s;
-}
-.field input:focus{outline:none;border-color:var(--key);box-shadow:0 0 14px color-mix(in srgb,var(--key) 26%,transparent)}
-.field.lit label{color:var(--gold)}
-.field.lit input{border-color:color-mix(in srgb,var(--gold) 60%,transparent)}
-.bench-acts{display:flex;gap:.5rem;margin-top:.85rem;flex-wrap:wrap;align-items:center}
-.said{font-family:var(--f-mono);font-size:.68rem;color:var(--faint)}
-
-.shell{
-  max-width:1280px;margin:0 auto;padding:1.4rem 1.25rem 4rem;
-  display:grid;grid-template-columns:230px minmax(0,1fr);gap:2rem;align-items:start;
-}
-.rail{position:sticky;top:74px;min-width:0}
-.seek{position:relative;margin-bottom:.9rem}
-.seek input{
-  width:100%;padding:.58rem .7rem .58rem 2rem;
-  background:var(--surface);border:1px solid var(--line);color:var(--ink);
-  font-family:var(--f-mono);font-size:.8rem;border-radius:0;clip-path:var(--c-cut);
-}
-.seek input:focus{outline:none;border-color:var(--key)}
-.seek::before{content:'⌕';position:absolute;left:.62rem;top:50%;transform:translateY(-50%);color:var(--faint);font-size:.95rem}
-.rail h2{
-  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--faint);margin:.9rem 0 .4rem;
-}
-#nav{display:flex;flex-direction:column;gap:1px;max-height:calc(100vh - 230px);overflow-y:auto}
-#nav button{
-  display:flex;align-items:flex-start;gap:.5rem;width:100%;text-align:left;
-  padding:.42rem .55rem;min-height:32px;
-  background:transparent;border:0;border-left:2px solid transparent;
-  color:var(--dim);font-family:var(--f-body);font-size:.79rem;cursor:pointer;
-  transition:color .16s,background .16s,border-color .16s;
-}
-#nav button:hover{color:var(--ink);background:color-mix(in srgb,var(--key) 9%,transparent)}
-#nav button[aria-current="true"]{
-  color:var(--key);border-left-color:var(--key);
-  background:color-mix(in srgb,var(--key) 13%,transparent);font-weight:600;
-}
-
-html[data-theme="light"] #nav button[aria-current="true"]{
-  background:color-mix(in srgb,var(--key) 7%,transparent);
-  color:#02536E;border-left-color:#02536E;
-}
-#nav button .ic{flex:none;font-size:.85rem;width:1.1em;text-align:center}
-#nav button .nm{flex:1;min-width:0;line-height:1.35}
-#nav button .ct{font-family:var(--f-mono);font-size:.62rem;color:var(--faint)}
-
-.sect{margin-bottom:2.4rem;scroll-margin-top:84px}
-.sect-head{border-left:3px solid var(--key);padding-left:.75rem;margin-bottom:.35rem}
-.sect-head h3{font-family:var(--f-disp);font-size:1.22rem;letter-spacing:.02em}
-.sect-head .n{font-family:var(--f-mono);font-size:.66rem;color:var(--faint);float:right;margin-top:.5rem}
-.sect > .desc{color:var(--dim);font-size:.86rem;margin:0 0 1rem .78rem;max-width:72ch}
-
-.item{
-  background:var(--elev);border:1px solid var(--line);
-  clip-path:var(--c-cut);margin-bottom:.95rem;overflow:hidden;
-  border-left:2px solid color-mix(in srgb,var(--key) 45%,transparent);
-}
-.item.gone,.sect.gone{display:none}
-.item > header{display:flex;align-items:flex-start;gap:.6rem;padding:.8rem .95rem .1rem;flex-wrap:wrap}
-.item h4{font-family:var(--f-disp);font-size:.97rem;letter-spacing:.01em;flex:1;min-width:0}
-.tagline{display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
-.pill{
-  font-family:var(--f-mono);font-size:.58rem;letter-spacing:.05em;
-  padding:.16rem .46rem;border:1px solid var(--line);color:var(--faint);white-space:nowrap;
-}
-.pill.os{color:var(--note);border-color:color-mix(in srgb,var(--note) 42%,transparent)}
-.pill.att{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 42%,transparent)}
-.item .why{padding:.15rem .95rem .6rem;color:var(--dim);font-size:.87rem;max-width:84ch}
-
-.cmdbox{position:relative;margin:0 .95rem .7rem}
-.cmdbox pre{
-  background:var(--c-bg);border:1px solid var(--line-soft);
-  padding:.62rem 2.6rem .62rem .72rem;
-  font-family:var(--f-mono);font-size:.795rem;line-height:1.7;
-  color:var(--ink);white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;
-  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);
-}
-html[data-theme="light"] .cmdbox pre{background:#EEF3FC}
-.cmdbox pre .cmt{color:var(--faint)}
-.copy{
-  position:absolute;top:.4rem;right:.4rem;
-  width:30px;height:30px;display:grid;place-items:center;
-  background:transparent;border:1px solid var(--line);color:var(--faint);
-  cursor:pointer;font-size:.8rem;transition:color .16s,border-color .16s;
-}
-.copy:hover{color:var(--key);border-color:var(--key)}
-.copy.done{color:var(--ok);border-color:var(--ok)}
-.tok{font-style:normal}
-.tok.on{color:var(--gold);font-weight:700}
-.tok.off{color:var(--key);cursor:pointer;border-bottom:1px dotted currentColor}
-.tok.manual{color:var(--note)}
-
-.notes{padding:0 .95rem .9rem;display:grid;gap:.5rem}
-.note{
-  border-left:2px solid var(--line);padding:.5rem .7rem;font-size:.845rem;
-  background:color-mix(in srgb,var(--surface) 55%,transparent);
-}
-.note b{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;
-  text-transform:uppercase;margin-bottom:.2rem}
-.note.look{border-left-color:var(--ok)} .note.look b{color:var(--ok)}
-.note.myth{border-left-color:var(--gold)} .note.myth b{color:var(--gold)}
-.note.warn{border-left-color:var(--warn)} .note.warn b{color:var(--warn)}
-.note.src{border-left-color:var(--note);font-size:.78rem;color:var(--dim)} .note.src b{color:var(--note)}
-
-.parts{padding:0 .95rem .9rem}
-.parts summary{
-  cursor:pointer;font-family:var(--f-mono);font-size:.7rem;color:var(--key);
-  letter-spacing:.05em;padding:.3rem 0;list-style:none;min-height:30px;display:flex;align-items:center;
-}
-.parts summary::-webkit-details-marker{display:none}
-.parts summary::before{content:'▸ ';margin-right:.25rem}
-.parts[open] summary::before{content:'▾ '}
-.parts dl{display:grid;grid-template-columns:auto 1fr;gap:.3rem .8rem;margin-top:.35rem;font-size:.835rem}
-.parts dt{font-family:var(--f-mono);font-size:.74rem;color:var(--key);white-space:nowrap}
-.parts dd{color:var(--dim)}
-@media (max-width:620px){.parts dl{grid-template-columns:1fr;gap:.1rem}.parts dd{margin-bottom:.4rem}}
-
-.void{text-align:center;padding:3rem 1rem;color:var(--faint);font-size:.9rem}
-.void.gone{display:none}
-
-footer{
-  border-top:1px solid var(--line);margin-top:2rem;padding:1.4rem 1.25rem 2.4rem;
-  text-align:center;color:var(--faint);font-size:.78rem;line-height:1.9;
-}
-footer a{color:var(--key)}
-
-@media (max-width:980px){
-  .shell{grid-template-columns:1fr;gap:1.2rem}
-  .rail{position:static}
-  #nav{flex-direction:row;flex-wrap:wrap;max-height:none;gap:.35rem}
-  #nav button{width:auto;border-left:0;border:1px solid var(--line);clip-path:var(--c-cut)}
-  #nav button[aria-current="true"]{border-color:var(--key)}
-}
-@media (max-width:620px){
-  .top{padding:.6rem .85rem}
-  .bench,.shell{padding-left:.85rem;padding-right:.85rem}
-  .brand .sub{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  body,#nav button,.copy,.field input{transition:none}
-}
-@media print{
-  .top,.bench,.rail,.copy{display:none!important}
-  .shell{grid-template-columns:1fr}
-  .item{break-inside:avoid;border:1px solid #999}
-}
+body{font-size:15.5px;line-height:1.6}
+.tcard-why{font-size:.87rem}
+.tnav button .nm{font-family:var(--f-body);font-weight:inherit}
 </style>
 <script>
 
@@ -256,54 +40,70 @@ d.setAttribute('data-theme',t);}());
 <div class="cx-beam" aria-hidden="true"></div>
 <div class="cx-vig" aria-hidden="true"></div>
 
-<header class="top">
-  <div class="brand">
-    <span class="sigil" aria-hidden="true">🔎</span>
-    <div>
-      <h1><a href="/">BurN1nG<b>SPheRE</b></a></h1>
-      <div class="sub">ARTIFACTRUN · DFIR FIELD GUIDE</div>
+<header class="tbar">
+  <div class="tbar-in">
+    <span class="tmark" aria-hidden="true">🔎</span>
+    <div class="twd">
+      <span class="eye">ArtifactRun · DFIR Field Guide</span>
+      <h1 class="nm"><a href="/" title="กลับหน้าโปรไฟล์ ภาวีร์ วีรวิทยาเศรษฐ์">BurN1nG<b>SPheRE</b></a></h1>
     </div>
+    <div class="ttally" id="tally">กำลังโหลดข้อมูล</div>
+    <span class="tsp"></span>
+    <nav aria-label="ลิงก์ที่เกี่ยวข้อง">
+      <a class="cx-btn cx-btn--sm" href="/CommandRun/" title="คู่มือคำสั่งภาคสนาม — ฝั่งรุกของชุดนี้">⚔️ CommandRun</a>
+      <a class="cx-btn cx-btn--sm cx-btn--ghost" href="/Portal.html">Portal</a>
+      <button type="button" class="cx-theme" role="switch" aria-checked="false" data-cx-toggle title="สลับธีมสว่าง / มืด" aria-label="สลับธีมสว่าง / มืด"><span class="cx-theme-track" aria-hidden="true"><span class="cx-theme-ico cx-theme-sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg></span><span class="cx-theme-ico cx-theme-moon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span><span class="cx-theme-thumb"></span></span></button>
+    </nav>
   </div>
-  <div class="tally" id="tally">กำลังโหลดข้อมูล</div>
-  <span class="sp"></span>
-  <nav aria-label="ลิงก์ที่เกี่ยวข้อง">
-    <a class="cx-btn cx-btn--sm" href="/CommandRun/">⚔️ CommandRun</a>
-    <a class="cx-btn cx-btn--sm cx-btn--ghost" href="/Portal.html">Portal</a>
-    <button type="button" class="cx-theme" role="switch" aria-checked="false" data-cx-toggle title="สลับธีมสว่าง / มืด" aria-label="สลับธีมสว่าง / มืด"><span class="cx-theme-track" aria-hidden="true"><span class="cx-theme-ico cx-theme-sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg></span><span class="cx-theme-ico cx-theme-moon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span><span class="cx-theme-thumb"></span></span></button>
-  </nav>
 </header>
 
-<section class="bench" aria-labelledby="benchH">
-  <h2 id="benchH">⚙️ ตัวแปรประจำเหตุการณ์</h2>
-  <p class="hint">ค่าที่กรอกไว้จะถูกแทนลงในคำสั่งทุกรายการโดยอัตโนมัติ รายการที่ยังไม่ได้กรอกจะแสดงเป็น &lt;ตัวยึด&gt; เพื่อให้ผู้ใช้ระบุเอง ข้อมูลทั้งหมดจัดเก็บไว้ในเบราว์เซอร์ของผู้ใช้เท่านั้น มิได้ส่งออกไปยังระบบใด</p>
-  <div id="fields"></div>
-  <div class="bench-acts">
-    <button class="cx-btn cx-btn--sm cx-btn--ghost" id="btnWipe" type="button">ล้างค่าทั้งหมด</button>
-    <button class="cx-btn cx-btn--sm cx-btn--ghost" id="btnDemo" type="button">ใส่ค่าตัวอย่าง</button>
-    <span class="said" id="said"></span>
+<section class="tbench" aria-labelledby="benchH">
+  <div class="tbench-in">
+    <div class="tbench-hd">
+      <h2 id="benchH">⚙️ ตัวแปรประจำเหตุการณ์</h2>
+      <span class="tsaid" id="said"></span>
+    </div>
+    <p class="thint">ค่าที่กรอกไว้จะถูกแทนลงในคำสั่งทุกรายการโดยอัตโนมัติ รายการที่ยังไม่ได้กรอกจะแสดงเป็น &lt;ตัวยึด&gt; เพื่อให้ผู้ใช้ระบุเอง ข้อมูลทั้งหมดจัดเก็บไว้ในเบราว์เซอร์ของผู้ใช้เท่านั้น มิได้ส่งออกไปยังระบบใด</p>
+    <div class="tfields" id="fields"></div>
+    <div class="tacts">
+      <button class="cx-btn cx-btn--sm" id="btnDemo" type="button">▶ ใส่ค่าตัวอย่าง</button>
+      <button class="cx-btn cx-btn--sm cx-btn--ghost" id="btnWipe" type="button">ล้างค่าทั้งหมด</button>
+      <span class="thowto">กดเพื่อดูการแทนค่าลงคำสั่งโดยอัตโนมัติ</span>
+    </div>
   </div>
 </section>
 
-<div class="shell">
-  <aside class="rail" aria-label="สารบัญ">
-    <div class="seek"><input id="seek" type="search" placeholder="ค้นหา…" aria-label="ค้นหาในคู่มือ" autocomplete="off" spellcheck="false"></div>
+<div class="tshell">
+  <aside class="trail" aria-label="สารบัญ">
+    <div class="tseek">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="seek" type="search" placeholder="ค้นหา…" aria-label="ค้นหาในคู่มือ" autocomplete="off" spellcheck="false">
+    </div>
     <h2>สารบัญ</h2>
-    <div id="nav" role="group" aria-label="เลือกหมวด"></div>
+    <div class="tnav" id="nav" role="group" aria-label="เลือกหมวด"></div>
   </aside>
 
-  <main id="stack">
+  <main class="tstack" id="stack">
     <div class="cx-loading">กำลังโหลดข้อมูล</div>
   </main>
 </div>
 
-<div class="void gone" id="void">ไม่พบรายการที่ตรงกับ “<b id="voidQ"></b>” กรุณาใช้คำค้นอื่น หรือเลือกหมวด “ทั้งหมด”</div>
+<div class="tvoid gone" id="void">ไม่พบรายการที่ตรงกับ “<b id="voidQ"></b>” กรุณาใช้คำค้นอื่น หรือเลือกหมวด “ทั้งหมด”</div>
 
-<footer>
-  <p><strong>ArtifactRun</strong> — คู่มือตรวจพิสูจน์พยานหลักฐานดิจิทัลและการตอบสนองเหตุการณ์ สำหรับผู้เริ่มปฏิบัติงาน</p>
-  <p>เนื้อหาเรียบเรียงจากเอกสารต้นทางที่เปิดให้ใช้ได้ (RFC 3227, NIST SP 800-86, เอกสาร Microsoft Learn, man page, MITRE ATT&amp;CK)
-     มิได้ประกอบด้วยข้อมูลของเหตุการณ์จริง และมิได้ประกอบด้วยขั้นตอนปฏิบัติภายในของหน่วยงานใด</p>
-  <p>คำสั่งทุกรายการให้ใช้กับระบบที่ได้รับอนุญาตแล้วเท่านั้น</p>
-  <p><a href="/">Created by BurN1nGSPheRE</a> · <a href="/CommandRun/">CommandRun</a> · <a href="https://www.linkedin.com/in/pawee-werawithayaset-87b208155/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+<footer class="tfoot">
+  <div class="tfoot-in">
+    <img class="tfoot-logo" src="/CommandRun/logo-burning.png" alt="BurN1nGSPheRE Cybersecurity" width="72" height="72" loading="lazy">
+    <div class="tfoot-text">
+      <a class="by" href="/" title="ดูประวัติและผลงาน"><span class="pre">Created by</span> BurN1nGSPheRE</a>
+      <a class="li" href="https://www.linkedin.com/in/pawee-werawithayaset-87b208155/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.65h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76V21h-4v-5.66c0-1.35-.03-3.09-1.9-3.09-1.9 0-2.19 1.47-2.19 2.99V21h-4V9z"/></svg><span>LinkedIn</span></a>
+      <span class="tfoot-tag">ArtifactRun · คู่มือตรวจพิสูจน์พยานหลักฐานดิจิทัล</span>
+    </div>
+    <p class="tfoot-note">
+      เรียบเรียงจากเอกสารต้นทางที่เปิดให้ใช้ได้ (RFC 3227, NIST SP 800-86, Microsoft Learn, man page, MITRE ATT&amp;CK)<br>
+      มิได้ประกอบด้วยข้อมูลของเหตุการณ์จริง หรือขั้นตอนปฏิบัติภายในของหน่วยงานใด<br>
+      ใช้กับระบบที่ได้รับอนุญาตแล้วเท่านั้น
+    </p>
+  </div>
 </footer>
 
 <script src="/assets/engine.js"></script>
@@ -350,34 +150,34 @@ function paintCmd(txt){
 
 function said(){
   var n=CX.filled(), t=CX.KEYS.length;
-  $('said').textContent = n ? ('ระบุค่าแล้ว '+n+' จาก '+t+' รายการ')
-                            : ('ยังไม่ได้ระบุค่า คำสั่งจะแสดงเป็น <ตัวยึด>');
+  $('said').innerHTML = n ? ('ระบุค่าแล้ว <em>'+n+'</em> จาก '+t+' รายการ')
+                          : ('ยังไม่ได้ระบุค่า คำสั่งจะแสดงเป็น &lt;ตัวยึด&gt;');
 }
 
 function noteHtml(r){
   var h='';
-  if(r.look) h+='<div class="note look"><b>สิ่งบ่งชี้ที่ควรตรวจสอบ</b>'+CX.esc(r.look)+'</div>';
-  if(r.myth) h+='<div class="note myth"><b>ข้อคลาดเคลื่อนที่พบบ่อย</b>'+CX.esc(r.myth)+'</div>';
-  if(r.warn) h+='<div class="note warn"><b>ข้อควรระวัง</b>'+CX.esc(r.warn)+'</div>';
-  if(r.src)  h+='<div class="note src"><b>เอกสารอ้างอิง</b>'+CX.esc(r.src)+'</div>';
-  return h ? '<div class="notes">'+h+'</div>' : '';
+  if(r.look) h+='<div class="tnote look"><b>สิ่งบ่งชี้ที่ควรตรวจสอบ</b>'+CX.esc(r.look)+'</div>';
+  if(r.myth) h+='<div class="tnote myth"><b>ข้อคลาดเคลื่อนที่พบบ่อย</b>'+CX.esc(r.myth)+'</div>';
+  if(r.warn) h+='<div class="tnote warn"><b>ข้อควรระวัง</b>'+CX.esc(r.warn)+'</div>';
+  if(r.src)  h+='<div class="tnote src"><b>เอกสารอ้างอิง</b>'+CX.esc(r.src)+'</div>';
+  return h ? '<div class="tnotes">'+h+'</div>' : '';
 }
 
 function itemHtml(r,i){
   var pills='';
-  if(r.os) pills+='<span class="pill os">'+CX.esc(r.os)+'</span>';
-  if(r.att&&r.att.length) pills+='<span class="pill att">ATT&amp;CK '+CX.esc(r.att.join(' '))+'</span>';
+  if(r.os) pills+='<span class="tpill os">'+CX.esc(r.os)+'</span>';
+  if(r.att&&r.att.length) pills+='<span class="tpill att">ATT&amp;CK '+CX.esc(r.att.join(' '))+'</span>';
   var parts='';
   if(r.e&&r.e.length){
-    parts='<details class="parts"><summary>คำอธิบายองค์ประกอบ</summary><dl>'+
+    parts='<details class="tparts"><summary>คำอธิบายองค์ประกอบ</summary><dl>'+
       r.e.map(function(p){return '<dt>'+CX.esc(p[0])+'</dt><dd>'+CX.esc(p[1])+'</dd>'}).join('')+
       '</dl></details>';
   }
-  return '<article class="item" data-i="'+i+'">'+
-    '<header><h4>'+CX.esc(r.tool)+'</h4><span class="tagline">'+pills+'</span></header>'+
-    '<p class="why">'+CX.esc(r.n)+'</p>'+
-    '<div class="cmdbox"><pre>'+paintCmd(r.c)+'</pre>'+
-      '<button class="copy" type="button" data-copy="'+i+'" title="คัดลอกคำสั่ง" aria-label="คัดลอกคำสั่ง">⧉</button></div>'+
+  return '<article class="tcard" data-i="'+i+'">'+
+    '<div class="tcard-hd"><h4>'+CX.esc(r.tool)+'</h4><span class="tpills">'+pills+'</span></div>'+
+    '<p class="tcard-why">'+CX.esc(r.n)+'</p>'+
+    '<div class="tcmd"><pre>'+paintCmd(r.c)+'</pre>'+
+      '<button class="tcopy" type="button" data-copy="'+i+'" title="คัดลอกคำสั่ง" aria-label="คัดลอกคำสั่ง">⧉</button></div>'+
     parts + noteHtml(r) +
   '</article>';
 }
@@ -404,10 +204,10 @@ function buildStack(){
   DATA.cats.forEach(function(c){
     var rows=DATA.rows.map(function(r,i){return [r,i]}).filter(function(x){return x[0].cat===c.id});
     if(!rows.length) return;
-    h+='<section class="sect" id="s-'+c.id+'" data-c="'+c.id+'">'+
-       '<div class="sect-head"><span class="n">'+rows.length+' รายการ</span>'+
-       '<h3>'+c.icon+' '+CX.esc(c.tab)+'</h3></div>'+
-       '<p class="desc">'+CX.esc(c.desc)+'</p>'+
+    h+='<section class="tsect" id="s-'+c.id+'" data-c="'+c.id+'">'+
+       '<div class="tsect-hd"><h3>'+c.icon+' '+CX.esc(c.tab)+'</h3>'+
+       '<span class="n">'+rows.length+' รายการ</span></div>'+
+       '<p class="tsect-note">'+CX.esc(c.desc)+'</p>'+
        rows.map(function(x){return itemHtml(x[0],x[1])}).join('')+
        '</section>';
   });
@@ -434,7 +234,7 @@ function wireStack(){
 }
 
 function repaint(){
-  var boxes=$('stack').querySelectorAll('.cmdbox pre');
+  var boxes=$('stack').querySelectorAll('.tcmd pre');
   for(var i=0;i<boxes.length;i++){
     var idx=+boxes[i].parentNode.querySelector('[data-copy]').getAttribute('data-copy');
     boxes[i].innerHTML=paintCmd(DATA.rows[idx].c);
@@ -454,7 +254,7 @@ function pick(c){
 
 function sift(){
   var q=$('seek').value.trim().toLowerCase();
-  var items=$('stack').querySelectorAll('.item'), shown=0;
+  var items=$('stack').querySelectorAll('.tcard'), shown=0;
   for(var i=0;i<items.length;i++){
     var r=DATA.rows[+items[i].getAttribute('data-i')];
     var inCat = (CUR==='all'||r.cat===CUR);
@@ -466,14 +266,20 @@ function sift(){
     items[i].classList.toggle('gone',!ok);
     if(ok) shown++;
   }
-  var ss=$('stack').querySelectorAll('.sect');
+  var ss=$('stack').querySelectorAll('.tsect');
   for(var j=0;j<ss.length;j++){
-    var any=ss[j].querySelectorAll('.item:not(.gone)').length;
+    var any=ss[j].querySelectorAll('.tcard:not(.gone)').length;
     ss[j].classList.toggle('gone',!any);
   }
   $('void').classList.toggle('gone', shown>0);
   $('voidQ').textContent=q;
 }
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='/'&&!/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); $('seek').focus();
+  }
+},false);
 
 CX.load('data.json').then(function(D){
   DATA=D;

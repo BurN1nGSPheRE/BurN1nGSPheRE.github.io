@@ -44,7 +44,7 @@ body::before{
   content:'';position:fixed;inset:0;z-index:-1;
   background:
     var(--c-scrim),
-    url('./assets/bg-cyberpunk.webp') no-repeat center center;
+    var(--c-bgimg) no-repeat center center;
   background-size:cover;
 }
 .card{
@@ -94,7 +94,12 @@ html[data-theme="light"] .links a{background:var(--c-raise);border-color:var(--c
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
-d.setAttribute('data-theme',t);}());
+d.setAttribute('data-theme',t);
+var sm=window.matchMedia&&matchMedia('(max-width:900px)').matches;
+var f=(t==='light'?'bg-day':'bg-cyberpunk')+(sm?'-sm':'')+'.webp';
+var l=document.createElement('link');l.rel='preload';l.as='image';
+l.href='./assets/'+f;l.setAttribute('fetchpriority','high');
+document.head.appendChild(l);}());
 </script>
 </head>
 <body>

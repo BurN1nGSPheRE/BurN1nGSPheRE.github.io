@@ -1,6 +1,6 @@
 // BurN1nGSPheRE — Service Worker (Full PWA, offline-ready)
 
-const CACHE_NAME = 'burn1ngsphere-cache-v25';
+const CACHE_NAME = 'burn1ngsphere-cache-v26';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -18,6 +18,7 @@ const ASSETS_TO_CACHE = [
   './icon-512-maskable.png',
   './apple-touch-icon.png',
   '/assets/core.css',
+  '/assets/tool.css',
   '/assets/engine.js'
 ];
 

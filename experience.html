@@ -65,8 +65,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="preload" as="image" href="./assets/hero-bg.webp" fetchpriority="high" media="(min-width: 901px)">
-<link rel="preload" as="image" href="./assets/hero-bg-sm.webp" fetchpriority="high" media="(max-width: 900px)">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <!-- SRI: generate with  curl -s <url> | openssl dgst -sha384 -binary | openssl base64 -A  then add integrity="sha384-..." -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all';this.onload=null">
@@ -447,12 +445,18 @@ html[data-theme="light"] .cx-beam{display:none}
   --maxw: 1200px;
 
   --bg-photo: url('./assets/hero-bg.webp');
+  --bg-photo-sm: url('./assets/hero-bg-sm.webp');
 
   --ease: cubic-bezier(.22, .68, .32, 1);
 }
 
+html[data-theme="light"] {
+  --bg-photo: url('./assets/bg-day.webp');
+  --bg-photo-sm: url('./assets/bg-day-sm.webp');
+}
+
 @media (max-width: 900px) {
-  :root { --bg-photo: url('./assets/hero-bg-sm.webp'); }
+  html, html[data-theme="light"] { --bg-photo: var(--bg-photo-sm); }
 }
 
 /* ── DARK (default) ───────────────────────────────────────── */
@@ -487,7 +491,7 @@ html[data-theme="dark"] {
   --photo-filter: saturate(1.12) contrast(1.04);
 
   --scrim:
-    linear-gradient(180deg, rgba(6,11,22,0.55) 0%, rgba(6,11,22,0.88) 44%, rgba(6,11,22,0.97) 100%),
+    linear-gradient(180deg, rgba(6,11,22,0.26) 0%, rgba(6,11,22,0.78) 44%, rgba(6,11,22,0.96) 100%),
     radial-gradient(1100px 620px at 86% -10%, rgba(0,229,255,0.16), transparent 66%),
     radial-gradient(900px 540px at -4% 6%, rgba(155,124,255,0.18), transparent 64%),
     radial-gradient(760px 460px at 50% 104%, rgba(43,232,176,0.10), transparent 70%);
@@ -530,10 +534,10 @@ html[data-theme="light"] {
   --sky-soft:    rgba(0,112,79,0.09);
   --gold-soft:   rgba(156,90,5,0.11);
 
-  --photo-opacity: 0.14;
-  --photo-filter: saturate(0.42) brightness(1.28);
+  --photo-opacity: 0.90;
+  --photo-filter: saturate(1.12) contrast(1.04);
   --scrim:
-    linear-gradient(180deg, rgba(236,241,247,0.84) 0%, rgba(236,241,247,0.94) 38%, rgba(236,241,247,0.99) 100%),
+    linear-gradient(180deg, rgba(236,241,247,0.22) 0%, rgba(236,241,247,0.74) 44%, rgba(236,241,247,0.97) 100%),
     radial-gradient(1000px 560px at 86% -8%, rgba(0,110,147,0.09), transparent 66%),
     radial-gradient(820px 500px at 0% 4%, rgba(82,49,210,0.08), transparent 64%);
   --grid-line: rgba(20, 70, 130, 0.065);
@@ -1169,7 +1173,12 @@ footer .ok { color: var(--mint); }
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
-d.setAttribute('data-theme',t);}());
+d.setAttribute('data-theme',t);
+var sm=window.matchMedia&&matchMedia('(max-width:900px)').matches;
+var f=(t==='light'?'bg-day':'hero-bg')+(sm?'-sm':'')+'.webp';
+var l=document.createElement('link');l.rel='preload';l.as='image';
+l.href='./assets/'+f;l.setAttribute('fetchpriority','high');
+document.head.appendChild(l);}());
 </script>
 </head>
 <body>

@@ -59,8 +59,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="preload" as="image" href="/assets/bg-cyberpunk.webp" fetchpriority="high" media="(min-width: 901px)">
-<link rel="preload" as="image" href="/assets/bg-cyberpunk-sm.webp" fetchpriority="high" media="(max-width: 900px)">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <!-- SRI: generate with  curl -s <url> | openssl dgst -sha384 -binary | openssl base64 -A  then add integrity="sha384-..." -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all';this.onload=null">
@@ -483,7 +481,7 @@
             z-index: -1;
             background:
                 var(--c-scrim),
-                url('/assets/bg-cyberpunk.webp') no-repeat center center;
+                var(--c-bgimg) no-repeat center center;
             background-size: cover;
         }
 
@@ -491,7 +489,7 @@
             body::before {
                 background-image:
                     var(--c-scrim),
-                    url('/assets/bg-cyberpunk-sm.webp');
+                    var(--c-bgimg-sm);
             }
         }
 
@@ -1091,7 +1089,12 @@ html[data-theme="light"] .nav-pill{box-shadow:var(--c-shadow-sm)}
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
-d.setAttribute('data-theme',t);}());
+d.setAttribute('data-theme',t);
+var sm=window.matchMedia&&matchMedia('(max-width:900px)').matches;
+var f=(t==='light'?'bg-day':'bg-cyberpunk')+(sm?'-sm':'')+'.webp';
+var l=document.createElement('link');l.rel='preload';l.as='image';
+l.href='/assets/'+f;l.setAttribute('fetchpriority','high');
+document.head.appendChild(l);}());
 </script>
 </head>
 <body>
