@@ -1,49 +1,42 @@
-/* ══════════════════════════════════════════════════════════════════════
-   BURN1NG CORE — ชุดธีมกลางแนว cyberpunk / redteam
-   ทุกหน้าในเว็บใช้ชุดนี้ร่วมกัน  ไม่เพิ่มไฟล์  ไม่เพิ่ม request  ไม่เพิ่ม JS
-   ชั้นพื้นหลังแยกเป็นชิ้นๆ แต่ละหน้าหยิบไปใช้เฉพาะชิ้นที่ยังว่าง
-   ══════════════════════════════════════════════════════════════════════ */
+
 :root{
-  /* ชั้นพื้นหลัง มืด → สว่าง */
+
   --c-void:#04070E; --c-bg:#060B16; --c-elev:#0A1220; --c-surf:#101A2E;
-  /* เส้นขอบ */
+
   --c-line:rgba(120,190,235,.17); --c-line-2:rgba(120,190,235,.32);
-  /* ตัวอักษร */
+
   --c-ink:#EAF2FC; --c-ink-2:#B4C7DE; --c-ink-3:#8097B1;
-  /* สีเน้นห้าตัว ใช้ค่าเดียวกันทั้งเว็บ */
+
   --c-cyan:#00E5FF; --c-mint:#2BE8B0; --c-red:#FF3D70;
   --c-violet:#9B7CFF; --c-gold:#FFB020; --c-blue:#4D9FFF; --c-orange:#FF8C42;
   --c-cyan-s:rgba(0,229,255,.13); --c-mint-s:rgba(43,232,176,.13);
   --c-red-s:rgba(255,61,112,.13); --c-violet-s:rgba(155,124,255,.14);
   --c-gold-s:rgba(255,176,32,.13);
-  /* แสงและเงา */
+
   --c-glow:0 0 34px rgba(0,229,255,.22);
   --c-shadow:0 26px 64px rgba(0,0,0,.66);
   --c-shadow-sm:0 10px 26px rgba(0,0,0,.34);
   --c-grid-c:rgba(130,195,245,.055);
   --c-scan:rgba(190,230,255,.020);
-  /* ฟอนต์สี่ตัว เรียกชื่อเดียวกันทุกหน้า */
+
   --f-brand:'Orbitron','Space Grotesk',system-ui,sans-serif;
   --f-disp:'Space Grotesk','IBM Plex Sans Thai',system-ui,sans-serif;
   --f-body:'IBM Plex Sans Thai','Space Grotesk',system-ui,sans-serif;
   --f-mono:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;
-  /* รูปทรง มุมตัดล่างขวา 13px เป็นลายเซ็นร่วมของทุกหน้า */
+
   --c-cut:polygon(0 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%);
   --c-cut-lg:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);
   --c-r:3px; --c-ease:cubic-bezier(.22,.68,.32,1);
-  --c-raise:rgba(190,225,255,.07);      /* พื้นผิวยกขึ้นจากพื้นหลัง */
-  --c-edge:rgba(190,225,255,.14);       /* เส้นขอบบางๆ */
-  --c-on-accent:#04121A;                /* ตัวหนังสือบนป้ายสีเน้น */
-  /* สีตัวหนังสือบนป้ายที่พื้นเป็นสีเน้นจางๆ  ชุดนี้ไว้ใช้บนพื้นมืด */
+  --c-raise:rgba(190,225,255,.07);
+  --c-edge:rgba(190,225,255,.14);
+  --c-on-accent:#04121A;
+
   --c-cyan-t:#7DD3FC; --c-mint-t:#6EE7C4; --c-red-t:#FF8CA6;
   --c-violet-t:#C4B0FF; --c-gold-t:#FDE047;
-  /* ม่านทับภาพพื้นหลัง  ต้องเข้มพอให้ตัวหนังสืออ่านออกเสมอ */
+
   --c-scrim:linear-gradient(180deg,rgba(6,11,22,.55) 0%,rgba(6,11,22,.90) 100%);
 }
-/* ══ จานสีธีมสว่าง ══
-   ทุกหน้าชี้ชื่อตัวแปรของตัวเองมาที่ --c-* อยู่แล้ว
-   พอนิยามชุดสว่างตรงนี้ชุดเดียว ทั้งเว็บจึงพลิกธีมได้พร้อมกัน
-   สีเน้นทุกตัวเลือกค่าที่ผ่านเกณฑ์คอนทราสต์ WCAG AA บนพื้นสว่างแล้ว */
+
 html[data-theme="light"]{
   --c-void:#C9D6E8; --c-bg:#EDF2F9; --c-elev:#FFFFFF; --c-surf:#FFFFFF;
   --c-line:rgba(16,48,90,.17); --c-line-2:rgba(16,48,90,.30);
@@ -61,7 +54,7 @@ html[data-theme="light"]{
   --c-raise:rgba(10,30,60,.05);
   --c-edge:rgba(16,48,90,.16);
   --c-on-accent:#FFFFFF;
-  /* บนพื้นสว่างต้องเข้มกว่าสีเน้นปกติ เพราะป้ายมีพื้นสีจางรองอยู่อีกชั้น */
+
   --c-cyan-t:#005068; --c-mint-t:#005C41; --c-red-t:#A8113E;
   --c-violet-t:#3F27A6; --c-gold-t:#6B3D00;
   --c-scrim:linear-gradient(180deg,rgba(237,242,249,.87) 0%,rgba(237,242,249,.96) 100%);
@@ -69,7 +62,6 @@ html[data-theme="light"]{
 }
 html[data-theme="dark"]{color-scheme:dark}
 
-/* ชั้นพื้นหลังกลาง ธีมสว่างต้องเบามือกว่านี้มาก ไม่งั้นจอขาวจะดูสกปรก */
 html[data-theme="light"] .cx-glow{
   background:
     radial-gradient(1100px 620px at 86% -10%,rgba(0,110,147,.10),transparent 66%),
@@ -84,7 +76,6 @@ html[data-theme="light"] .cx-card{
     linear-gradient(158deg,rgba(0,110,147,.045),rgba(255,255,255,.92));
 }
 
-/* ══ ปุ่มสลับธีม หน้าตาและพฤติกรรมเดียวกันทุกหน้า ══ */
 .cx-theme{
   display:inline-flex;flex:none;align-items:stretch;
   border:1px solid var(--c-line-2);border-radius:2px;overflow:hidden;
@@ -103,12 +94,6 @@ html[data-theme="light"] .cx-card{
 .cx-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 @media (prefers-reduced-motion:reduce){.cx-theme button{transition:none}}
 
-
-/* ─────────── ชั้นพื้นหลังกลาง เป็น element แยก จึงไม่ชนกับ CSS เดิมของหน้าไหน ───────────
-   .cx-glow  เรืองแสงรัศมีสามจุด        z -3
-   .cx-grid  ตารางเส้น + เส้นสแกน CRT   z -2
-   .cx-beam  ลำแสงกวาดช้าๆ               z -2
-   .cx-vig   ขอบจอมืด + เส้นเรืองบนสุด   z -1                                       */
 .cx-glow,.cx-grid,.cx-beam,.cx-vig{position:fixed;pointer-events:none}
 .cx-glow{
   inset:0; z-index:-3;
@@ -142,7 +127,6 @@ html[data-theme="light"] .cx-card{
   box-shadow:inset 0 0 180px rgba(0,0,0,.52), inset 0 1px 0 rgba(0,229,255,.24);
 }
 
-/* ─────────── สูตรการ์ดกลาง มุมตัดล่างขวา + รางสีซ้าย + เส้นนีออนบนสุด ─────────── */
 .cx-card{
   position:relative;
   clip-path:var(--c-cut);
@@ -155,7 +139,6 @@ html[data-theme="light"] .cx-card{
 }
 .cx-card:hover{transform:translateY(-3px);box-shadow:var(--c-shadow-sm),0 0 30px rgba(0,229,255,.22)}
 
-/* ─────────── ป้ายกำกับแบบ terminal ─────────── */
 .cx-tag{
   font-family:var(--f-mono); font-size:.62rem; letter-spacing:.09em;
   text-transform:uppercase; color:var(--c-cyan);
@@ -163,7 +146,6 @@ html[data-theme="light"] .cx-card{
   padding:.12rem .42rem; border-radius:2px;
 }
 
-/* ─────────── เส้นนีออนไหล ใช้ร่วมกันทุกหน้า ─────────── */
 @keyframes cx-flow{from{background-position:0% 0}to{background-position:300% 0}}
 .cx-rail{
   background:linear-gradient(90deg,var(--c-cyan),var(--c-violet),var(--c-red),var(--c-violet),var(--c-cyan));
@@ -171,7 +153,6 @@ html[data-theme="light"] .cx-card{
   animation:cx-flow 9s linear infinite;
 }
 
-/* ─────────── ชื่อแบรนด์กระตุกเฉพาะตอนชี้ ไม่กระตุกตลอดจนอ่านไม่ออก ─────────── */
 .cx-glitch{position:relative;display:inline-block}
 .cx-glitch::before,.cx-glitch::after{
   content:attr(data-text); position:absolute; left:0; top:0; width:100%;
@@ -184,7 +165,6 @@ html[data-theme="light"] .cx-card{
 @keyframes cx-g1{0%{clip-path:inset(4% 0 72% 0)}50%{clip-path:inset(58% 0 22% 0)}100%{clip-path:inset(28% 0 48% 0)}}
 @keyframes cx-g2{0%{clip-path:inset(66% 0 12% 0)}50%{clip-path:inset(16% 0 64% 0)}100%{clip-path:inset(44% 0 34% 0)}}
 
-/* ─────────── เคารพการตั้งค่าของผู้ใช้ ─────────── */
 @media (prefers-reduced-motion:reduce){
   .cx-beam{display:none}
   .cx-rail{animation:none}
@@ -198,11 +178,7 @@ html[data-theme="light"] .cx-card{
 @media print{
   .cx-glow,.cx-grid,.cx-beam,.cx-vig{display:none!important}
 }
-/* ══════════════════════════════════════════════════════════════════════
-   ระบบปุ่มกลาง
-   ปุ่มเดียวใช้ได้ทุกหน้า เปลี่ยนสีด้วยตัวแปร --b ตัวเดียว
-   พื้นที่กดไม่ต่ำกว่า 44px ตามเกณฑ์ WCAG 2.2 (เกณฑ์ขั้นต่ำคือ 24px)
-   ══════════════════════════════════════════════════════════════════════ */
+
 .cx-btn{
   --b:var(--c-cyan);
   position:relative; display:inline-flex; align-items:center; justify-content:center;
@@ -233,13 +209,12 @@ html[data-theme="light"] .cx-btn{
   opacity:.45; cursor:not-allowed; transform:none; box-shadow:none;
 }
 
-/* แบบทึบ ใช้กับปุ่มหลักของหน้า อันเดียวต่อหน้าก็พอ */
 .cx-btn--solid{
   background:var(--b); color:var(--c-on-accent);
   border-color:var(--b); font-weight:700;
 }
 html[data-theme="light"] .cx-btn--solid{background:var(--b);color:#fff}
-/* แสงกวาดผ่านตอนชี้ ทำด้วย background ไม่ใช่ element ใหม่ จึงไม่ชนกับ ::before/::after ของหน้า */
+
 .cx-btn--solid{
   background-image:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.28) 50%,transparent 62%);
   background-size:280% 100%; background-position:120% 0; background-repeat:no-repeat;
@@ -248,38 +223,26 @@ html[data-theme="light"] .cx-btn--solid{background:var(--b);color:#fff}
 }
 .cx-btn--solid:hover{background-position:-40% 0}
 
-/* แบบเส้นบาง สำหรับปุ่มรอง */
 .cx-btn--ghost{
   background:transparent; border-color:var(--c-line-2); color:var(--c-ink-2);
 }
 .cx-btn--ghost:hover{color:var(--c-ink);border-color:var(--c-ink-3)}
 
-/* ขนาดเล็ก ใช้ในแถบเครื่องมือ ยังกดง่ายอยู่ */
 .cx-btn--sm{font-size:.78rem;padding:.42rem .8rem;min-height:34px}
 
-/* สีอื่น */
 .cx-btn--mint{--b:var(--c-mint)}
 .cx-btn--red{--b:var(--c-red)}
 .cx-btn--violet{--b:var(--c-violet)}
 .cx-btn--gold{--b:var(--c-gold)}
 
-/* ══════════════════════════════════════════════════════════════════════
-   ของกลางที่ทุกหน้าได้ประโยชน์ทันที
-   ใช้ :where() เพื่อให้ค่าความจำเพาะเป็นศูนย์ กฎของแต่ละหน้าจึงเขียนทับได้เสมอ
-   ══════════════════════════════════════════════════════════════════════ */
-
-/* วงแหวนโฟกัสเหมือนกันทั้งเว็บ  เดิมแต่ละหน้าทำไม่เหมือนกัน บางที่ไม่มีเลย
-   คนที่ใช้คีย์บอร์ดอย่างเดียวจะรู้ตลอดว่าตอนนี้อยู่ตรงไหน */
 :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
   outline:2px solid var(--c-cyan);
   outline-offset:2px;
   border-radius:1px;
 }
 
-/* ลากเลือกข้อความ */
 :where(::selection){background:var(--c-cyan);color:var(--c-on-accent)}
 
-/* แถบเลื่อน */
 :where(html){scrollbar-color:var(--c-cyan) var(--c-elev);scrollbar-width:thin}
 :where(::-webkit-scrollbar){width:10px;height:10px}
 :where(::-webkit-scrollbar-track){background:var(--c-elev)}
@@ -289,18 +252,11 @@ html[data-theme="light"] .cx-btn--solid{background:var(--b);color:#fff}
 }
 :where(::-webkit-scrollbar-thumb:hover){background:var(--c-cyan)}
 
-/* กดลิงก์ในหน้าแล้วหัวข้อไม่โดนแถบบนบัง */
 :where(html){scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){:where(html){scroll-behavior:auto}}
 
-/* รูปไม่ทะลุกรอบ */
 :where(img,svg,video){max-width:100%}
 
-/* ══════════════════════════════════════════════════════════════════════
-   เอฟเฟกต์เสริม ใช้เมื่ออยากได้ ไม่บังคับ
-   ══════════════════════════════════════════════════════════════════════ */
-
-/* เส้นแสงวิ่งผ่านการ์ดตอนชี้ */
 .cx-sheen{position:relative;overflow:hidden}
 .cx-sheen::after{
   content:'';position:absolute;inset:0;pointer-events:none;
@@ -310,7 +266,6 @@ html[data-theme="light"] .cx-btn--solid{background:var(--b);color:#fff}
 }
 .cx-sheen:hover::after{background-position:-50% 0}
 
-/* ป้ายสถานะมีจุดกะพริบ */
 .cx-dot{
   display:inline-block;width:7px;height:7px;border-radius:50%;flex:none;
   background:var(--c-mint);box-shadow:0 0 8px var(--c-mint);
@@ -318,7 +273,6 @@ html[data-theme="light"] .cx-btn--solid{background:var(--b);color:#fff}
 }
 @keyframes cx-pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-/* เส้นคั่นแบบมีไล่สี */
 .cx-rule{
   height:1px;border:0;margin:1.6rem 0;
   background:linear-gradient(90deg,transparent,var(--c-line-2) 18%,var(--c-line-2) 82%,transparent);
@@ -332,7 +286,6 @@ html[data-theme="light"] .cx-btn--solid{background:var(--b);color:#fff}
   .cx-dot{animation:none}
 }
 
-/* ── ระหว่างรอโหลดข้อมูล และตอนโหลดไม่สำเร็จ ── */
 .cx-loading{
   padding:2.5rem 1rem;text-align:center;color:var(--c-ink-3);
   font-family:var(--f-mono);font-size:.85rem;letter-spacing:.04em;
@@ -350,17 +303,8 @@ html[data-theme="light"] .cx-loadfail{background:linear-gradient(158deg,rgba(198
 .cx-loadfail-why{font-family:var(--f-mono);font-size:.74rem;color:var(--c-ink-3);overflow-wrap:anywhere}
 @media (prefers-reduced-motion:reduce){.cx-loading::after{animation:none;content:'...'}}
 
-/* ══════════════════════════════════════════════════════════════════════
-   ชุดเอฟเฟกต์รุ่นใหม่
-   เน้นของที่เบราว์เซอร์วาดเองได้ ไม่ต้องใช้ JS ขับทุกเฟรม
-   ทุกตัวหยุดเมื่อผู้ใช้ตั้งค่าลดการเคลื่อนไหว
-   ══════════════════════════════════════════════════════════════════════ */
-
-/* --cx-ang คือมุมของเส้นขอบเรืองแสง  ประกาศเป็น @property เพื่อให้เบราว์เซอร์
-   ไล่ค่าให้ลื่น  ถ้าเบราว์เซอร์เก่าไม่รู้จัก ขอบก็ยังอยู่แค่ไม่หมุน ไม่พัง */
 @property --cx-ang{syntax:'<angle>';inherits:false;initial-value:0deg}
 
-/* ── ขอบเรืองแสงหมุนรอบกล่อง ── */
 .cx-edge{position:relative;isolation:isolate}
 .cx-edge::before{
   content:'';position:absolute;inset:-1px;z-index:-1;pointer-events:none;
@@ -368,9 +312,7 @@ html[data-theme="light"] .cx-loadfail{background:linear-gradient(158deg,rgba(198
   background:conic-gradient(from var(--cx-ang),
     transparent 0deg, var(--c-cyan) 42deg, var(--c-violet) 76deg,
     transparent 120deg, transparent 240deg, var(--c-mint) 292deg, transparent 340deg);
-  /* เจาะไส้ในออก ให้เหลือแต่เส้นขอบหนา 1px
-     ถ้าไม่เจาะ สีจะทะลุพื้นหลังโปร่งแสงออกมาย้อมทั้งกล่องจนอ่านตัวหนังสือไม่ออก
-     mask ใช้ค่าความทึบ ไม่ใช่สี จึงต้องเป็น #000 ไม่ใช่ตัวแปรสีของธีม */
+
   padding:1px;
   -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
           mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -381,7 +323,6 @@ html[data-theme="light"] .cx-loadfail{background:linear-gradient(158deg,rgba(198
 .cx-edge:hover::before{opacity:1}
 @keyframes cx-spin{to{--cx-ang:360deg}}
 
-/* ── แสงตามเมาส์ ── เครื่องยนต์คอยอัปเดต --mx --my ให้ */
 .cx-lamp{position:relative;overflow:hidden}
 .cx-lamp::before{
   content:'';position:absolute;inset:0;pointer-events:none;
@@ -391,23 +332,17 @@ html[data-theme="light"] .cx-loadfail{background:linear-gradient(158deg,rgba(198
 }
 .cx-lamp:hover::before{opacity:1}
 
-/* ── โผล่ขึ้นมาตอนเลื่อนถึง ── */
 .cx-reveal{opacity:0;transform:translateY(16px)}
 .cx-reveal.cx-in{
   opacity:1;transform:none;
   transition:opacity .62s var(--c-ease), transform .62s var(--c-ease);
   transition-delay:var(--cx-d,0ms);
 }
-/* ไม่มี JS ก็ต้องเห็นเนื้อหา ห้ามซ่อนถาวร */
+
 html:not(.cx-js) .cx-reveal{opacity:1;transform:none}
 
-/* ── ตัวอักษรไล่สุ่มก่อนลงตัว ── เครื่องยนต์เป็นคนเล่นให้ ── */
 .cx-scramble{font-variant-ligatures:none}
 
-/* ══════════════════════════════════════════════════════════════════════
-   ปุ่มสลับธีมรุ่นใหม่ — รางเลื่อนตัวเดียว ไม่ใช่สองปุ่มติดกันแบบเดิม
-   ใช้ role="switch" ซึ่งเป็นความหมายที่ถูกต้องของสวิตช์เปิดปิด
-   ══════════════════════════════════════════════════════════════════════ */
 .cx-theme{
   -webkit-appearance:none;appearance:none;
   display:inline-flex;align-items:center;flex:none;
@@ -425,7 +360,7 @@ html:not(.cx-js) .cx-reveal{opacity:1;transform:none}
 html[data-theme="light"] .cx-theme-track{
   background:linear-gradient(145deg,rgba(0,110,147,.12),rgba(255,255,255,.9));
 }
-/* เม็ดที่เลื่อน  ใช้ cubic-bezier แบบเด้งนิดๆ ให้รู้สึกมีน้ำหนัก */
+
 .cx-theme-thumb{
   position:absolute;top:50%;left:3px;width:22px;height:22px;
   margin-top:-11px;border-radius:50%;
@@ -438,7 +373,7 @@ html[data-theme="light"] .cx-theme-track{
   background:linear-gradient(145deg,var(--c-gold),var(--c-red));
   box-shadow:0 0 14px color-mix(in srgb,var(--c-gold) 65%,transparent);
 }
-/* ไอคอนสองตัวซ้อนกัน สลับความชัดตามสถานะ */
+
 .cx-theme-ico{
   position:absolute;top:50%;margin-top:-7px;width:14px;height:14px;
   display:block;pointer-events:none;

@@ -1,15 +1,4 @@
-/* ══════════════════════════════════════════════════════════════════════
-   BURN1NG ENGINE — ส่วนกลางที่ทุกโปรเจกต์ในเว็บใช้ร่วมกัน
-   burn1ngsphere.com
 
-   มีแต่ของที่ไม่ผูกกับเนื้อหา  การวาดการ์ดและรูปแบบข้อมูลเป็นเรื่องของแต่ละหน้า
-     · ช่องกรอกตัวแปร แล้วเติมค่าลงในข้อความอัตโนมัติ
-     · คัดลอกไปคลิปบอร์ด พร้อมทางสำรองสำหรับเบราว์เซอร์เก่า
-     · โหลดไฟล์ข้อมูล JSON พร้อมจัดการตอนโหลดไม่สำเร็จ
-
-   โค้ดชุดนี้ยกมาจาก CommandRun ที่ใช้งานจริงมาแล้ว ไม่ได้เขียนใหม่
-   พฤติกรรมจึงเหมือนเดิมทุกอย่าง
-   ══════════════════════════════════════════════════════════════════════ */
 (function (w, d) {
   'use strict';
 
@@ -22,20 +11,15 @@
     _onchange: null
   };
 
-  /* ── ข้อความ ───────────────────────────────────────────────────────── */
-
   CX.esc = function (s) {
     return String(s).replace(/[&<>"]/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
   };
 
-  /* <ตัวยึด> แบบปลอดภัยสำหรับแสดงผล และแบบดิบสำหรับคัดลอก */
   CX.slot = function (k) { return '&lt;' + k.toLowerCase() + '&gt;'; };
   CX.slotRaw = function (k) { return '<' + k.toLowerCase() + '>'; };
 
-  /* แปลง {IP} ในข้อความเป็นค่าที่ผู้ใช้กรอก  ถ้ายังไม่กรอกจะได้ตัวยึดที่กดได้
-     ตัวแปรที่ไม่ได้ประกาศไว้ถือว่าให้เติมเอง ไม่ใช่ความผิดพลาด */
   CX.paint = function (t) {
     return CX.esc(t).replace(/\{([A-Z][A-Z0-9_]*)\}/g, function (m, k) {
       if (CX.KEYS.indexOf(k) > -1) {
@@ -47,14 +31,11 @@
     });
   };
 
-  /* ฉบับข้อความล้วน ใช้ตอนคัดลอก */
   CX.plain = function (t) {
     return t.replace(/\{([A-Z][A-Z0-9_]*)\}/g, function (m, k) {
       return (CX.KEYS.indexOf(k) > -1 && CX.vars[k]) ? CX.vars[k] : CX.slotRaw(k);
     });
   };
-
-  /* ── ตัวแปรที่ผู้ใช้กรอก ────────────────────────────────────────────── */
 
   CX.initVars = function (o) {
     CX.KEYS = o.keys || [];
@@ -65,7 +46,7 @@
     try {
       var s = localStorage.getItem(CX._store);
       if (s) CX.vars = JSON.parse(s);
-    } catch (e) { /* โหมดส่วนตัว หรือปิดที่เก็บไว้ ใช้งานต่อได้โดยไม่จำค่า */ }
+    } catch (e) {  }
   };
 
   CX.keep = function () {
@@ -91,8 +72,6 @@
     return n;
   };
 
-  /* วาดช่องกรอกทั้งชุด  ผูก event ด้วย addEventListener ไม่ใช่ oninline
-     จะได้ไม่ต้องพึ่ง global และหน้าที่มี CSP เข้มก็ใช้ได้ */
   CX.buildFields = function (elId) {
     var box = d.getElementById(elId);
     if (!box) return;
@@ -112,8 +91,6 @@
     }, false);
   };
 
-  /* ── คัดลอก ─────────────────────────────────────────────────────────── */
-
   CX.copy = function (txt) {
     if (w.navigator.clipboard && w.navigator.clipboard.writeText) {
       w.navigator.clipboard.writeText(txt).catch(function () { CX._copyOld(txt); });
@@ -131,9 +108,6 @@
     try { d.execCommand('copy'); } catch (e) {}
     d.body.removeChild(a);
   };
-
-  /* ── โหลดไฟล์ข้อมูล ─────────────────────────────────────────────────
-     ถ้าโหลดไม่ได้ต้องบอกผู้ใช้ให้รู้เรื่อง ไม่ใช่ปล่อยหน้าว่างเปล่า      */
 
   CX.load = function (url) {
     return fetch(url, { cache: 'no-cache' }).then(function (r) {
@@ -160,20 +134,13 @@
   w.CX = CX;
 })(window, document);
 
-/* ══════════════════════════════════════════════════════════════════════
-   ลูกเล่นหน้าเว็บ — ส่วนที่ต้องใช้ JS จริงๆ เท่านั้น
-   ทุกตัวเช็ค prefers-reduced-motion ก่อนเสมอ และไม่มีตัวไหนที่ถ้าพังแล้ว
-   ทำให้เนื้อหาหายไป
-   ══════════════════════════════════════════════════════════════════════ */
 (function (w, d) {
   'use strict';
   var CX = w.CX || (w.CX = {});
   var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* บอก CSS ว่า JS ทำงานอยู่  ของที่ซ่อนไว้รอ reveal จะได้ไม่หายถาวรถ้า JS พัง */
   d.documentElement.classList.add('cx-js');
 
-  /* ── โผล่ขึ้นมาตอนเลื่อนถึง ── */
   CX.reveal = function (sel) {
     var els = d.querySelectorAll(sel || '.cx-reveal');
     if (!els.length) return;
@@ -185,18 +152,15 @@
       rows.forEach(function (r) {
         if (!r.isIntersecting) return;
         r.target.classList.add('cx-in');
-        io.unobserve(r.target);          /* โผล่แล้วเลิกเฝ้า ไม่ให้เปลืองแรงเครื่อง */
+        io.unobserve(r.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
     for (var j = 0; j < els.length; j++) {
-      els[j].style.setProperty('--cx-d', (j % 6) * 55 + 'ms');   /* ไล่กันทีละใบ */
+      els[j].style.setProperty('--cx-d', (j % 6) * 55 + 'ms');
       io.observe(els[j]);
     }
   };
 
-  /* ── แสงตามเมาส์ ──
-     ดักที่ document ชั้นเดียว ไม่ผูก listener ทีละใบ จะได้ไม่หน่วงตอนมีการ์ดเป็นร้อย
-     ข้ามเครื่องที่ใช้นิ้ว เพราะไม่มีเมาส์ให้ตาม */
   CX.lamp = function () {
     if (reduce) return;
     if (!(w.matchMedia && w.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
@@ -216,8 +180,6 @@
     }, { passive: true });
   };
 
-  /* ── ตัวอักษรไล่สุ่มก่อนลงตัว ──
-     เล่นครั้งเดียวตอนโหลด  ถ้าเล่นวนจะกวนสายตาและอ่านยาก */
   var GLYPH = '01<>[]{}/\\|=+*#$%&_-~^アカサタナハマヤラABCDEF';
   CX.scramble = function (sel, ms) {
     if (reduce) return;
@@ -238,7 +200,6 @@
     })(els[i]);
   };
 
-  /* ── เปิดลูกเล่นทั้งหมดด้วยคำสั่งเดียว ── */
   CX.fx = function () {
     CX.reveal();
     CX.lamp();

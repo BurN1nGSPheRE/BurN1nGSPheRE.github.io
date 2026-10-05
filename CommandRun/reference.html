@@ -14,20 +14,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/core.css">
 <style>
-/* Tier 0 (de facto)  ธีมสว่างต้องใช้ส้มเข้มจึงจะอ่านออกตามเกณฑ์ */
+
 [data-theme="light"]{--c-orange:#B04300}
-/* ─── CommandRun  ปรับให้เข้าชุดกลาง ───
-   หน้านี้ตัวหนังสือเป็นคำสั่งยาวๆ ต้องอ่านชัดเป็นหลัก เอฟเฟกต์จึงเบามือ */
+
 .cx-beam{z-index:-1;opacity:.55}
 [data-theme="light"] .cx-beam,[data-theme="light"] .cx-vig{display:none}
-/* รูปทรงร่วมของเว็บ มุมตัดล่างขวา */
+
 .card,.edge,.grp-card,.cmd,.sect{clip-path:var(--c-cut)}
-/* หัวข้อใหญ่ใช้ฟอนต์แบรนด์เหมือนทุกหน้า */
+
 .wordmark .name,.top h1{font-family:var(--f-brand);letter-spacing:.02em}
 
-
 :root{
-  /* ชี้มาที่ชุดกลาง BURN1NG CORE */
+
   --bg:var(--c-bg); --elev:var(--c-elev); --surface:var(--c-surf);
   --line:var(--c-line); --line-soft:rgba(120,190,235,.10);
   --ink:var(--c-ink); --dim:var(--c-ink-2); --faint:var(--c-ink-3);
@@ -59,7 +57,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .top h1 b{color:var(--brass)}
 .spacer{margin-left:auto}
 .back{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;color:var(--dim);font-family:var(--f-disp);font-size:.85rem;font-weight:600;border:1px solid var(--line);padding:.35rem .7rem;border-radius:var(--r);transition:color .15s,border-color .15s}
-/* ลิงก์กลับหน้าโปรไฟล์ และลิงก์ LinkedIn ที่แยกออกมา */
+
 .by-li{display:inline-flex;align-items:center;gap:.3rem;text-decoration:none;color:var(--faint);font-size:.72rem;transition:color .15s}
 .by-li:hover{color:var(--brass)}
 .by-li svg{width:13px;height:13px;fill:currentColor}
@@ -144,8 +142,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 }
 </style>
 <script>
-/* ตั้งธีมก่อนหน้าเริ่มวาด  ไม่ให้กะพริบ
-   คีย์เดียวทั้งเว็บ burn_theme  ('theme' คือคีย์เก่าของหน้าประสบการณ์ อ่านไว้ให้คนที่เคยตั้งค่าไว้ไม่หาย) */
+
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
@@ -153,7 +150,7 @@ d.setAttribute('data-theme',t);}());
 </script>
 </head>
 <body>
-<!-- ชั้นพื้นหลังกลาง BURN1NG CORE -->
+
 <div class="cx-beam" aria-hidden="true"></div>
 <div class="cx-vig" aria-hidden="true"></div>
 
@@ -179,13 +176,10 @@ d.setAttribute('data-theme',t);}());
   <span class="warn">ใช้กับเป้าหมายที่ได้รับอนุญาตตามกฎหมายเท่านั้น</span>
 </div></footer>
 <script>
-/* ระบบธีมย้ายไปใช้ชุดกลางของเว็บแล้ว ดูสคริปต์ท้ายหน้า */
+
 </script>
 <script>
-/* ปุ่มสลับธีม ชุดเดียวใช้ทุกหน้าในเว็บ
-   ดักคลิกที่ document จึงไม่ผูกกับ id หรือตำแหน่งปุ่ม วางตรงไหนของหน้าก็ทำงาน
-   รองรับทั้งสวิตช์รางเลื่อนแบบใหม่ (data-cx-toggle) และปุ่มคู่แบบเดิม (data-cx-theme)
-   เผื่อหน้าไหนยังไม่ได้เปลี่ยน */
+
 (function(){
   var KEY='burn_theme', d=document.documentElement;
   function paint(t){
@@ -208,7 +202,7 @@ d.setAttribute('data-theme',t);}());
     paint(t);
     try{localStorage.setItem(KEY,t);localStorage.setItem('theme',t)}catch(x){}
   },false);
-  /* เปิดหลายแท็บ เปลี่ยนธีมแท็บหนึ่ง แท็บอื่นเปลี่ยนตาม */
+
   addEventListener('storage',function(e){
     if(e.key===KEY&&(e.newValue==='light'||e.newValue==='dark'))paint(e.newValue);
   },false);

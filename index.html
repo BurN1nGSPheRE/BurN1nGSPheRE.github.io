@@ -402,35 +402,32 @@
 
     <link rel="stylesheet" href="/assets/core.css">
 <style>
-/* ─── หน้าโปรไฟล์  ปรับให้เข้าชุดกลาง ───
-   หน้านี้มี body::before วางภาพพื้นหลังไว้ที่ z-index -1 อยู่แล้ว
-   ชั้นของชุดกลางจึงต้องอยู่ระดับเดียวกัน แล้วอาศัยลำดับ DOM ให้ทับขึ้นมา */
+
 .cx-grid,.cx-beam,.cx-vig{z-index:-1}
 .cx-grid{opacity:.85}
 
 .section-box{position:relative}
-/* หัวข้อหมวด ขีดนีออนนำหน้า */
+
 .section-header{font-family:var(--f-disp);letter-spacing:.14em;gap:9px}
 .section-header::before{
   content:'';flex:none;width:3px;height:1.05em;border-radius:2px;
   background:linear-gradient(180deg,var(--c-cyan),var(--c-violet));
   box-shadow:0 0 12px rgba(0,229,255,.6);
 }
-/* รูปทรงร่วมของเว็บ มุมตัดล่างขวา */
+
 .card-container{clip-path:var(--c-cut-lg)}
 .position-box,.bio-block,.edu-item,.link-item,.portal-grid > *{clip-path:var(--c-cut)}
 .position-box,.bio-block{border-left:2px solid var(--c-cyan)}
 .edu-item{border-left:2px solid var(--c-violet)}
 .link-item{transition:transform .22s var(--c-ease),box-shadow .22s var(--c-ease),border-color .22s var(--c-ease)}
 .link-item:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(0,229,255,.2)}
-/* ชื่อและแฮนเดิล ใช้ฟอนต์แบรนด์กับฟอนต์เทอร์มินัล */
+
 .name-en{font-family:var(--f-brand);letter-spacing:.01em}
 .handle{font-family:var(--f-mono)}
 @media (prefers-reduced-motion:reduce){.link-item{transition:none}.link-item:hover{transform:none}}
 
-
         :root {
-            /* ชี้มาที่ชุดกลาง BURN1NG CORE ทั้งหมด สีจึงตรงกับทุกหน้าในเว็บ */
+
             --glass-bg: rgba(10, 18, 32, 0.80);
             --glass-sub: rgba(140, 200, 245, 0.055);
             --glass-border: rgba(0, 229, 255, 0.34);
@@ -477,9 +474,6 @@
             background-size: cover;
         }
 
-        /* จอแคบใช้ภาพพื้นหลังรุ่น 800px แทน 1600px — เล็กลง 228KB และมองไม่ออก
-           เพราะมีชั้นไล่สีทับอยู่ข้างบนอยู่แล้ว ภาพนี้ถูก preload ด้วย
-           fetchpriority="high" จึงกั้นเวลาที่ผู้ใช้เห็นหน้าเว็บโดยตรง */
         @media (max-width: 900px) {
             body::before {
                 background-image:
@@ -562,7 +556,6 @@
             transition: max-width 0.3s ease;
         }
 
-        /* Top Glowing Neon Accent Line — สีไหลช้า ๆ เหมือนสัญญาณกำลังวิ่ง */
         .card-container::before {
             content: '';
             position: absolute;
@@ -582,8 +575,6 @@
             to   { background-position: 300% 0; }
         }
 
-        /* เส้นสแกนกวาดผ่านการ์ด — ใช้ transform อย่างเดียว GPU จึงรับไปทำเอง
-           ไม่กินซีพียูและไม่ทำให้หน้ากระตุก */
         .card-container::after {
             content: '';
             position: absolute;
@@ -606,7 +597,6 @@
             100%      { background-position: 0 195%; opacity: 0; }
         }
 
-        /* เคารพการตั้งค่า "ลดการเคลื่อนไหว" ของเครื่องผู้ใช้ */
         @media (prefers-reduced-motion: reduce) {
             .card-container::before { animation: none; }
             .card-container::after  { display: none; }
@@ -850,7 +840,6 @@
             font-weight: 600;
         }
 
-        /* --- 📄 Profile prose --- */
         .bio-block h2.section-header { font-size: 0.82rem; margin-bottom: 10px; }
 
         .bio-body {
@@ -1038,8 +1027,7 @@
                 scroll-behavior: auto !important;
             }
         }
-    
-/* ─── ธีมสว่างของหน้าโปรไฟล์ ─── */
+
 html[data-theme="light"]{
   --glass-bg: rgba(255,255,255,.90);
   --glass-sub: rgba(10,30,60,.045);
@@ -1048,10 +1036,8 @@ html[data-theme="light"]{
 html[data-theme="light"] .card-container{box-shadow:var(--c-shadow)}
 html[data-theme="light"] .nav-pill{box-shadow:var(--c-shadow-sm)}
 
-/* ══ ลิงก์และปุ่ม ให้เข้าแนวเดียวกับทั้งเว็บ ══
-   แถบไฟด้านซ้ายยืดขึ้นตอนชี้ + แสงกวาดผ่านครั้งเดียว  ไม่ใช่แค่เปลี่ยนสีพื้น */
 .link-item{position:relative;overflow:hidden;isolation:isolate;padding-left:20px;
-  border-radius:0}   /* มุมตัดจะได้เห็นชัด ไม่ถูกมุมมนกลบ */
+  border-radius:0}
 .link-item::before{
   content:'';position:absolute;left:0;top:50%;width:2px;height:0;transform:translateY(-50%);
   background:linear-gradient(180deg,var(--c-cyan),var(--c-violet));
@@ -1070,7 +1056,6 @@ html[data-theme="light"] .nav-pill{box-shadow:var(--c-shadow-sm)}
 .link-item .link-arrow{transition:transform .25s var(--c-ease)}
 .link-item:hover .link-arrow{transform:translate(3px,-3px)}
 
-/* เมนูบน ขีดไฟใต้ตัวอักษรวิ่งจากซ้าย แทนการเปลี่ยนพื้นหลังเฉยๆ */
 .nav-pill a{position:relative}
 .nav-pill a::after{
   content:'';position:absolute;left:12px;right:12px;bottom:2px;height:1.5px;
@@ -1088,8 +1073,7 @@ html[data-theme="light"] .nav-pill{box-shadow:var(--c-shadow-sm)}
 }
 </style>
 <script>
-/* ตั้งธีมก่อนหน้าเริ่มวาด  ไม่ให้กะพริบ
-   คีย์เดียวทั้งเว็บ burn_theme  ('theme' คือคีย์เก่าของหน้าประสบการณ์ อ่านไว้ให้คนที่เคยตั้งค่าไว้ไม่หาย) */
+
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
@@ -1097,11 +1081,10 @@ d.setAttribute('data-theme',t);}());
 </script>
 </head>
 <body>
-<!-- ชั้นพื้นหลังกลาง BURN1NG CORE -->
+
 <div class="cx-grid" aria-hidden="true"></div>
 <div class="cx-beam" aria-hidden="true"></div>
 <div class="cx-vig" aria-hidden="true"></div>
-
 
     <a class="skip-link" href="#main">Skip to content</a>
 
@@ -1123,7 +1106,7 @@ d.setAttribute('data-theme',t);}());
 
     <!-- 🛡️ Main Frosted Glass Card -->
     <main class="card-container cx-edge" id="main">
-        
+
         <div class="portal-grid">
 
             <!-- LEFT COLUMN (Profile & Direct Links) -->
@@ -1138,7 +1121,7 @@ d.setAttribute('data-theme',t);}());
                     <h1 class="name-en">Pawee Werawithayaset</h1>
                     <div class="name-th" lang="th">(ภาวีร์ วีรวิทยาเศรษฐ์)</div>
                     <div class="handle">&gt; BurN1nGSPheRE_</div>
-                    
+
                     <div class="position-box">
                         <strong>Police Captain &mdash; Deputy Inspector</strong><br>
                         Central Information Technology Center (CITC),<br>
@@ -1193,7 +1176,7 @@ d.setAttribute('data-theme',t);}());
 
             <!-- RIGHT COLUMN (Pillars, Certifications & Education) -->
             <div class="main-content-col">
-                
+
                 <!-- Security Pillars -->
                 <div class="section-box cx-reveal cx-lamp">
                     <div class="section-header"><i class="fa-solid fa-shield-virus"></i> Domain Pillars</div>
@@ -1241,7 +1224,7 @@ d.setAttribute('data-theme',t);}());
                         <span class="tag elite">OffSec OSCP+</span>
                         <span class="tag elite">OffSec OSCP</span>
                         <span class="tag elite">INE eCPPT</span>
-                        
+
                         <!-- Red Team / Offensive -->
                         <span class="tag redteam">CWL CRT-ID</span>
                         <span class="tag redteam">CWL CRTA</span>
@@ -1250,7 +1233,7 @@ d.setAttribute('data-theme',t);}());
                         <span class="tag redteam">CompTIA Pentest+</span>
                         <span class="tag redteam">SecOps CNSP</span>
                         <span class="tag redteam">THM PT1</span>
-                        
+
                         <!-- Blue Team / Defensive / Forensics / Security Core -->
                         <span class="tag blueteam">EC-Council CHFI</span>
                         <span class="tag blueteam">CompTIA CySA+</span>
@@ -1309,10 +1292,7 @@ d.setAttribute('data-theme',t);}());
     </script>
 
 <script>
-/* ปุ่มสลับธีม ชุดเดียวใช้ทุกหน้าในเว็บ
-   ดักคลิกที่ document จึงไม่ผูกกับ id หรือตำแหน่งปุ่ม วางตรงไหนของหน้าก็ทำงาน
-   รองรับทั้งสวิตช์รางเลื่อนแบบใหม่ (data-cx-toggle) และปุ่มคู่แบบเดิม (data-cx-theme)
-   เผื่อหน้าไหนยังไม่ได้เปลี่ยน */
+
 (function(){
   var KEY='burn_theme', d=document.documentElement;
   function paint(t){
@@ -1335,7 +1315,7 @@ d.setAttribute('data-theme',t);}());
     paint(t);
     try{localStorage.setItem(KEY,t);localStorage.setItem('theme',t)}catch(x){}
   },false);
-  /* เปิดหลายแท็บ เปลี่ยนธีมแท็บหนึ่ง แท็บอื่นเปลี่ยนตาม */
+
   addEventListener('storage',function(e){
     if(e.key===KEY&&(e.newValue==='light'||e.newValue==='dark'))paint(e.newValue);
   },false);

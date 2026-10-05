@@ -1,9 +1,4 @@
 // BurN1nGSPheRE — Service Worker (Full PWA, offline-ready)
-//
-// หน้าเว็บ (navigate)  : network-first — ออนไลน์ได้ของใหม่เสมอ ออฟไลน์ใช้แคช
-//   เดิมเป็น cache-first ทำให้คนที่เคยเข้าเห็นหน้าเก่าหนึ่งรอบทุกครั้งที่อัปของใหม่
-//   ต้องรีเฟรชซ้ำถึงจะเห็น ซึ่งงงมากสำหรับคนใช้
-// ไฟล์อื่น (รูป/สคริปต์): stale-while-revalidate — ขึ้นไวจากแคช แล้วอัปเดตเบื้องหลัง
 
 const CACHE_NAME = 'burn1ngsphere-cache-v25';
 const ASSETS_TO_CACHE = [
@@ -49,8 +44,6 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
 
-  // หน้าเว็บ: ลองเน็ตก่อน ได้แล้วเก็บเข้าแคชไว้ใช้ตอนออฟไลน์
-  // เน็ตล่มค่อยหยิบจากแคช ไม่มีแคชค่อยตกไปที่ index.html
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req)

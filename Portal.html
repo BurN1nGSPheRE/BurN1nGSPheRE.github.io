@@ -77,6 +77,17 @@
       "description": "A searchable reference of 315 penetration testing commands covering recon, enumeration, exploitation, privilege escalation and post-exploitation.",
       "author": { "@type": "Person", "name": "Pawee Werawithayaset" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "ArtifactRun",
+      "url": "https://burn1ngsphere.com/ArtifactRun/",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any (web browser)",
+      "inLanguage": "th",
+      "description": "A Thai-language reference on digital forensics and incident response: the logs and artifacts to examine on Linux and Windows/Active Directory, the commands used to collect them, and how to interpret the results.",
+      "author": { "@type": "Person", "name": "Pawee Werawithayaset" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
   ]
 }
@@ -84,11 +95,7 @@
 
 <link rel="stylesheet" href="/assets/core.css">
 <style>
-/* ─── Portal  ปรับให้เข้าชุดกลาง ───
-   หน้านี้มีฉากพื้นหลังของตัวเองครบแล้ว ไม่ต้องเติมชั้นใหม่
-   แก้สามเรื่องที่กวนตา  หัวข้อกระตุกตลอด / โลโก้กะพริบตลอด / ม่านมืดหนาเกิน */
 
-/* 1) หัวข้อใหญ่  เลิกกระตุกตลอดเวลา ให้กระตุกเฉพาะตอนเอาเมาส์ไปชี้ จะได้อ่านออก */
 .glitch{font-family:var(--f-brand)}
 .glitch::before,.glitch::after{
   background:transparent;opacity:0;animation:none;
@@ -97,22 +104,17 @@
 .glitch:hover::before,.glitch:focus-visible::before{opacity:.85;animation:gl1 2.6s infinite linear alternate-reverse}
 .glitch:hover::after ,.glitch:focus-visible::after {opacity:.85;animation:gl2 3.4s infinite linear alternate-reverse}
 
-/* 2) โลโก้มุมซ้าย  เลิกกะพริบตลอด เหลือเรืองแสงนิ่งๆ */
 .mark{animation:none}
 
-/* 3) ม่านมืดกับเส้นสแกน  ลดลงให้เท่ากับหน้าอื่นในเว็บ ตัวหนังสือจะคมขึ้นชัดเจน */
 .fx::before{background:repeating-linear-gradient(180deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px);opacity:.55}
 .fx::after{background:radial-gradient(ellipse at center,transparent 56%,rgba(0,0,0,.52) 100%)}
 
-/* 4) ลำแสงกวาด  ย้ายไปใช้ transform แทนการขยับ top จะลื่นกว่าและไม่บังคับให้เบราว์เซอร์คำนวณผังใหม่ */
 .beam{top:0;animation:cx-sweep 14s linear infinite;
   background:linear-gradient(180deg,transparent,rgba(0,229,255,.055) 55%,rgba(0,229,255,.085) 75%,transparent)}
 
-/* 5) รูปทรง  ให้การ์ดใช้มุมตัดล่างขวาเหมือนทุกหน้าในเว็บ  กล่องพระเอกยังเป็นมุมตัดสองด้าน */
 .card{clip-path:var(--c-cut-lg)}
 .pill,.chip,.stat{clip-path:var(--c-cut)}
 
-/* 6) ฟอนต์  ตัวหนังสือรองใช้ฟอนต์เดียวกับหน้าอื่น */
 .brand b{font-family:var(--f-brand)}
 .glitch-sub{font-family:var(--f-mono);letter-spacing:5px}
 
@@ -121,16 +123,15 @@
   .bld::before,.bld::after,.star,.ship,.floor,.beam{animation:none}
 }
 
-
 /* ============ THEME TOKENS ============ */
 :root{
-  /* ชี้มาที่ชุดกลาง BURN1NG CORE  สีนำเป็น cyan เหมือนทุกหน้า */
+
   --neon:var(--c-cyan); --neon2:var(--c-mint); --neon3:var(--c-red); --amber:var(--c-gold);
   --bg:var(--c-bg); --panel:rgba(0,229,255,.04); --brd:rgba(0,229,255,.24);
   --text:var(--c-ink); --muted:var(--c-ink-3);
   --mono:var(--f-mono); --disp:var(--f-disp); --thai:var(--f-body);
 }
-/* สีให้เลือกสี่ชุด ทุกชุดหยิบจากจานสีกลางของเว็บ จะสลับยังไงก็ยังเป็นธีมเดียวกัน */
+
 html[data-accent="cyan"]{--neon:var(--c-cyan);--neon2:var(--c-mint);--neon3:var(--c-red);--brd:rgba(0,229,255,.24);--panel:rgba(0,229,255,.04);--text:var(--c-ink)}
 html[data-accent="green"]{--neon:var(--c-mint);--neon2:var(--c-cyan);--neon3:var(--c-violet);--brd:rgba(43,232,176,.26);--panel:rgba(43,232,176,.045);--text:var(--c-ink)}
 html[data-accent="magenta"]{--neon:var(--c-red);--neon2:var(--c-violet);--neon3:var(--c-cyan);--brd:rgba(255,61,112,.26);--panel:rgba(255,61,112,.05);--text:var(--c-ink)}
@@ -243,7 +244,7 @@ header{min-height:80vh;display:flex;flex-direction:column;justify-content:center
   clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}
 .btn.solid{background:var(--neon);color:var(--c-on-accent);font-weight:700;border:none;box-shadow:0 0 26px rgba(0,229,255,.5)}
 .btn.solid:hover{transform:translateY(-3px);box-shadow:0 0 44px var(--neon)}
-/* พื้นเดิมใสเกินไป ฉากตึกด้านหลังทะลุขึ้นมาจนอ่านตัวหนังสือไม่ออก */
+
 .btn.wire{background:linear-gradient(160deg,rgba(0,229,255,.10),rgba(6,11,22,.86));color:var(--neon);border:1px solid var(--neon);backdrop-filter:blur(6px)}
 .btn.wire:hover{transform:translateY(-3px);background:rgba(0,229,255,.13);box-shadow:0 0 26px rgba(0,229,255,.35)}
 .btn.home{background:linear-gradient(160deg,rgba(43,232,176,.10),rgba(6,11,22,.84));color:var(--neon2);border:1px solid var(--neon2);backdrop-filter:blur(6px)}
@@ -379,12 +380,7 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
   .f-top{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:620px){
-  /* [แก้บั๊ก] แถบบนล้นจอ เลื่อนซ้ายขวาได้ 78px ที่ 390px และ 106px ที่ 360px
-     วัดแล้ว แบรนด์กิน 250px + ลิงก์ 92 + เครื่องมือ 82 + ช่องไฟ 28 + ขอบ 31
-     = 483px ซึ่งเกิน 390 อยู่มาก กฎ ≤900px ที่ซ่อนลิงก์กับนาฬิกาไปแล้ว
-     ยังไม่พอ เพราะตัวที่กินที่สุดคือชื่อแบรนด์เอง
-     ย่อชื่อแบรนด์ลง + ลดช่องไฟ และใส่ flex-wrap ไว้เป็นตาข่ายกันพลาด
-     ต่อให้วันหลังเติมปุ่มอะไรเข้าไปอีก มันจะตกบรรทัดแทนที่จะดันจอ */
+
   nav{flex-wrap:wrap;row-gap:8px;gap:8px;padding-inline:10px}
   .brand{min-width:0;gap:8px}
   .mark{width:32px;height:32px;font-size:.95rem}
@@ -400,9 +396,6 @@ footer p{color:var(--muted);font-size:.76rem;letter-spacing:1.6px;line-height:2}
 a:focus-visible,button:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-/* ─── ธีมสว่างของ Portal ───
-   หน้านี้เป็นฉากเมืองกลางคืน จะเอาสีสว่างมาทับเฉยๆ ไม่ได้
-   จึงทำเป็นโหมด "พิมพ์เขียวกลางวัน" ฟ้าสว่าง ตึกเป็นเส้นร่าง เอฟเฟกต์เบาลงหมด */
 html[data-theme="light"] .sky{
   background:
     radial-gradient(ellipse 90% 55% at 50% 100%,rgba(0,110,147,.13),transparent 65%),
@@ -439,8 +432,6 @@ html[data-theme="light"] ::-webkit-scrollbar-track{background:#DCE6F3}
 html[data-theme="light"] .mark{background:rgba(0,110,147,.08);box-shadow:0 0 14px rgba(0,110,147,.18) inset,0 0 10px rgba(0,110,147,.14)}
 html[data-theme="light"] .glitch{text-shadow:none}
 
-/* หน้าต่างเทอร์มินัลจำลองเป็นพื้นมืดเสมอ ไม่ว่าหน้าเว็บจะเป็นธีมไหน
-   สีตัวหนังสือข้างในจึงต้องตรึงไว้ ไม่ให้พลิกตามธีมจนมืดทับมืด */
 html[data-theme="light"] .glitch{text-shadow:0 0 10px rgba(0,110,147,.35)}
 html[data-theme="light"] .term{color:#EAF2FC}
 html[data-theme="light"] .term-bar span{color:#9FB3D9}
@@ -449,8 +440,7 @@ html[data-theme="light"] .term .warn{color:#FFB020}
 html[data-theme="light"] .term .dim{color:#9FB3D9}
 </style>
 <script>
-/* ตั้งธีมก่อนหน้าเริ่มวาด  ไม่ให้กะพริบ
-   คีย์เดียวทั้งเว็บ burn_theme  ('theme' คือคีย์เก่าของหน้าประสบการณ์ อ่านไว้ให้คนที่เคยตั้งค่าไว้ไม่หาย) */
+
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
@@ -528,9 +518,9 @@ d.setAttribute('data-theme',t);}());
   <div class="head rv">
     <div>
       <h2>// ACTIVE <em>PROJECTS</em></h2>
-     
+
     </div>
-    <div class="count">DEPLOYED: 01 &nbsp;/&nbsp; SLOTS: 03</div>
+    <div class="count">DEPLOYED: 02 &nbsp;/&nbsp; SLOTS: 02</div>
   </div>
 
   <!-- ▼▼ โปรเจกต์หลัก ▼▼ -->
@@ -566,24 +556,40 @@ d.setAttribute('data-theme',t);}());
     </div>
   </a>
 
+  <a class="feature rv cx-edge cx-lamp" href="./ArtifactRun/">
+    <div class="ribbon">LIVE</div>
+    <div class="f-left">
+      <div class="f-top">
+        <div class="f-ico">🔎</div>
+        <h3>ArtifactRun<span>DIGITAL FORENSICS &amp; INCIDENT RESPONSE</span></h3>
+      </div>
+      <p>
+        คู่มือตรวจพิสูจน์พยานหลักฐานดิจิทัลและการตอบสนองเหตุการณ์ ระบุแหล่งพยานหลักฐาน
+        คำสั่งที่ใช้ และการตีความผลลัพธ์ ครอบคลุม Linux และ Windows/Active Directory
+        พร้อมระบุข้อคลาดเคลื่อนที่พบบ่อยในเอกสารอ้างอิงทั่วไป
+      </p>
+      <div class="tags">
+        <span class="tag">DFIR</span><span class="tag">INCIDENT RESPONSE</span>
+        <span class="tag">EVENT LOG</span><span class="tag">FORENSICS</span><span class="tag">BLUE TEAM</span>
+      </div>
+      <span class="f-go">ENTER MODULE →</span>
+      <div class="f-url">https://burn1ngsphere.com/ArtifactRun/</div>
+    </div>
+    <div class="f-right">
+      <div><span class="cmt"># การเข้าสู่ระบบ ต้นทาง และช่วงเวลา</span></div>
+      <div><span class="cmd">$</span> last -F -i -w -f /var/log/wtmp</div>
+      <div><span class="out">→ root  203.0.113.45  Wed Oct  1 14:22:07 2026</span></div>
+      <div><span class="cmt"># โปรแกรมที่ลบแฟ้มของตนเองแล้วแต่ยังทำงานอยู่</span></div>
+      <div><span class="cmd">$</span> ls -l /proc/*/exe | grep '(deleted)'</div>
+      <div><span class="out">→ /proc/4821/exe → /tmp/.x (deleted)</span></div>
+      <div><span class="cmt"># Windows: การล้างบันทึกเหตุการณ์</span></div>
+      <div><span class="cmd">&gt;</span> wevtutil qe Security /q:"*[System[(EventID=1102)]]"</div>
+      <div><span class="ok">✔ 90 รายการ · 18 หมวด · Linux และ Windows/AD</span></div>
+    </div>
+  </a>
+
   <!-- next project -->
-<!-- <div class="grid">
-    <a class="card slot rv cx-lamp" href="#">
-      <div class="ico">＋</div>
-      <h3>PROJECT // 02</h3>
-      <p>วางลิงก์โปรเจกต์ถัดไปที่ href</p>
-    </a>
-    <a class="card slot rv cx-lamp" href="#">
-      <div class="ico">＋</div>
-      <h3>PROJECT // 03</h3>
-      <p>วางลิงก์โปรเจกต์ถัดไปที่ href</p>
-    </a>
-    <a class="card slot rv cx-lamp" href="#">
-      <div class="ico">＋</div>
-      <h3>PROJECT // 04</h3>
-      <p>วางลิงก์โปรเจกต์ถัดไปที่ href</p>
-    </a>
-  </div> -->
+
 </section>
 
 <!-- ===== ABOUT STRIP ===== -->
@@ -619,6 +625,7 @@ d.setAttribute('data-theme',t);}());
     <a href="./">&#9668; HOME PROFILE</a>
     <a href="./experience.html">&#9635; EXPERIENCE</a>
     <a href="./CommandRun/">&#8984; COMMANDRUN</a>
+      <a href="./ArtifactRun/">&#8984; ARTIFACTRUN</a>
   </div>
   <p>
     &copy; 2026 Pawee Werawithayaset (BurN1nGSPheRE) &#183; built and maintained solo<br>
@@ -713,7 +720,8 @@ d.setAttribute('data-theme',t);}());
     var lines = [
       '<span class="dim">$</span> mounting project registry ...',
       '[<span class="ok">OK</span>] module <span class="ok">CommandRun</span> ....... ONLINE',
-      '[<span class="warn">--</span>] slots 02-04 ............... <span class="warn">EMPTY</span>',
+      '[<span class="ok">OK</span>] module <span class="ok">ArtifactRun</span> ...... ONLINE',
+      '[<span class="warn">--</span>] slots 03-04 ............... <span class="warn">EMPTY</span>',
       '[<span class="ok">OK</span>] home profile linked ....... <span class="ok">burn1ngsphere.com</span>',
       '<span class="ok">&gt;&gt; ACCESS GRANTED — welcome, operator.</span>'
     ];
@@ -825,10 +833,7 @@ d.setAttribute('data-theme',t);}());
 })();
 </script>
 <script>
-/* ปุ่มสลับธีม ชุดเดียวใช้ทุกหน้าในเว็บ
-   ดักคลิกที่ document จึงไม่ผูกกับ id หรือตำแหน่งปุ่ม วางตรงไหนของหน้าก็ทำงาน
-   รองรับทั้งสวิตช์รางเลื่อนแบบใหม่ (data-cx-toggle) และปุ่มคู่แบบเดิม (data-cx-theme)
-   เผื่อหน้าไหนยังไม่ได้เปลี่ยน */
+
 (function(){
   var KEY='burn_theme', d=document.documentElement;
   function paint(t){
@@ -851,7 +856,7 @@ d.setAttribute('data-theme',t);}());
     paint(t);
     try{localStorage.setItem(KEY,t);localStorage.setItem('theme',t)}catch(x){}
   },false);
-  /* เปิดหลายแท็บ เปลี่ยนธีมแท็บหนึ่ง แท็บอื่นเปลี่ยนตาม */
+
   addEventListener('storage',function(e){
     if(e.key===KEY&&(e.newValue==='light'||e.newValue==='dark'))paint(e.newValue);
   },false);

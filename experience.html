@@ -56,7 +56,7 @@
 /* Runs before first paint: marks JS as available and applies the stored theme,
    falling back to the OS preference, so there is no flash of the wrong scheme. */
 (function () {
-  /* ธีมถูกตั้งไปแล้วโดยสคริปต์ชุดกลางที่อยู่เหนือขึ้นไป ตรงนี้เหลือแค่บอกว่า JS ทำงาน */
+
   document.documentElement.classList.add('js');
 })();
 </script>
@@ -411,23 +411,20 @@
 
 <link rel="stylesheet" href="/assets/core.css">
 <style>
-/* ─── หน้าประสบการณ์ ปรับให้เข้าชุดกลาง ───
-   หน้านี้มีชั้นพื้นหลังของตัวเองอยู่แล้วที่ z-index -3/-2/-1
-   ลำแสงกวาดจึงต้องขึ้นมาที่ -1 ไม่ให้ม่าน scrim ทับมิด */
+
 .cx-beam{z-index:-1}
 html[data-theme="light"] .cx-beam{display:none}
 
-/* รูปทรงร่วม มุมตัดล่างขวา แทนมุมโค้งแบบเดิม */
 .badge-card,.terminal{clip-path:var(--c-cut-lg)}
 .card,.stat,.cap,.cert,.edu,.filters,.aw li{clip-path:var(--c-cut)}
-/* รางสีซ้ายเป็นภาษาเดียวกับทุกหน้า */
+
 .cert{border-left:2px solid var(--c-cyan)}
 .edu{border-left:2px solid var(--c-violet)}
-/* หัวข้อใหญ่ ใช้ฟอนต์แบรนด์ */
+
 .brand-name,.hero h1{font-family:var(--f-brand)}
-/* เลขสถิติ ใช้ฟอนต์แบรนด์ให้ดูเป็นหน้าปัดเครื่องมือ */
+
 .stat b{font-family:var(--f-brand);letter-spacing:-.01em}
-/* เส้นนีออนไหลบนกล่องใบประกาศ ให้เหมือนการ์ดหน้าแรก */
+
 .badge-card::after{
   content:'';position:absolute;left:0;top:0;height:3px;width:100%;
   background:linear-gradient(90deg,var(--c-cyan),var(--c-violet),var(--c-red),var(--c-violet),var(--c-cyan));
@@ -435,7 +432,6 @@ html[data-theme="light"] .cx-beam{display:none}
   box-shadow:0 0 14px rgba(0,229,255,.45);pointer-events:none;z-index:2;
 }
 @media (prefers-reduced-motion:reduce){.badge-card::after{animation:none}}
-
 
 /* ═══════════════════════════════════════════════════════════
    1 · TOKENS
@@ -455,8 +451,6 @@ html[data-theme="light"] .cx-beam{display:none}
   --ease: cubic-bezier(.22, .68, .32, 1);
 }
 
-/* จอแคบใช้ภาพพื้นหลังรุ่น 800px แทน 1600px — เล็กลง 181KB
-   ภาพนี้ถูก preload ด้วย fetchpriority="high" จึงกั้นเวลาที่ผู้ใช้เห็นหน้าเว็บโดยตรง */
 @media (max-width: 900px) {
   :root { --bg-photo: url('./assets/hero-bg-sm.webp'); }
 }
@@ -477,7 +471,6 @@ html[data-theme="dark"] {
   --ink-2:    var(--c-ink-2);
   --ink-3:    var(--c-ink-3);
 
-  /* สลับให้ cyan เป็นสีนำเหมือนทุกหน้าในเว็บ  เขียวมิ้นต์ไปอยู่สีรอง */
   --mint:   var(--c-cyan);
   --alert:  var(--c-red);
   --violet: var(--c-violet);
@@ -492,7 +485,7 @@ html[data-theme="dark"] {
 
   --photo-opacity: 0.46;
   --photo-filter: saturate(1.12) contrast(1.04);
-  /* ม่านทับรูป ใช้รัศมีแสงตำแหน่งเดียวกับทุกหน้า */
+
   --scrim:
     linear-gradient(180deg, rgba(6,11,22,0.55) 0%, rgba(6,11,22,0.88) 44%, rgba(6,11,22,0.97) 100%),
     radial-gradient(1100px 620px at 86% -10%, rgba(0,229,255,0.16), transparent 66%),
@@ -521,12 +514,10 @@ html[data-theme="light"] {
   --line-2:      rgba(12, 40, 75, 0.24);
   --line-strong: rgba(0, 110, 147, 0.48);
 
-  /* เข้มขึ้นให้ผ่านเกณฑ์ WCAG 4.5:1 บนพื้นสว่าง */
   --ink:      #091323;
   --ink-2:    #334A69;
   --ink-3:    #4F6480;
 
-  /* สลับบทบาทให้ตรงกับธีมมืด  สีนำเป็นฟ้าเข้ม สีรองเป็นเขียวเข้ม */
   --mint:   #006E93;
   --alert:  #C6154A;
   --violet: #5231D2;
@@ -627,7 +618,7 @@ a { color: inherit; }
   border-radius: var(--r-md); font-weight: 600;
 }
 .skip:focus { left: 16px; }
-/* ธีมสว่าง สี --mint เป็นน้ำเงินเข้ม ตัวหนังสือต้องเป็นสีขาวจึงอ่านออก */
+
 html[data-theme="light"] .skip { color: #FFFFFF; }
 
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
@@ -832,7 +823,7 @@ section[id], #top { scroll-margin-top: 86px; }
   padding: 20px 20px 24px; color: #C9D8EA; flex: 1;
   min-height: 336px; white-space: pre-wrap; word-break: break-word;
 }
-.term-body .p { color: #2BE8B0; }   /* เทอร์มินัลพื้นมืดเสมอ สีจึงตรึงไว้ ไม่พลิกตามธีม */
+.term-body .p { color: #2BE8B0; }
 .term-body .f { color: #00E5FF; }
 .term-body .v { color: #FFB020; }
 .term-body .c { color: #6B819A; }
@@ -972,8 +963,7 @@ section[id] { padding: 62px 0 0; }
   background: var(--mint-soft); color: var(--mint); border-color: var(--line-strong);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--mint) 10%, transparent);
 }
-/* ธีมสว่าง  ปุ่มที่เลือกไว้ทำเป็นพื้นทึบ ตัวหนังสือขาว
-   เดิมเป็นฟ้าเข้มบนฟ้าจางได้ 4.4:1 ยังไม่ถึงเกณฑ์ 4.5:1 */
+
 html[data-theme="light"] .fbtn[aria-pressed="true"] {
   background: var(--mint); color: #FFFFFF; border-color: var(--mint);
 }
@@ -1058,7 +1048,7 @@ html[data-theme="light"] .fbtn[aria-pressed="true"] {
 .aw .rank {
   font-family: var(--font-mono); font-size: .8rem; font-weight: 700;
   min-width: 46px; height: 38px; display: grid; place-items: center;
-  border-radius: var(--r-md); color: var(--ink-2);   /* --ink-3 ได้ 4.42:1 ยังขาดอีกนิดจากเกณฑ์ 4.5:1 */
+  border-radius: var(--r-md); color: var(--ink-2);
   background: var(--raise); border: 1px solid var(--line);
   flex-shrink: 0;
 }
@@ -1154,12 +1144,6 @@ footer .ok { color: var(--mint); }
   .hero-grid { display: block; }
 }
 
-/* [แก้บั๊ก] แถบบนล้นจอ 87px ที่ความกว้าง 768px (iPad แนวตั้ง)
-   วัดแล้ว เมนู 6 ลิงก์กิน 553px จาก 768 เมื่อรวมโลโก้ 142 + ปุ่ม 92
-   + ช่องไฟ 36 + ขอบ 44 = 867px  กฎเดิมซ่อนเมนูที่ ≤640px เท่านั้น
-   ช่วง 641–860px จึงหลุด
-   แทนที่จะซ่อนเมนูเร็วขึ้น (ซึ่งทำให้แท็บเล็ตไม่มีเมนูใช้เลย)
-   ให้เมนูย่อลงและเลื่อนแนวนอนได้ในตัวมันเอง ลิงก์ยังกดได้ครบ */
 @media (max-width: 860px) {
   .topbar-in { gap: 10px; padding-inline: 14px; }
   .topnav {
@@ -1181,8 +1165,7 @@ footer .ok { color: var(--mint); }
 }
 </style>
 <script>
-/* ตั้งธีมก่อนหน้าเริ่มวาด  ไม่ให้กะพริบ
-   คีย์เดียวทั้งเว็บ burn_theme  ('theme' คือคีย์เก่าของหน้าประสบการณ์ อ่านไว้ให้คนที่เคยตั้งค่าไว้ไม่หาย) */
+
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
@@ -1190,9 +1173,8 @@ d.setAttribute('data-theme',t);}());
 </script>
 </head>
 <body>
-<!-- ชั้นพื้นหลังกลาง BURN1NG CORE -->
-<div class="cx-beam" aria-hidden="true"></div>
 
+<div class="cx-beam" aria-hidden="true"></div>
 
 <noscript>
   <style>
@@ -1261,7 +1243,7 @@ d.setAttribute('data-theme',t);}());
           <div class="role-unit">
             Central Information Technology Center<br>
             Office of Information and Communication Technology <br>Royal Thai Police
-            
+
           </div>
         </div>
 
@@ -1871,8 +1853,6 @@ d.setAttribute('data-theme',t);}());
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ── 1 · Theme toggle ─────────────────────────────────── */
-  /* ปุ่มสลับธีมย้ายไปใช้ชุดกลางของเว็บแล้ว (ดูสคริปต์ท้ายหน้า)
-     ทั้งเว็บจึงใช้คีย์เดียวกัน เปลี่ยนธีมหน้าหนึ่งแล้วหน้าอื่นจำตาม */
 
   /* ── 2 · Scroll progress rail ─────────────────────────── */
   var bar = document.getElementById('progress');
@@ -2016,10 +1996,7 @@ d.setAttribute('data-theme',t);}());
 </script>
 
 <script>
-/* ปุ่มสลับธีม ชุดเดียวใช้ทุกหน้าในเว็บ
-   ดักคลิกที่ document จึงไม่ผูกกับ id หรือตำแหน่งปุ่ม วางตรงไหนของหน้าก็ทำงาน
-   รองรับทั้งสวิตช์รางเลื่อนแบบใหม่ (data-cx-toggle) และปุ่มคู่แบบเดิม (data-cx-theme)
-   เผื่อหน้าไหนยังไม่ได้เปลี่ยน */
+
 (function(){
   var KEY='burn_theme', d=document.documentElement;
   function paint(t){
@@ -2042,7 +2019,7 @@ d.setAttribute('data-theme',t);}());
     paint(t);
     try{localStorage.setItem(KEY,t);localStorage.setItem('theme',t)}catch(x){}
   },false);
-  /* เปิดหลายแท็บ เปลี่ยนธีมแท็บหนึ่ง แท็บอื่นเปลี่ยนตาม */
+
   addEventListener('storage',function(e){
     if(e.key===KEY&&(e.newValue==='light'||e.newValue==='dark'))paint(e.newValue);
   },false);

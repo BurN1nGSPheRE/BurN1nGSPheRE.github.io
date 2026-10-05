@@ -18,15 +18,13 @@
 
 <link rel="stylesheet" href="/assets/core.css">
 <style>
-/* ─── หน้า 404 จัดปุ่มธีมให้อยู่กลางการ์ด ─── */
+
 .cx-theme{margin:0 auto 14px}
 
-/* ─── หน้า 404 ใช้ธีมเดียวกับทั้งเว็บ ─── */
 .cx-grid,.cx-beam,.cx-vig{z-index:-1}
 
-
 :root{
-  /* ชี้มาที่ชุดกลาง BURN1NG CORE */
+
   --accent-cyan:var(--c-cyan);
   --accent-red:var(--c-red);
   --accent-purple:var(--c-violet);
@@ -88,13 +86,11 @@ p{color:var(--text-sub);font-size:.92rem;line-height:1.6}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* ─── ธีมสว่างของหน้า 404 ─── */
 html[data-theme="light"] .card{background:rgba(255,255,255,.92);box-shadow:var(--c-shadow)}
 html[data-theme="light"] .links a{background:var(--c-raise);border-color:var(--c-edge)}
 </style>
 <script>
-/* ตั้งธีมก่อนหน้าเริ่มวาด  ไม่ให้กะพริบ
-   คีย์เดียวทั้งเว็บ burn_theme  ('theme' คือคีย์เก่าของหน้าประสบการณ์ อ่านไว้ให้คนที่เคยตั้งค่าไว้ไม่หาย) */
+
 (function(){var d=document.documentElement,t=null;
 try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark')t='dark';
@@ -102,11 +98,10 @@ d.setAttribute('data-theme',t);}());
 </script>
 </head>
 <body>
-<!-- ชั้นพื้นหลังกลาง BURN1NG CORE -->
+
 <div class="cx-grid" aria-hidden="true"></div>
 <div class="cx-beam" aria-hidden="true"></div>
 <div class="cx-vig" aria-hidden="true"></div>
-
 
 <main class="card">
   <div class="code">404</div>
@@ -124,10 +119,7 @@ d.setAttribute('data-theme',t);}());
 </main>
 
 <script>
-/* ปุ่มสลับธีม ชุดเดียวใช้ทุกหน้าในเว็บ
-   ดักคลิกที่ document จึงไม่ผูกกับ id หรือตำแหน่งปุ่ม วางตรงไหนของหน้าก็ทำงาน
-   รองรับทั้งสวิตช์รางเลื่อนแบบใหม่ (data-cx-toggle) และปุ่มคู่แบบเดิม (data-cx-theme)
-   เผื่อหน้าไหนยังไม่ได้เปลี่ยน */
+
 (function(){
   var KEY='burn_theme', d=document.documentElement;
   function paint(t){
@@ -150,7 +142,7 @@ d.setAttribute('data-theme',t);}());
     paint(t);
     try{localStorage.setItem(KEY,t);localStorage.setItem('theme',t)}catch(x){}
   },false);
-  /* เปิดหลายแท็บ เปลี่ยนธีมแท็บหนึ่ง แท็บอื่นเปลี่ยนตาม */
+
   addEventListener('storage',function(e){
     if(e.key===KEY&&(e.newValue==='light'||e.newValue==='dark'))paint(e.newValue);
   },false);
