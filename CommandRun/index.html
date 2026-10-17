@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://burn1ngsphere.com/CommandRun/">
 <title>BurN1nGSPheRE — คู่มือคำสั่ง Pentest</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#060B16">
+<meta name="theme-color" content="#170A05">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,13 +17,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/core.css">
-<link rel="stylesheet" href="/assets/tool.css">
+<link rel="stylesheet" href="/assets/core.css?v=20261017r1">
+<link rel="stylesheet" href="/assets/tool.css?v=20261017r1">
 <style>
 
 .tmark{padding:0;border-color:transparent;background:none}
 .tmark img{width:38px;height:38px;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--t-key) 40%,transparent))}
-html[data-theme="light"] .tmark img{filter:drop-shadow(0 1px 3px rgba(20,40,80,.28))}
+html[data-theme="light"] .tmark img{filter:drop-shadow(0 1px 3px rgba(84,36,16,.28))}
 
 .installbtn{
   display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;white-space:nowrap;
@@ -53,9 +53,9 @@ html[data-theme="light"] .tmark img{filter:drop-shadow(0 1px 3px rgba(20,40,80,.
 
 .scrim{
   position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;
-  padding:1.25rem;background:rgba(4,8,16,.74);backdrop-filter:blur(3px);
+  padding:1.25rem;background:rgba(17,7,3,.74);backdrop-filter:blur(3px);
 }
-html[data-theme="light"] .scrim{background:rgba(40,52,74,.42)}
+html[data-theme="light"] .scrim{background:rgba(76,49,38,.42)}
 .scrim.up{display:flex}
 .sheet{
   background:var(--t-elev);border:1px solid var(--t-line);clip-path:var(--c-cut-lg);
@@ -74,7 +74,7 @@ html[data-theme="light"] .scrim{background:rgba(40,52,74,.42)}
   margin-left:auto;flex:none;width:26px;height:26px;background:transparent;
   border:1px solid var(--t-line);color:var(--t-dim);cursor:pointer;font-size:.95rem;line-height:1;
 }
-.shut:hover{background:var(--t-warn);color:#fff;border-color:var(--t-warn)}
+.shut:hover{background:var(--t-warn);color:#FFFFFF;border-color:var(--t-warn)}
 .sheet .tcmd{margin:1rem 1.1rem}
 .sheet .tnote{margin:0 1.1rem .6rem}
 .sheet .tparts{padding:0 1.1rem 1.2rem}
@@ -187,7 +187,7 @@ d.setAttribute('data-theme',t);}());
 
 let DATA=null,tab="all",sheetAt=-1;
 const catColor={};
-const CATHUE=["#00E5FF","#FF3D70","#2BE8B0","#9B7CFF","#FFB020","#4D9FFF","#FF8A5B","#7BE86B"];
+const CATHUE=["#FF6800","#FF3D70","#F38820","#FF917C","#FFB020","#FF854D","#FF8A5B","#F0C163"];
 
 CX.initVars({
   store:"burn_vars",
@@ -375,7 +375,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
   function paint(t){
     d.setAttribute('data-theme',t);
     var m=document.querySelector('meta[name="theme-color"]');
-    if(m)m.setAttribute('content',t==='light'?'#EDF2F9':'#060B16');
+    if(m)m.setAttribute('content',t==='light'?'#FAF0EC':'#170A05');
     var sw=document.querySelectorAll('[data-cx-toggle]');
     for(var i=0;i<sw.length;i++)sw[i].setAttribute('aria-checked',t==='light'?'true':'false');
     var b=document.querySelectorAll('[data-cx-theme]');

@@ -6,7 +6,7 @@
 <title>404 — Page not found | BurN1nGSPheRE</title>
 <meta name="description" content="This page does not exist on burn1ngsphere.com. Head back to the home profile.">
 <meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#060B16">
+<meta name="theme-color" content="#170A05">
 <meta name="color-scheme" content="dark">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'none'; upgrade-insecure-requests">
 
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/assets/core.css">
+<link rel="stylesheet" href="/assets/core.css?v=20261017r1">
 <style>
 
 .cx-theme{margin:0 auto 14px}
@@ -49,12 +49,12 @@ body::before{
 }
 .card{
   width:100%;max-width:560px;text-align:center;
-  background:var(--glass-bg,rgba(9,14,26,.78));
-  border:1px solid rgba(0,255,204,.35);
+  background:var(--glass-bg,rgba(27,13,8,.78));
+  border:1px solid rgba(255,120,0,.35);
   border-radius:28px;
   padding:44px 28px 36px;
   backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
-  box-shadow:0 25px 50px rgba(0,0,0,.75),0 0 30px rgba(0,255,204,.18);
+  box-shadow:0 25px 50px rgba(0,0,0,.75),0 0 30px rgba(255,120,0,.18);
   position:relative;overflow:hidden;
 }
 .card::before{
@@ -64,7 +64,7 @@ body::before{
 }
 .code{
   font-family:var(--f-mono);font-size:4.4rem;font-weight:700;line-height:1;
-  color:var(--accent-cyan);text-shadow:0 0 24px rgba(0,255,204,.45);letter-spacing:4px;
+  color:var(--accent-cyan);text-shadow:0 0 24px rgba(255,120,0,.45);letter-spacing:4px;
 }
 h1{font-size:1.25rem;font-weight:600;margin:14px 0 8px}
 p{color:var(--text-sub);font-size:.92rem;line-height:1.6}
@@ -77,7 +77,7 @@ p{color:var(--text-sub);font-size:.92rem;line-height:1.6}
 }
 .links a:hover,.links a:focus-visible{
   color:var(--accent-cyan);border-color:var(--accent-cyan);
-  background:rgba(0,255,204,.14);transform:translateY(-2px);outline:none;
+  background:rgba(255,120,0,.14);transform:translateY(-2px);outline:none;
 }
 .links a.primary{border-color:var(--accent-cyan);color:var(--accent-cyan);background:var(--c-cyan-s)}
 .foot{
@@ -130,7 +130,7 @@ document.head.appendChild(l);}());
   function paint(t){
     d.setAttribute('data-theme',t);
     var m=document.querySelector('meta[name="theme-color"]');
-    if(m)m.setAttribute('content',t==='light'?'#EDF2F9':'#060B16');
+    if(m)m.setAttribute('content',t==='light'?'#FAF0EC':'#170A05');
     var sw=document.querySelectorAll('[data-cx-toggle]');
     for(var i=0;i<sw.length;i++)sw[i].setAttribute('aria-checked',t==='light'?'true':'false');
     var b=document.querySelectorAll('[data-cx-theme]');

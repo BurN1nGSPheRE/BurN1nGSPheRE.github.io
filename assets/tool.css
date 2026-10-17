@@ -1,6 +1,6 @@
 :root{
   --t-bg:var(--c-bg); --t-elev:var(--c-elev); --t-surf:var(--c-surf);
-  --t-line:var(--c-line); --t-line-2:rgba(120,190,235,.10);
+  --t-line:var(--c-line); --t-line-2:rgba(242,158,113,.10);
   --t-ink:var(--c-ink); --t-dim:var(--c-ink-2); --t-faint:var(--c-ink-3);
   --t-key:var(--c-cyan); --t-warn:var(--c-red); --t-ok:var(--c-mint);
   --t-note:var(--c-violet); --t-gold:var(--c-gold);
@@ -10,13 +10,13 @@
   --t-head:60px;
 }
 html[data-theme="light"]{
-  --t-bg:#F2F6FF; --t-elev:#FAFCFF; --t-surf:#FFFFFF;
-  --t-line:#D2DEF2; --t-line-2:#E6EDFA;
-  --t-ink:#0A1424; --t-dim:#3A4E70; --t-faint:#556588;
-  --t-key:#006E93; --t-warn:#C6154A; --t-ok:#00704F;
-  --t-note:#5231D2; --t-gold:#7A5300;
-  --t-shadow:0 2px 12px rgba(40,60,120,.12);
-  --t-grid:rgba(10,20,40,.03);
+  --t-bg:#FFF6F2; --t-elev:#FFFCFA; --t-surf:#FFFFFF;
+  --t-line:#F4DBD0; --t-line-2:#FBEBE5;
+  --t-ink:#261108; --t-dim:#734937; --t-faint:#8B6252;
+  --t-key:#933700; --t-warn:#C6154A; --t-ok:#703700;
+  --t-note:#DC4627; --t-gold:#7A5300;
+  --t-shadow:0 2px 12px rgba(125,59,35,.12);
+  --t-grid:rgba(42,18,8,.03);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -179,7 +179,7 @@ html[data-theme="light"] .twd .nm b{text-shadow:none}
   background:color-mix(in srgb,var(--t-key) 12%,transparent);
 }
 html[data-theme="light"] .tnav button[aria-current="true"]{
-  color:#02536E;border-left-color:#02536E;
+  color:#702A00;border-left-color:#702A00;
   background:color-mix(in srgb,var(--t-key) 7%,transparent);
 }
 .tnav button .ic{flex:none;width:1.15em;text-align:center;font-size:.86rem;line-height:1.35}
@@ -265,7 +265,7 @@ html[data-theme="dark"] .tpill{box-shadow:0 0 10px -6px color-mix(in srgb,curren
   clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);
   transition:border-color .15s,box-shadow .15s;
 }
-html[data-theme="light"] .tcmd pre,html[data-theme="light"] .tcmd .txt{background:#EEF3FC}
+html[data-theme="light"] .tcmd pre,html[data-theme="light"] .tcmd .txt{background:#FDF2ED}
 .tcmd.hit pre,.tcmd.hit .txt{border-color:var(--t-key);box-shadow:0 0 14px color-mix(in srgb,var(--t-key) 24%,transparent)}
 .tcmd pre .cmt,.tcmd .txt .cmt{color:var(--t-faint)}
 .tcopy{
@@ -332,7 +332,7 @@ html[data-theme="light"] .tcmd pre,html[data-theme="light"] .tcmd .txt{backgroun
   width:54px;height:54px;flex:none;border-radius:50%;
   box-shadow:0 0 18px color-mix(in srgb,var(--t-key) 32%,transparent),0 2px 10px rgba(0,0,0,.3);
 }
-html[data-theme="light"] .tfoot-logo{box-shadow:0 2px 10px rgba(30,45,90,.2)}
+html[data-theme="light"] .tfoot-logo{box-shadow:0 2px 10px rgba(94,44,26,.2)}
 .tfoot-text{display:flex;flex-direction:column;gap:.18rem;min-width:0}
 .tfoot-text a.by{
   display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;color:var(--t-ink);
@@ -386,8 +386,8 @@ html[data-theme="light"] .tfoot-logo{box-shadow:0 2px 10px rgba(30,45,90,.2)}
 @media print{
   .tbar,.tbench,.trail,.tcopy,.task,.tfoot-logo{display:none!important}
   .tshell{grid-template-columns:1fr;padding:0}
-  .tcard{break-inside:avoid;border:1px solid #999;clip-path:none;box-shadow:none}
-  body{background:#fff}
+  .tcard{break-inside:avoid;border:1px solid #999999;clip-path:none;box-shadow:none}
+  body{background:#FFFFFF}
 }
 
 .thowto{font-size:.72rem;color:var(--t-faint);display:inline-flex;align-items:center;gap:.3rem}

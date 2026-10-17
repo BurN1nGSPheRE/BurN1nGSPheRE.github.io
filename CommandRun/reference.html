@@ -6,14 +6,14 @@
 <meta name="description" content="หน้าอ้างอิงของ CommandRun อธิบายที่มาของคำสั่ง ตัวแปร และข้อควรระวังในการใช้งานทดสอบเจาะระบบ">
 <link rel="canonical" href="https://burn1ngsphere.com/CommandRun/reference.html">
 <title>BurN1nGSPheRE — Pentest Reference</title>
-<meta name="theme-color" content="#060B16">
+<meta name="theme-color" content="#170A05">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/core.css">
-<link rel="stylesheet" href="/assets/tool.css">
+<link rel="stylesheet" href="/assets/core.css?v=20261017r1">
+<link rel="stylesheet" href="/assets/tool.css?v=20261017r1">
 <style>
 
 [data-theme="light"]{--c-orange:#B04300}
@@ -28,16 +28,16 @@
 :root{
 
   --bg:var(--c-bg); --elev:var(--c-elev); --surface:var(--c-surf);
-  --line:var(--c-line); --line-soft:rgba(120,190,235,.10);
+  --line:var(--c-line); --line-soft:rgba(242,158,113,.10);
   --ink:var(--c-ink); --dim:var(--c-ink-2); --faint:var(--c-ink-3);
   --brass:var(--c-cyan); --copper:var(--c-red); --sea:var(--c-mint); --iris:var(--c-violet);
   --shadow:var(--c-shadow-sm); --grid:var(--c-grid-c); --glow:0 0 16px; --r:var(--c-r);
 }
 [data-theme="light"]{
-  --bg:#F2F6FF; --elev:#FAFCFF; --surface:#FFFFFF; --line:#D2DEF2; --line-soft:#E6EDFA;
-  --ink:#0A1424; --dim:#3A4E70; --faint:#556588;
-  --brass:#006E93; --copper:#C6154A; --sea:#00704F; --iris:#5231D2;
-  --shadow:0 2px 12px rgba(40,60,120,.12); --grid:rgba(10,20,40,.03); --glow:0 0 0;
+  --bg:#FFF6F2; --elev:#FFFCFA; --surface:#FFFFFF; --line:#F4DBD0; --line-soft:#FBEBE5;
+  --ink:#261108; --dim:#734937; --faint:#8B6252;
+  --brass:#933700; --copper:#C6154A; --sea:#703700; --iris:#DC4627;
+  --shadow:0 2px 12px rgba(125,59,35,.12); --grid:rgba(42,18,8,.03); --glow:0 0 0;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -116,7 +116,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .foot a.by{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--ink);font-family:var(--f-disp);font-size:.85rem;font-weight:600;border-bottom:1px solid transparent}
 .foot a.by:hover{color:var(--brass);border-bottom-color:var(--brass)}
 .foot a.by svg{width:15px;height:15px;fill:currentColor}
-.brand-logo{width:48px;height:48px;border-radius:50%;flex:none;box-shadow:0 2px 10px rgba(40,60,120,.22)}
+.brand-logo{width:48px;height:48px;border-radius:50%;flex:none;box-shadow:0 2px 10px rgba(125,59,35,.22)}
 .foot .warn{margin-left:auto;font-family:var(--f-mono);font-size:.62rem;color:var(--faint)}
 
 @media (max-width:720px){
@@ -187,7 +187,7 @@ d.setAttribute('data-theme',t);}());
   function paint(t){
     d.setAttribute('data-theme',t);
     var m=document.querySelector('meta[name="theme-color"]');
-    if(m)m.setAttribute('content',t==='light'?'#EDF2F9':'#060B16');
+    if(m)m.setAttribute('content',t==='light'?'#FAF0EC':'#170A05');
     var sw=document.querySelectorAll('[data-cx-toggle]');
     for(var i=0;i<sw.length;i++)sw[i].setAttribute('aria-checked',t==='light'?'true':'false');
     var b=document.querySelectorAll('[data-cx-theme]');
