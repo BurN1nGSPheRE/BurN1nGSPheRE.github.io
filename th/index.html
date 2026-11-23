@@ -46,7 +46,7 @@
 <meta name="twitter:image:alt" content="Pawee Werawithayaset — Penetration Tester, DFIR and SOC Operations">
 
 <!-- ═══════════ SECURITY ═══════════ -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- ═══════════ ICONS / MANIFEST ═══════════ -->
@@ -58,11 +58,9 @@
 <!-- ═══════════ RESOURCE HINTS ═══════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <!-- SRI: generate with  curl -s <url> | openssl dgst -sha384 -binary | openssl base64 -A  then add integrity="sha384-..." -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all';this.onload=null">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+<link rel="stylesheet" href="/assets/icons.css?v=20261112">
 
 <!-- ═══════════ STRUCTURED DATA ═══════════ -->
 <script type="application/ld+json">
@@ -246,7 +244,7 @@
             "name": "INE Security"
           },
           "url": "https://certs.ine.com/e80ace91-b43b-4c6f-a49e-90dcd56299ab#acc.7HplYhVD",
-          "identifier": "aa9b0f5b-2ee7-403c-8610-22c23dfc8f26"
+          "identifier": "e80ace91-b43b-4c6f-a49e-90dcd56299ab"
         },
         {
           "@type": "EducationalOccupationalCredential",
@@ -386,6 +384,20 @@
             "name": "Council of Engineers Thailand"
           },
           "url": "https://service.coe.or.th/certificate/verify_certificate?request_no=688010377&first_name=%E0%B8%A0%E0%B8%B2%E0%B8%A7%E0%B8%B5%E0%B8%A3%E0%B9%8C&last_name=%E0%B8%A7%E0%B8%B5%E0%B8%A3%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B9%80%E0%B8%A8%E0%B8%A3%E0%B8%A9%E0%B8%90%E0%B9%8C"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "professional registration",
+          "name": "Registered Digital Expert (Pool List, course assessor) — Cyber Security (ผู้เชี่ยวชาญด้านดิจิทัล สาขาความมั่นคงปลอดภัยทางไซเบอร์)",
+          "recognizedBy": {
+            "@type": "GovernmentOrganization",
+            "name": "Office of the National Digital Economy and Society Commission (ONDE)",
+            "alternateName": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (สดช.)"
+          },
+          "url": "https://tacc.bde.go.th/expert-search",
+          "identifier": "69051",
+          "validFrom": "2026-11-06",
+          "expires": "2031-11-06"
         }
       ],
       "honorificPrefix": [
@@ -1109,7 +1121,7 @@ try{t=localStorage.getItem('burn_theme')||localStorage.getItem('theme')}catch(e)
 if(t!=='light'&&t!=='dark')t='dark';
 d.setAttribute('data-theme',t);
 var sm=window.matchMedia&&matchMedia('(max-width:900px)').matches;
-var f=(t==='light'?'bg-day':'bg-cyberpunk')+(sm?'-sm':'')+'.webp';
+var f=(t==='light'?'bg-day':'bg-ember')+(sm?'-sm':'')+'.webp';
 var l=document.createElement('link');l.rel='preload';l.as='image';
 l.href='/assets/'+f;l.setAttribute('fetchpriority','high');
 document.head.appendChild(l);}());
@@ -1302,6 +1314,11 @@ document.head.appendChild(l);}());
                     <div class="edu-item eng-license">
                         <div class="degree" style="font-size: 0.8rem; color: var(--c-cyan-t);">อันดับที่ 1 การอบรมหลักสูตร นายตำรวจไซเบอร์ระดับผู้เชี่ยวชาญ รุ่นที่ 1</div>
                         <div class="univ">สำนักงานตำรวจแห่งชาติ</div>
+                    </div>
+                    <div class="edu-item eng-license">
+                        <div class="degree" style="font-size: 0.8rem; color: var(--c-cyan-t);">ผู้เชี่ยวชาญด้านดิจิทัล (Pool List) สาขาความมั่นคงปลอดภัยทางไซเบอร์ (Cyber Security)</div>
+                        <div class="univ">ทำหน้าที่ผู้ประเมินหลักสูตร · รหัส 69051 · 6 พ.ย. 2569 – 6 พ.ย. 2574</div>
+                        <div class="univ">สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (สดช.)</div>
                     </div>
                 </div>
 
