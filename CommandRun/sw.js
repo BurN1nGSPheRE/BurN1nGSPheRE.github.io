@@ -1,6 +1,6 @@
 // BurN1nGSPheRE — Service Worker (Full PWA, offline-ready)
 
-const CACHE_NAME = 'burn1ngsphere-cache-v26';
+const CACHE_NAME = 'burn1ngsphere-cache-v27';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -56,6 +56,23 @@ self.addEventListener('fetch', (event) => {
           return res;
         })
         .catch(() => caches.match(req).then((c) => c || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  // Data files: network-first, so new commands show on the very next visit;
+  // fall back to the cached copy when offline.
+  if (new URL(req.url).pathname.endsWith('.json')) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          if (res && res.status === 200) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(req, clone));
+          }
+          return res;
+        })
+        .catch(() => caches.match(req))
     );
     return;
   }

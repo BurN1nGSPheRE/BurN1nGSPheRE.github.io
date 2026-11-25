@@ -1,7 +1,7 @@
 {
   "name": "BurN1nGSPheRE — คู่มือคำสั่ง Pentest",
   "short_name": "BurN1nG",
-  "description": "คู่มือคำสั่ง pentest 375 คำสั่ง ค้นหาได้ เติมค่าอัตโนมัติ พร้อมคำอธิบายและสิทธิที่ต้องมี ใช้ offline ได้",
+  "description": "คู่มือคำสั่ง pentest 403 คำสั่ง ค้นหาได้ เติมค่าอัตโนมัติ พร้อมคำอธิบายและสิทธิที่ต้องมี ใช้ offline ได้",
   "start_url": "./index.html",
   "scope": "./",
   "id": "burn1ngsphere-pentest",
